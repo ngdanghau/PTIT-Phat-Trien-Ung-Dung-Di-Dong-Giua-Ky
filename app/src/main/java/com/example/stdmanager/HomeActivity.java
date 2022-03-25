@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.TextView;
+
+import com.example.stdmanager.models.GiaoVien;
 
 public class HomeActivity extends AppCompatActivity {
 
+    TextView txtNameGV, txtIDGV;
     ImageButton btnStatistic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,13 +21,23 @@ public class HomeActivity extends AppCompatActivity {
 
         setControl();
         setEvent();
+        loadData();
     }
 
     private void setControl(){
         btnStatistic = findViewById(R.id.btnStatistic);
+        txtNameGV = findViewById(R.id.txtNameGV);
+        txtIDGV = findViewById(R.id.txtIDGV);
+    }
+
+    private void loadData(){
+        GiaoVien gv = ((App) this.getApplication()).getGiaoVien();
+        txtNameGV.setText(gv.getName());
+        txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
     private void setEvent(){
+
         btnStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -31,6 +31,7 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/txtNameGV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Nguyễn Thị Thuỷ"
@@ -38,6 +39,7 @@
                     android:textSize="20dp"
                     android:textStyle="bold" />
                 <TextView
+                    android:id="@+id/txtIDGV"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Mã GV: 1"
