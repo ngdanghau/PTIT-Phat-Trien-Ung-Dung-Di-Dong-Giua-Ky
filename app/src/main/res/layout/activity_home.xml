@@ -169,7 +169,8 @@
             <ImageButton
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/statistic" />
+                android:background="@drawable/statistic"
+                android:id="@+id/btnStatistic"/>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
