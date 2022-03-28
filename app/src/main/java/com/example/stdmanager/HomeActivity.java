@@ -13,7 +13,12 @@ import com.example.stdmanager.models.GiaoVien;
 public class HomeActivity extends AppCompatActivity {
 
     TextView txtNameGV, txtIDGV;
-    ImageButton btnStatistic;
+    ImageButton buttonHomeStatistic,
+                buttonHomeClassroom,
+                buttonHomeSubject,
+                buttonHomeEvent,
+                buttonHomeScore,
+                buttonHomeAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +29,17 @@ public class HomeActivity extends AppCompatActivity {
         loadData();
     }
 
-    private void setControl(){
-        btnStatistic = findViewById(R.id.btnStatistic);
+    private void setControl()
+    {
+        buttonHomeStatistic = findViewById(R.id.buttonHomeStatistic);
+        buttonHomeClassroom = findViewById(R.id.buttonHomeClassroom);
+
+        buttonHomeSubject = findViewById(R.id.buttonHomeSubject);
+        buttonHomeEvent = findViewById(R.id.buttonHomeEvent);
+
+        buttonHomeScore = findViewById(R.id.buttonHomeScore);
+        buttonHomeAccount = findViewById(R.id.buttonHomeAccount);
+
         txtNameGV = findViewById(R.id.txtNameGV);
         txtIDGV = findViewById(R.id.txtIDGV);
     }
@@ -38,10 +52,18 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setEvent(){
 
-        btnStatistic.setOnClickListener(new View.OnClickListener() {
+        buttonHomeStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, StatisticActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonHomeClassroom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, ClassroomActivity.class);
                 startActivity(intent);
             }
         });

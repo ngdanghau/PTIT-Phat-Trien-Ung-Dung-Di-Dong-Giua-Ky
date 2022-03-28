@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/screen"
+    android:orientation="vertical"
+    tools:context=".ClassroomActivity">
+
+    <!--Linear Layout Avatar & Home shortcut -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp">
+
+        <!-- Avatar -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/avatar"
+            tools:ignore="ContentDescription" />
+
+
+        <!-- Information & Home shortcut -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                tools:ignore="RelativeOverlap">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teacherName"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teacherClassroom"
+                    android:textColor="#B9B9B9" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:paddingBottom="5dp"
+                android:src="@drawable/home"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+        <!-- End Information & Home shortcut -->
+    </LinearLayout>
+    <!--End Linear Layout Avatar & Home shortcut -->
+
+
+
+    <!-- Student Table -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <!-- Student Classroom title & search bar -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TextView
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="@string/teacherTitleList"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+
+            <EditText
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border"
+                android:hint="@string/search"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textSize="16sp"
+                android:textStyle="italic"
+                android:autofillHints="" />
+        </LinearLayout>
+        <!--  End Student Classroom title & search bar -->
+
+
+        <!-- Student List -->
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp">
+
+            <!-- Title Table -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="#F2F2F2"
+                android:paddingTop="10dp"
+                android:text="@string/student_table_title_infomation"
+                android:textColor="@color/black" />
+            <!-- End Title Table -->
+
+            <!-- List View -->
+            <ListView
+                android:id="@+id/classroomListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/black"
+                android:dividerHeight="1sp" />
+            <!-- End List View -->
+
+        </LinearLayout>
+        <!-- End Student List -->
+
+
+        <!-- Button -->
+        <LinearLayout
+            android:layout_weight="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="@string/student_table_button_add" />
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/student_table_button_export" />
+        </LinearLayout>
+        <!-- End Button -->
+
+    </LinearLayout>
+    <!-- End Student Table -->
+
+
+</LinearLayout>
