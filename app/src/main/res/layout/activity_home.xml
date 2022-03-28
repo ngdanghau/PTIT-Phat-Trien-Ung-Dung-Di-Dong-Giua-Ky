@@ -73,17 +73,20 @@
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:orientation="vertical">
+
             <ImageButton
+                android:id="@+id/buttonHomeClassroom"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/list" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Danh sách lớp"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
 
         <Space
@@ -95,10 +98,13 @@
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:orientation="vertical">
+
             <ImageButton
+                android:id="@+id/buttonHomeSubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/subject" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -118,6 +124,7 @@
             android:layout_height="150dp"
             android:orientation="vertical">
             <ImageButton
+                android:id="@+id/buttonHomeEvent"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/event" />
@@ -127,7 +134,7 @@
                 android:text="Sự kiện"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -147,6 +154,7 @@
             android:layout_height="150dp"
             android:orientation="vertical">
             <ImageButton
+                android:id="@+id/buttonHomeScore"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/mark" />
@@ -168,11 +176,13 @@
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:orientation="vertical">
+
             <ImageButton
+                android:id="@+id/buttonHomeStatistic"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/statistic"
-                android:id="@+id/btnStatistic"/>
+                android:background="@drawable/statistic" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,10 +201,13 @@
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:orientation="vertical">
+
             <ImageButton
+                android:id="@+id/buttonHomeAccount"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:background="@drawable/account" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
