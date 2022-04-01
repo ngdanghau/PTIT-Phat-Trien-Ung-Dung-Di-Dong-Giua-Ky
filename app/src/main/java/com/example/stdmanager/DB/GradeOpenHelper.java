@@ -151,6 +151,25 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
+     *
+     * @param teacherId which is teacher Id
+     * @return grade id which teacher having @id is host
+     */
+    public String retriveIdByTeachId(String teacherId)
+    {
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        String query = String.format("SELECT g.id FROM grade g WHERE g.teacherId = %s", teacherId);
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        String id = "";
+        if( cursor.moveToFirst() )
+        {
+            id =  cursor.getString(0);
+        }
+        return id;
+    }
+
+    /**
      * @author Phong-Kaster
      * retrieve number of grade
      * @return int quantity
@@ -180,12 +199,10 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
             return;
 
         /*Step 2*/
-        Grade grade4 = new Grade(4,"D18CQCN04", 3);
         Grade grade1 = new Grade(1,"D18CQCN01", 1);
         Grade grade2 = new Grade(2,"D18CQCN02", 2);
         Grade grade3 = new Grade(3,"D18CQCN03", 3);
 
-        this.create(grade4);
         this.create(grade1);
         this.create(grade2);
         this.create(grade3);
