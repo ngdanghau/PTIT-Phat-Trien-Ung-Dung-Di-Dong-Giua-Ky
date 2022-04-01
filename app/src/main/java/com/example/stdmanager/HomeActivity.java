@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.stdmanager.models.GiaoVien;
+import com.example.stdmanager.models.Teacher;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -45,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void loadData(){
-        GiaoVien gv = ((App) this.getApplication()).getGiaoVien();
+        Teacher gv = ((App) this.getApplication()).getTeacher();
         txtNameGV.setText(gv.getName());
         txtIDGV.setText("Mã GV: " + gv.getId());
     }

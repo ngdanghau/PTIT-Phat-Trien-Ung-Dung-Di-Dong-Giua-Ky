@@ -10,7 +10,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.stdmanager.models.GiaoVien;
+import com.example.stdmanager.models.Teacher;
 import com.example.stdmanager.models.Grade;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ import java.util.List;
 public class GradeOpenHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "grade";
-    private static final  String REFERENCED_TABLE_NAME = "giaovien";
+    private static final  String REFERENCED_TABLE_NAME = "teacher";
     private static final String TAG = "SQLite";
 
     private static final String COLUMN_ID = "id";

@@ -7,20 +7,20 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.stdmanager.models.GiaoVien;
+import com.example.stdmanager.models.Teacher;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GiaoVienDBHelper extends  SQLiteOpenHelper {
-    private static final String TABLE_NAME = "giaovien";
+public class TeacherDBHelper extends  SQLiteOpenHelper {
+    private static final String TABLE_NAME = "teacher";
     private static final String TAG = "SQLite";
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";
     private static final String COLUMN_PASSWORD = "password";
 
-    public GiaoVienDBHelper(Context context) {
+    public TeacherDBHelper(Context context) {
         super(context, DBConfig.getDatabaseName(), null, DBConfig.getDatabaseVersion());
     }
 
@@ -47,30 +47,30 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
     }
 
 
-    // If GiaoVien table has no data
+    // If Teacher table has no data
     // default, Insert 2 records.
-    public void createDefaultGiaoViensIfNeed()  {
-        int count = this.getGiaoViensCount();
+    public void createDefaultTeachersIfNeed()  {
+        int count = this.getTeachersCount();
         if(count == 0 ) {
-            GiaoVien GiaoVien1 = new GiaoVien(1, "Nguyễn Bích Thủy", "123456");
-            GiaoVien GiaoVien2 = new GiaoVien(2, "Lê Văn Hiền", "123456");
-            GiaoVien GiaoVien3 = new GiaoVien(3, "Trần Huy Hoàng", "123456");
-            this.addGiaoVien(GiaoVien1);
-            this.addGiaoVien(GiaoVien2);
-            this.addGiaoVien(GiaoVien3);
+            Teacher Teacher1 = new Teacher(1, "Nguyễn Bích Thủy", "123456");
+            Teacher Teacher2 = new Teacher(2, "Lê Văn Hiền", "123456");
+            Teacher Teacher3 = new Teacher(3, "Trần Huy Hoàng", "123456");
+            this.addTeacher(Teacher1);
+            this.addTeacher(Teacher2);
+            this.addTeacher(Teacher3);
         }
     }
 
 
-    public void addGiaoVien(GiaoVien GiaoVien) {
-        Log.i(TAG, "GiaoVienDBHelper.addGiaoVien ... " + GiaoVien.getName());
+    public void addTeacher(Teacher Teacher) {
+        Log.i(TAG, "TeacherDBHelper.addTeacher ... " + Teacher.getName());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_ID, GiaoVien.getId());
-        values.put(COLUMN_NAME, GiaoVien.getName());
-        values.put(COLUMN_PASSWORD, GiaoVien.getPassword());
+        values.put(COLUMN_ID, Teacher.getId());
+        values.put(COLUMN_NAME, Teacher.getName());
+        values.put(COLUMN_PASSWORD, Teacher.getPassword());
 
         // Inserting Row
         db.insert(TABLE_NAME, null, values);
@@ -80,8 +80,8 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
     }
 
 
-    public GiaoVien getGiaoVien(int id) {
-        Log.i(TAG, "GiaoVienDBHelper.getGiaoVien ... " + id);
+    public Teacher getTeacher(int id) {
+        Log.i(TAG, "TeacherDBHelper.getTeacher ... " + id);
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -92,9 +92,9 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
             cursor.moveToFirst();
 
         try {
-            Log.i(TAG, "GiaoVienDBHelper.getGiaoVien ... " + cursor.getString(2));
-            GiaoVien GiaoVien = new GiaoVien(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
-            return GiaoVien;
+            Log.i(TAG, "TeacherDBHelper.getTeacher ... " + cursor.getString(2));
+            Teacher Teacher = new Teacher(Integer.parseInt(cursor.getString(0)), cursor.getString(1), cursor.getString(2));
+            return Teacher;
         } catch(Exception ex){
             return null;
         }
@@ -102,10 +102,10 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
     }
 
 
-    public List<GiaoVien> getAllGiaoViens() {
-        Log.i(TAG, "GiaoVienDBHelper.getAllGiaoViens ... " );
+    public List<Teacher> getAllTeachers() {
+        Log.i(TAG, "TeacherDBHelper.getAllTeachers ... " );
 
-        List<GiaoVien> GiaoVienList = new ArrayList<GiaoVien>();
+        List<Teacher> TeacherList = new ArrayList<Teacher>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
 
@@ -115,21 +115,21 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                GiaoVien GiaoVien = new GiaoVien();
-                GiaoVien.setId(Integer.parseInt(cursor.getString(0)));
-                GiaoVien.setName(cursor.getString(1));
-                GiaoVien.setPassword(cursor.getString(2));
-                // Adding GiaoVien to list
-                GiaoVienList.add(GiaoVien);
+                Teacher Teacher = new Teacher();
+                Teacher.setId(Integer.parseInt(cursor.getString(0)));
+                Teacher.setName(cursor.getString(1));
+                Teacher.setPassword(cursor.getString(2));
+                // Adding Teacher to list
+                TeacherList.add(Teacher);
             } while (cursor.moveToNext());
         }
 
-        // return GiaoVien list
-        return GiaoVienList;
+        // return Teacher list
+        return TeacherList;
     }
 
-    public int getGiaoViensCount() {
-        Log.i(TAG, "GiaoVienDBHelper.getGiaoViensCount ... " );
+    public int getTeachersCount() {
+        Log.i(TAG, "TeacherDBHelper.getTeachersCount ... " );
 
         String countQuery = "SELECT  * FROM " + TABLE_NAME;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -144,27 +144,27 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
     }
 
 
-    public int updateGiaoVien(GiaoVien GiaoVien) {
-        Log.i(TAG, "GiaoVienDBHelper.updateGiaoVien ... "  + GiaoVien.getName());
+    public int updateTeacher(Teacher Teacher) {
+        Log.i(TAG, "TeacherDBHelper.updateTeacher ... "  + Teacher.getName());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_ID, GiaoVien.getId());
-        values.put(COLUMN_NAME, GiaoVien.getName());
-        values.put(COLUMN_PASSWORD, GiaoVien.getPassword());
+        values.put(COLUMN_ID, Teacher.getId());
+        values.put(COLUMN_NAME, Teacher.getName());
+        values.put(COLUMN_PASSWORD, Teacher.getPassword());
 
         // updating row
         return db.update(TABLE_NAME, values, COLUMN_ID + " = ?",
-                new String[]{String.valueOf(GiaoVien.getId())});
+                new String[]{String.valueOf(Teacher.getId())});
     }
 
-    public void deleteGiaoVien(GiaoVien GiaoVien) {
-        Log.i(TAG, "GiaoVienDBHelper.updateGiaoVien ... " + GiaoVien.getName() );
+    public void deleteTeacher(Teacher Teacher) {
+        Log.i(TAG, "TeacherDBHelper.updateTeacher ... " + Teacher.getName() );
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_NAME, COLUMN_ID + " = ?",
-                new String[] { String.valueOf(GiaoVien.getId()) });
+                new String[] { String.valueOf(Teacher.getId()) });
         db.close();
     }
 
@@ -175,7 +175,7 @@ public class GiaoVienDBHelper extends  SQLiteOpenHelper {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
-        createDefaultGiaoViensIfNeed();
+        createDefaultTeachersIfNeed();
     }
 
 }

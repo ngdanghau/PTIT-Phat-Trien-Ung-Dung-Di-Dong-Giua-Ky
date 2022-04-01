@@ -2,17 +2,17 @@ package com.example.stdmanager;
 
 import android.app.Application;
 
-import com.example.stdmanager.models.GiaoVien;
+import com.example.stdmanager.models.Teacher;
 
 public class App  extends Application {
 
-    private GiaoVien gv = null;
+    private Teacher gv = null;
 
-    public GiaoVien getGiaoVien() {
+    public Teacher getTeacher() {
         return gv;
     }
 
-    public void setGiaoVien(GiaoVien gv) {
+    public void setTeacher(Teacher gv) {
         this.gv = gv;
     }
 }

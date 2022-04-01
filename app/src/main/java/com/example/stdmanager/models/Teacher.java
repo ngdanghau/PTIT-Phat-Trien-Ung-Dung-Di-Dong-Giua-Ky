@@ -1,14 +1,14 @@
 package com.example.stdmanager.models;
 
-public class GiaoVien {
+public class Teacher {
     int id;
     String name;
     String password;
 
-    public GiaoVien() {
+    public Teacher() {
     }
 
-    public GiaoVien(int id, String name, String password) {
+    public Teacher(int id, String name, String password) {
         this.id = id;
         this.name = name;
         this.password = password;

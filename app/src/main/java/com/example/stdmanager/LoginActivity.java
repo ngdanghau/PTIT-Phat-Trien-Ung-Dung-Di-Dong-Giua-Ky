@@ -13,10 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.stdmanager.DB.GiaoVienDBHelper;
-import com.example.stdmanager.models.GiaoVien;
+import com.example.stdmanager.DB.TeacherDBHelper;
+import com.example.stdmanager.models.Teacher;
 import com.example.stdmanager.models.Session;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
 
     EditText txtUsername, txtPassword;
     Button btnSignIn;
-    GiaoVienDBHelper db = new GiaoVienDBHelper(this);
+    TeacherDBHelper db = new TeacherDBHelper(this);
     Boolean isLogin = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void checkAuth(){
-        GiaoVien gv = ((App) LoginActivity.this.getApplication()).getGiaoVien();
+        Teacher gv = ((App) LoginActivity.this.getApplication()).getTeacher();
         if(gv == null) return;
         gotoHome();
     }
@@ -76,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 Button btnOK = popupView.findViewById(R.id.btnOK);
 
                 // lấy Data từ csdl dựa trên input
-                GiaoVien gv = db.getGiaoVien(Integer.parseInt(username));
+                Teacher gv = db.getTeacher(Integer.parseInt(username));
 
                 // Kiểm tra login
                 if(gv == null){
@@ -90,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                 }else{
                     isLogin = true;
                     // set biến toàn cục
-                    ((App) LoginActivity.this.getApplication()).setGiaoVien(gv);
+                    ((App) LoginActivity.this.getApplication()).setTeacher(gv);
 
                     session.set("teacherName", gv.getName());
                     session.set("teacherId", String.valueOf(gv.getId()) );
