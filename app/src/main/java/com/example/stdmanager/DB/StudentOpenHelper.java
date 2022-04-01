@@ -60,7 +60,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
     public void create(Student student)
     {
         /*Step 1*/
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         /*Step 2*/
@@ -129,6 +129,10 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
                 new String[]{ String.valueOf(id) } );
     }
 
+    /**
+     * @author Phong-Kaster
+     * retrieve all students from TABLE STUDENT
+     * */
     public ArrayList<Student> retrieveAllStudents()
     {
         /*Step 1*/
@@ -138,7 +142,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
 
         /*Step 2*/
-        String query = "SELECT s.*, g.name FROM student s INNER JOIN grade g ON s.gradeId = g.id";
+        String query = String.format("SELECT s.*, g.name FROM student s INNER JOIN grade g ON s.gradeId = g.id");
         @SuppressLint("Recycle") Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
         /*Step 3*/
@@ -166,6 +170,46 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         return objects;
     }
 
+
+    public ArrayList<Student> retrieveStudentWithKeyword(String keyword)
+    {
+        /*Step 1*/
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ArrayList<Student> objects = new ArrayList<>();
+
+        /*Step 2*/
+        String query = "SELECT s.*, g.name " +
+                "FROM student s " +
+                "INNER JOIN grade g " +
+                "ON s.gradeId = g.id " +
+                "WHERE s.familyName LIKE '"+ keyword+ "%' " +
+                "OR s.firstName LIKE '"+ keyword+ "%' ";
+        @SuppressLint("Recycle") Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+
+        /*Step 3*/
+        if( cursor.moveToFirst() )
+        {
+            do
+            {
+                Student student = new Student();
+
+                student.setId( Integer.parseInt( cursor.getString(0) ) );
+
+                student.setFamilyName( cursor.getString(1));
+                student.setFirstName(  cursor.getString(2));
+
+                student.setGender(Integer.parseInt( cursor.getString(3) ));
+                student.setBirthday(cursor.getString(4));
+
+                student.setGradeId(Integer.parseInt( cursor.getString(5) ));
+                student.setGradeName(cursor.getString(6));
+
+                objects.add(student);
+            }while( cursor.moveToNext() );
+        }
+
+        return objects;
+    }
 
     /**
      * @author Phong-Kaster
@@ -198,13 +242,14 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
         /*Step 2*/
         Student student1 = new Student("Nguyen","Phong",0,"01-05-2000", 1);
-        Student student2 = new Student("Nguyen","Hau",0,"01-05-2000", 1);
-        Student student3 = new Student("Nguyen","Khang",0,"01-05-2000", 1);
-        Student student4 = new Student("Nguyen","Long",0,"01-05-2000", 100);
+        Student student2 = new Student("Ho","Hau",0,"01-05-2000", 1);
+        Student student3 = new Student("Luong","Khang",0,"01-05-2000", 1);
+
+        /*Step 3*/
         this.create(student1);
         this.create(student2);
         this.create(student3);
-       // this.create(student4);
+
     }
 
     public void deleteAndCreateTable()

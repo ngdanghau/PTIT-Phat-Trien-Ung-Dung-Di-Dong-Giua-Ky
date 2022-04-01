@@ -17,8 +17,11 @@ import android.widget.Toast;
 
 import com.example.stdmanager.DB.GiaoVienDBHelper;
 import com.example.stdmanager.models.GiaoVien;
+import com.example.stdmanager.models.Session;
 
 public class LoginActivity extends AppCompatActivity {
+
+    Session session;
 
     EditText txtUsername, txtPassword;
     Button btnSignIn;
@@ -28,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        session = new Session(LoginActivity.this);
+
 
         checkAuth();
         setControl();
@@ -86,6 +91,9 @@ public class LoginActivity extends AppCompatActivity {
                     isLogin = true;
                     // set biến toàn cục
                     ((App) LoginActivity.this.getApplication()).setGiaoVien(gv);
+
+                    session.set("teacherName", gv.getName());
+                    session.set("teacherId", String.valueOf(gv.getId()) );
 
                     // Set Control
                     msgText.setText("Đăng nhập thành công!");

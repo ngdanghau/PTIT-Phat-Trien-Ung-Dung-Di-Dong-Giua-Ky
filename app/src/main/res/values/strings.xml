@@ -9,14 +9,25 @@
     <string name="welcome">Welcome !</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
-    <string name="login_failed">"Login failed"</string>
-    <string name="search">Tìm kiếm...</string>
+    <string name="login_failed">Đăng nhập thất bại</string>
+    <string name="search">Tìm kiếm …</string>
+    <string name="goback">Trở về</string>
     <string name="student_table_title_infomation">Thông Tin Học Sinh</string>
     <string name="student_table_title_action">Thao tác</string>
     <string name="student_table_button_add">Thêm học sinh</string>
     <string name="student_table_button_export">Xuất danh sách lớp</string>
+    <string name="student_creation">Xác Nhận</string>
+    <string name="familyName">Họ</string>
+    <string name="firstName">Tên</string>
+    <string name="gender">Giới Tính</string>
+    <string name="male">Nam</string>
+    <string name="female">Nữ</string>
+    <string name="birthday">Ngày Sinh</string>
     <!-- Phong's Temporary Content -->
     <string name="teacherName">Nguyễn Thị Thủy</string>
     <string name="teacherClassroom">GVCN Lớp 12A1</string>
     <string name="teacherTitleList">Danh sách lớp 12A1</string>
+    <string name="familyNameHint">Gia Cát</string>
+    <string name="firstNameHint">Lượng</string>
+
 </resources>

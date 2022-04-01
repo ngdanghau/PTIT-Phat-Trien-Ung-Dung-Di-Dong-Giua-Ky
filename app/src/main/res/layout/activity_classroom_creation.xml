@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/screen"
+    android:orientation="vertical"
+    tools:context=".ClassroomActivity">
+
+    <!--Linear Layout Avatar & Home shortcut -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp">
+
+        <!-- Avatar -->
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:src="@drawable/avatar"
+            tools:ignore="ContentDescription" />
+
+
+        <!-- Information & Home shortcut -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="10dp"
+                tools:ignore="RelativeOverlap">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teacherName"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teacherClassroom"
+                    android:textColor="#B9B9B9" />
+            </LinearLayout>
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="15dp"
+                android:paddingBottom="5dp"
+                android:src="@drawable/home"
+                tools:ignore="ContentDescription" />
+        </RelativeLayout>
+        <!-- End Information & Home shortcut -->
+    </LinearLayout>
+    <!--End Linear Layout Avatar & Home shortcut -->
+
+
+
+    <!-- Student Table -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <!-- Student Classroom title & search bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_marginStart="10sp"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:text="@string/student_creation"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="RtlHardcoded" />
+
+        </LinearLayout>
+        <!--  End Student Classroom title & search bar -->
+
+
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <!-- Family Name & First Name -->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!-- Family Name -->
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/familyName"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/classroomCreationFamilyName"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border"
+                        android:hint="@string/familyNameHint"
+                        android:inputType="text"
+                        android:textAlignment="center"
+                        tools:ignore="Autofill" />
+                </LinearLayout>
+
+
+                <!-- First Name -->
+                <LinearLayout
+                    android:layout_marginStart="50dp"
+                    android:orientation="vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/firstName"
+                        android:textSize="18sp"
+                        android:textStyle="bold"/>
+
+                    <EditText
+                        android:id="@+id/classroomCreationFirstName"
+                        android:textAlignment="center"
+                        android:hint="@string/firstNameHint"
+                        android:layout_marginTop="10dp"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border"
+                        android:inputType="text"
+                        tools:ignore="Autofill" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Gender -->
+            <LinearLayout
+
+                android:layout_marginTop="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="@string/gender"/>
+
+                <RadioGroup
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/classroomCreationRadioButtonMale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/male"/>
+
+                    <RadioButton
+                        android:id="@+id/classroomCreationRadioButtonFemale"
+                        android:layout_marginStart="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/female"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <!-- Birthday -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/birthday"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+
+                <Button
+                    android:id="@+id/classroomCreationButtonBirthday"
+                    style="?android:spinnerStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/white"
+                    android:onClick="openDatePicker"
+                    android:text="01/05/2000"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    tools:ignore="OnClick" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <!-- Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/classroomCreationButtonConfirm"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:text="@string/student_creation" />
+
+            <Button
+                android:id="@+id/classroomCreationButtonGoBack"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@android:color/holo_red_dark"
+                android:text="@string/goback" />
+        </LinearLayout>
+        <!-- End Button -->
+
+    </LinearLayout>
+    <!-- End Student Table -->
+
+
+</LinearLayout>

@@ -54,6 +54,7 @@
 
 
             <ImageView
+                android:id="@+id/classroomButtonHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -95,6 +96,7 @@
 
 
             <EditText
+                android:id="@+id/classroomSearchBar"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -151,10 +153,11 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/classroomButtonCreation"
                 android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:backgroundTint="@android:color/holo_green_dark"
+                android:backgroundTint="@android:color/holo_blue_dark"
                 android:text="@string/student_table_button_add" />
 
             <Button
@@ -162,6 +165,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
+                android:backgroundTint="@android:color/holo_red_dark"
                 android:layout_marginBottom="20dp"
                 android:text="@string/student_table_button_export" />
         </LinearLayout>
