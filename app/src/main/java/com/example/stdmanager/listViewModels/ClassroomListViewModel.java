@@ -13,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.stdmanager.ClassroomActivity;
+import com.example.stdmanager.ClassroomIndividualActivity;
 import com.example.stdmanager.R;
 import com.example.stdmanager.models.Student;
 
@@ -60,7 +62,10 @@ public class ClassroomListViewModel extends ArrayAdapter<Student> {
         avatar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "Pop up student detail screen !", Toast.LENGTH_SHORT).show();
+
+                /*Open the screen which shows student's detail*/
+                Intent intent = new Intent(context, ClassroomIndividualActivity.class);
+                ((ClassroomActivity)context).startActivity(intent);
             }
         });
 

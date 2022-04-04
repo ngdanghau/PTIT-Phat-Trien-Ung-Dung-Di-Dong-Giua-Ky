@@ -16,6 +16,9 @@
     <string name="student_table_title_action">Thao tác</string>
     <string name="student_table_button_add">Thêm học sinh</string>
     <string name="student_table_button_export">Xuất danh sách lớp</string>
+    <string name="student_table_button_score">Xem điểm sinh viên</string>
+    <string name="student_table_button_edit">Sửa thông tin sinh viên</string>
+    <string name="student_table_button_delete">Xóa sinh viên</string>
     <string name="student_creation">Xác Nhận</string>
     <string name="familyName">Họ</string>
     <string name="firstName">Tên</string>
@@ -29,5 +32,8 @@
     <string name="teacherTitleList">Danh sách lớp 12A1</string>
     <string name="familyNameHint">Gia Cát</string>
     <string name="firstNameHint">Lượng</string>
-
+    <string name="avatar">Ảnh Đại Diện</string>
+    <string name="identifier">Mã số sinh viên</string>
+    <string name="identifierCode">N18DCCN147</string>
+    <string name="ourBirthday">01–05–2000</string>
 </resources>
