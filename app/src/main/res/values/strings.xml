@@ -33,7 +33,11 @@
     <string name="familyNameHint">Gia Cát</string>
     <string name="firstNameHint">Lượng</string>
     <string name="avatar">Ảnh Đại Diện</string>
-    <string name="identifier">Mã số sinh viên</string>
-    <string name="identifierCode">N18DCCN147</string>
+    <string name="grade">Tên Lớp</string>
+    <string name="gradeName">D18CQCN03</string>
     <string name="ourBirthday">01–05–2000</string>
+    <string name="OK">Đồng ý</string>
+    <string name="Cancel">Hủy bỏ</string>
+    <string name="popupContent">This is a popup window.</string>
+    <string name="deleteStudent">Bạn có chắc chắn muốn xóa học sinh này ?</string>
 </resources>

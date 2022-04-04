@@ -1,8 +1,9 @@
 package com.example.stdmanager.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Student {
+public class Student implements Serializable {
     private int id;
     private String familyName;
     private String firstName;
