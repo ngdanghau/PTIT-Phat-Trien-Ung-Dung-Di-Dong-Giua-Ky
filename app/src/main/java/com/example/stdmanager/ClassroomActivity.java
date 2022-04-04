@@ -1,6 +1,7 @@
 package com.example.stdmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -51,7 +52,7 @@ public class ClassroomActivity extends AppCompatActivity {
     EditText searchBar;
     ImageView buttonHome;
 
-    Button buttonCreation;
+    AppCompatButton buttonCreation;
 
 
 
@@ -75,6 +76,7 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
+        gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
         studentOpenHelper.deleteAndCreateTable();
@@ -106,28 +108,6 @@ public class ClassroomActivity extends AppCompatActivity {
         buttonCreation = findViewById(R.id.classroomButtonCreation);
     }
 
-    /**
-     * @author Phong-Kaster
-     * this function is used to create default records in order to check
-     * classroomListViewModel works properly or not ?
-     * */
-    private void initiativeDataExample()
-    {
-        /*Step 1*/
-        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date today = new Date();
-        String birthday = simpleDateFormat.format(today);
-
-        /*Step 2*/
-        Student student1 = new Student("Nguyen Thanh", "Phong", birthday);
-        Student student2 = new Student("Nguyen Van", "Chung" , birthday);
-        Student student3 = new Student("Nguyen Dang", "Hau", birthday);
-
-        /*Step 3*/
-        objects.add(student1);
-        objects.add(student2);
-        objects.add(student3);
-    }
 
     /**
      * @author Phong-Kaster
@@ -181,7 +161,6 @@ public class ClassroomActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
                 startActivity(intent);
-                //listViewModel.notifyDataSetChanged();
             }
         });
     }

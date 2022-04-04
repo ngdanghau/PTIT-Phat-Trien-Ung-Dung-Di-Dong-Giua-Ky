@@ -244,22 +244,18 @@
             android:layout_weight="0"
             android:orientation="vertical">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/classroomCreationButtonConfirm"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:backgroundTint="@android:color/holo_blue_dark"
+                style="@style/button_style"
+                android:background="@drawable/button_background_1"
                 android:text="@string/student_creation" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/classroomCreationButtonGoBack"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                style="@style/button_style"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
-                android:backgroundTint="@android:color/holo_red_dark"
+                android:background="@drawable/button_background_3"
                 android:text="@string/goback" />
         </LinearLayout>
         <!-- End Button -->

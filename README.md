@@ -10,6 +10,7 @@
 # [**Table Of Content**](#table-of-content)
 - [**Table Of Content**](#table-of-content)
 - [**Introduction**](#introduction)
+- [**Usage**](#usage)
 - [**Features**](#features)
 - [**Our Team**](#our-team)
 - [**Made with 💘 and Java <img src="https://www.vectorlogo.zone/logos/java/java-horizontal.svg" width="60">**](#made-with--and-java-)
@@ -35,8 +36,62 @@ Sau đây là toàn bộ nội dung đề tài của nhóm mình tới đề tà
     <img src="./avatar/deTai(5).png" width="640" />
 </p>
 
+# [**Usage**](#usage)
+
+Để chạy được dự án này, yêu cầu Android Studio Bumblebee phiên bản 2021.1.1 Patch 2 hoặc mới hơn. Dự án này có thể tải bằng 2 cách sau đây:
+
+- Tải về bằng `Code->Download Zip`
+
+- Tải về bằng câu lệnh `git clone`
+
+Sau khi tải về, để chạy được ứng dụng này cần lưu ý như sau
+
+**Tính năng đăng nhập**
+
+Bước 1: Truy cập `app->java->com.example.stdmanager->LoginActivity` 
+
+Bước 2: Tìm đến dòng có số thứ tự 60 và mở khóa dòng này ra. Dòng này giúp SQLite tạo các dữ liệu ban đầu để đăng nhập 
+
+
+<p align="center">
+    <img src="./avatar/screenshot1.png" width="640" />
+</p>
+<h3 align="center">
+
+***Hàm deleteAndCreatTable() có chức năng tạo dữ liệu mặc định cho lần đầu chạy ứng dụng***
+</h3>
+
+
+
+**Tính năng quản lý sinh viên**
+
+Bước 1: Truy cập `app->java->com.example.stdmanager->ClassroomActivity` 
+
+Bước 2: Tìm đến dòng có số thứ tự 79 và 82, mở khóa dòng này.
+
+
+
 # [**Features**](#features)
 
+<p align="center">
+    <img src="./avatar/screenshot2.png" height="400" />
+</p>
+<h3 align="center">
+
+***Đăng nhập***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot3.png" height="400" />
+    &nbsp;
+    <img src="./avatar/screenshot4.png" height="400" />
+    &nbsp;
+    <img src="./avatar/screenshot5.png" height="400" />
+</p>
+<h3 align="center">
+
+***Quản lý danh sách sinh viên với mỗi giáo viên làm chủ nhiệm của 1 lớp duy nhất***
+</h3>
 
 # [**Our Team**](#our-team)
 
