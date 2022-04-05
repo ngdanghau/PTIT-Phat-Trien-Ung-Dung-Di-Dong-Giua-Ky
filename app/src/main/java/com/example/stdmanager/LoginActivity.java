@@ -1,6 +1,7 @@
 package com.example.stdmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,7 +24,7 @@ public class LoginActivity extends AppCompatActivity {
     Session session;
 
     EditText txtUsername, txtPassword;
-    Button btnSignIn;
+    AppCompatButton btnSignIn;
     TeacherDBHelper db = new TeacherDBHelper(this);
     Boolean isLogin = false;
     @Override
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Lấy input
                 String username = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
-                //db.deleteAndCreatTable();
+                db.deleteAndCreatTable();
 
                 // kiểm tra input
                 if(username.isEmpty()){
