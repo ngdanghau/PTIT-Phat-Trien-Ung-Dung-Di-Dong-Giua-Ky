@@ -5,7 +5,13 @@
       <map>
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom.xml" value="0.2436923148431724" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_element.xml" value="0.36923078006541266" />
+<<<<<<< HEAD
+        <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_individual.xml" value="0.1" />
+        <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_update.xml" value="0.16246154322878156" />
+        <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_home.xml" value="0.18461539003270633" />
+=======
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_home.xml" value="0.2436923148431724" />
+>>>>>>> f1b07cc28b975f41c44149449a126148111ba367
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_login.xml" value="0.15519452757588714" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_main.xml" value="0.15519452757588714" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/confirm_alert.xml" value="0.1890625" />
