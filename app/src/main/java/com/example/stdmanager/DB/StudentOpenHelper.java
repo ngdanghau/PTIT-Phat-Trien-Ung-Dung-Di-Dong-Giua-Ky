@@ -96,7 +96,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
         /*Step 2*/
         sqLiteDatabase.delete(TABLE_NAME, COLUMN_ID + " = ?",
-                new String[]{ String.valueOf(id)} );
+                new String[]{ String.valueOf(id) } );
         sqLiteDatabase.close();
     }
 
@@ -142,7 +142,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
 
         /*Step 2*/
-        String query = String.format("SELECT s.*, g.name FROM student s INNER JOIN grade g ON s.gradeId = g.id");
+        String query = "SELECT s.*, g.name FROM student s INNER JOIN grade g ON s.gradeId = g.id";
         @SuppressLint("Recycle") Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
         /*Step 3*/
