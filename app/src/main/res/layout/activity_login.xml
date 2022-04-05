@@ -67,9 +67,8 @@
             android:layout_height="wrap_content"
             android:minHeight="20dp" />
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_primary_style"
             android:text="@string/action_sign_in"
             android:id="@+id/btnSignIn"/>
 
@@ -97,11 +96,9 @@
             android:textSize="15dp"
             android:textAlignment="center"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/button_secondary_style"
             android:text="@string/action_register"
-            android:backgroundTint="@color/teal_200"
             android:id="@+id/btnRegister"/>
 
     </LinearLayout>
