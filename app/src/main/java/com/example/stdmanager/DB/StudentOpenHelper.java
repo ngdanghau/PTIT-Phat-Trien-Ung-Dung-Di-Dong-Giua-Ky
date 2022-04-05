@@ -125,8 +125,11 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
 
         /*Step 4*/
-        sqLiteDatabase.update(TABLE_NAME, values, COLUMN_ID + " = ?",
-                new String[]{ String.valueOf(id) } );
+
+            sqLiteDatabase.update(TABLE_NAME, values, COLUMN_ID + " = ?",
+                    new String[]{String.valueOf(id)} );
+
+
     }
 
     /**
