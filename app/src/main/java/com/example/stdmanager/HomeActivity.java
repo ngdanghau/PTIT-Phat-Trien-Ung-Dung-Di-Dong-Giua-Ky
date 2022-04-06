@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.example.stdmanager.Classroom.ClassroomActivity;
+import com.example.stdmanager.Statistic.StatisticActivity;
 import com.example.stdmanager.models.Teacher;
 
 public class HomeActivity extends AppCompatActivity {
