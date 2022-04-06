@@ -26,7 +26,6 @@
     <string name="male">Nam</string>
     <string name="female">Nữ</string>
     <string name="birthday">Ngày Sinh</string>
-
     <!-- Phong's Temporary Content -->
     <string name="teacherName">Nguyễn Thị Thủy</string>
     <string name="teacherClassroom">GVCN Lớp 12A1</string>
@@ -34,14 +33,17 @@
     <string name="familyNameHint">Gia Cát</string>
     <string name="firstNameHint">Lượng</string>
     <string name="avatar">Ảnh Đại Diện</string>
-    <string name="identifier">Mã số sinh viên</string>
-    <string name="identifierCode">N18DCCN147</string>
+    <string name="grade">Tên Lớp</string>
+    <string name="gradeName">D18CQCN03</string>
     <string name="ourBirthday">01–05–2000</string>
+    <string name="OK">Đồng ý</string>
+    <string name="Cancel">Hủy bỏ</string>
+    <string name="popupContent">This is a popup window.</string>
+    <string name="deleteStudent">Bạn có chắc chắn muốn xóa học sinh này ?</string>
 
-<!--    Khang -->
+    <!--    Khang -->
     <string name="TitleSubject">Danh sách môn học</string>
     <string name="SubjectTitleInformation">Thông tin môn học</string>
     <string name="AddSubject">Thêm môn học</string>
     <string name="ExportSubject">Xuất danh sách môn học</string>
-
 </resources>

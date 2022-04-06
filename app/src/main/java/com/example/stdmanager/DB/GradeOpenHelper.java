@@ -20,7 +20,6 @@ public class GradeOpenHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "grade";
     private static final  String REFERENCED_TABLE_NAME = "teacher";
-    private static final String TAG = "SQLite";
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_NAME = "name";

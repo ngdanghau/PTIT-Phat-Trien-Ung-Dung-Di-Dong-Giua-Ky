@@ -19,7 +19,6 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "student";
     private static final  String REFERENCED_TABLE_NAME = "grade";
-    private static final String TAG = "SQLite";
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_FAMILY_NAME = "familyName";
@@ -96,7 +95,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
         /*Step 2*/
         sqLiteDatabase.delete(TABLE_NAME, COLUMN_ID + " = ?",
-                new String[]{ String.valueOf(id)} );
+                new String[]{ String.valueOf(id) } );
         sqLiteDatabase.close();
     }
 
@@ -125,8 +124,11 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
 
         /*Step 4*/
-        sqLiteDatabase.update(TABLE_NAME, values, COLUMN_ID + " = ?",
-                new String[]{ String.valueOf(id) } );
+
+            sqLiteDatabase.update(TABLE_NAME, values, COLUMN_ID + " = ?",
+                    new String[]{String.valueOf(id)} );
+
+
     }
 
     /**
@@ -142,7 +144,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
 
         /*Step 2*/
-        String query = String.format("SELECT s.*, g.name FROM student s INNER JOIN grade g ON s.gradeId = g.id");
+        String query = "SELECT s.*, g.name FROM student s INNER JOIN grade g ON s.gradeId = g.id";
         @SuppressLint("Recycle") Cursor cursor = sqLiteDatabase.rawQuery(query, null);
 
         /*Step 3*/

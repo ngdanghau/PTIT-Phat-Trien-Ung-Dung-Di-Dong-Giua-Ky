@@ -41,6 +41,7 @@
                     android:text="@string/familyName" />
 
                 <TextView
+                    android:id="@+id/studentFamilyName"
                     style="@style/classroom_individual_textview_style"
                     android:text="@string/familyNameHint"
                     android:textStyle="bold" />
@@ -59,6 +60,7 @@
                     android:text="@string/firstName" />
 
                 <TextView
+                    android:id="@+id/studentFirstName"
                     style="@style/classroom_individual_textview_style"
                     android:text="@string/firstNameHint"
                     android:textStyle="bold" />
@@ -74,11 +76,12 @@
 
             <TextView
                 style="@style/classroom_individual_textview_style"
-                android:text="@string/identifier" />
+                android:text="@string/grade" />
 
             <TextView
+                android:id="@+id/gradeName"
                 style="@style/classroom_individual_textview_style"
-                android:text="@string/identifierCode"
+                android:text="@string/gradeName"
                 android:textStyle="bold|normal" />
         </LinearLayout>
         <!-- end IDENTIFIER CODE -->
@@ -93,6 +96,7 @@
                 android:text="@string/gender" />
 
             <TextView
+                android:id="@+id/gender"
                 style="@style/classroom_individual_textview_style"
                 android:text="@string/male"
                 android:textStyle="bold" />
@@ -110,6 +114,7 @@
                 android:text="@string/birthday" />
 
             <TextView
+                android:id="@+id/birthday"
                 style="@style/classroom_individual_textview_style"
                 android:text="@string/ourBirthday"
                 android:textStyle="bold"/>
@@ -126,12 +131,14 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/individualButtonScore"
                 style="@style/button_style"
                 android:background="@drawable/button_background_3"
                 android:gravity="center"
                 android:text="@string/student_table_button_score" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/individualButtonUpdate"
                 style="@style/button_style"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_background_5"
@@ -139,6 +146,7 @@
                 android:text="@string/student_table_button_edit" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/individualButtonDelete"
                 style="@style/button_style"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/button_background_4"

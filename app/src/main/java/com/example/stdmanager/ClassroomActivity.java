@@ -1,26 +1,19 @@
 package com.example.stdmanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
-import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
@@ -30,9 +23,6 @@ import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
 
 import java.lang.ref.WeakReference;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.ArrayList;
 
 public class ClassroomActivity extends AppCompatActivity {
@@ -76,10 +66,10 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
-        gradeOpenHelper.deleteAndCreatTable();
+        //gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
-        studentOpenHelper.deleteAndCreateTable();
+        //studentOpenHelper.deleteAndCreateTable();
         objects = studentOpenHelper.retrieveAllStudents();
 
 
@@ -124,44 +114,33 @@ public class ClassroomActivity extends AppCompatActivity {
 
 
         /*Step 2*/
-        buttonHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
+        buttonHome.setOnClickListener(view -> finish());
+
+        searchBar.setOnKeyListener((view, keyCode, keyEvent) -> {
+
+            if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
+            {
+                /* these 2 commands that belows, hides the keyboard after ENTER pressed ! */
+                InputMethodManager keyboard = (InputMethodManager) view.getContext()
+                                .getSystemService(Context.INPUT_METHOD_SERVICE);
+                keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+
+                String keyword = String.valueOf( searchBar.getText() );
+                objects = studentOpenHelper.retrieveStudentWithKeyword(keyword);
+
+
+                listViewModel = new ClassroomListViewModel(ClassroomActivity.this, R.layout.activity_classroom_element, objects);
+                listView.setAdapter(listViewModel);
+
+                return true;
             }
+            return false;
         });
 
-        searchBar.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View view, int keyCode, KeyEvent keyEvent) {
-
-                if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
-                {
-                    /* these 2 commands that belows, hides the keyboard after ENTER pressed ! */
-                    InputMethodManager keyboard = (InputMethodManager) view.getContext()
-                                    .getSystemService(Context.INPUT_METHOD_SERVICE);
-                    keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
-
-                    String keyword = String.valueOf( searchBar.getText() );
-                    objects = studentOpenHelper.retrieveStudentWithKeyword(keyword);
-
-
-                    listViewModel = new ClassroomListViewModel(ClassroomActivity.this, R.layout.activity_classroom_element, objects);
-                    listView.setAdapter(listViewModel);
-
-                    return true;
-                }
-                return false;
-            }
-        });
-
-        buttonCreation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
-                startActivity(intent);
-            }
+        buttonCreation.setOnClickListener(view -> {
+            Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
+            startActivity(intent);
         });
     }
 
@@ -184,5 +163,52 @@ public class ClassroomActivity extends AppCompatActivity {
         /*Step 3*/ listViewModel.notifyDataSetChanged();
 
         /*Step 4*/ Toast.makeText(this, "Thêm thành công", Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * @author Phong-Kaster
+     * Step 1: objects.remove(student) make notifiyDataSetChanged doesn't work
+     * Step 2: notifiyDataSetChanged immediately !
+     * Step 3: delete student in database table
+     * Step 4: Toast to show notice on screen
+     * */
+    public void deleteStudent(Student student)
+    {
+        /*Step 1*/
+        for (Student element: objects) {
+            if(element.getId() == student.getId())
+                objects.remove(element);
+        }
+
+        /*Step 2*/ listViewModel.notifyDataSetChanged();
+
+        /*Step 3*/ studentOpenHelper.delete(student);
+
+        /*Step 4*/ Toast.makeText(this, "Xóa thành công", Toast.LENGTH_LONG).show();
+    }
+
+    public void updateStudent(Student student)
+    {
+        Log.d("id", "classroom Ma sinh vien la " + student.getId() + student.getFamilyName() + student.getFirstName() );
+        /*Step 1*/
+        for (Student element: objects) {
+            if(element.getId() == student.getId())
+            {
+                element.setFamilyName( student.getFamilyName() );
+                element.setFirstName( student.getFirstName() );
+
+                element.setGender( student.getGender() );
+                element.setBirthday( student.getBirthday() );
+
+                element.setGradeId( student.getGradeId() );
+                element.setGradeName( student.getGradeName() );
+            }
+        }
+
+        /*Step 2*/ listViewModel.notifyDataSetChanged();
+
+        /*Step 3*/ studentOpenHelper.update(student);
+
+        /*Step 4*/ Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
     }
 }

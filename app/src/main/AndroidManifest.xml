@@ -16,6 +16,9 @@
             android:name=".SubjectActivity"
             android:exported="false" />
         <activity
+            android:name=".ClassroomUpdateActivity"
+            android:exported="false" />
+        <activity
             android:name=".ClassroomIndividualActivity"
             android:exported="false" />
         <activity

@@ -2,6 +2,8 @@ package com.example.stdmanager.listViewModels;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,6 +67,9 @@ public class ClassroomListViewModel extends ArrayAdapter<Student> {
 
                 /*Open the screen which shows student's detail*/
                 Intent intent = new Intent(context, ClassroomIndividualActivity.class);
+                /*Pass student object to next activity - Student class must implements Serializable*/
+                intent.putExtra("student", student );
+                /*start next activity*/
                 ((ClassroomActivity)context).startActivity(intent);
             }
         });
