@@ -48,8 +48,8 @@
                     android:textStyle="italic"/>
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/profile"
+            <ImageButton
+                android:id="@+id/buttonHomeMenu"
                 android:layout_width="46dp"
                 android:layout_height="30dp"
                 android:layout_alignParentRight="true"
@@ -83,7 +83,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Danh sách lớp"
+                android:text="@string/menuClassroom"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
@@ -103,15 +103,16 @@
                 android:id="@+id/buttonHomeSubject"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/subject" />
+                android:background="@drawable/subject"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Môn học"
+                android:text="@string/menuSubject"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
 
         <Space
@@ -127,11 +128,12 @@
                 android:id="@+id/buttonHomeEvent"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/event" />
+                android:background="@drawable/event"
+                tools:ignore="ContentDescription" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sự kiện"
+                android:text="@string/menuEvent"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:textSize="16sp"/>
@@ -157,14 +159,15 @@
                 android:id="@+id/buttonHomeScore"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/mark" />
+                android:background="@drawable/mark"
+                android:contentDescription="TODO" />
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Điểm"
+                android:text="@string/menuMark"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
 
         <Space
@@ -181,15 +184,16 @@
                 android:id="@+id/buttonHomeStatistic"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/statistic" />
+                android:background="@drawable/statistic"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Thống kê"
+                android:text="@string/menuStatistics"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
 
         <Space
@@ -206,15 +210,16 @@
                 android:id="@+id/buttonHomeAccount"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:background="@drawable/account" />
+                android:background="@drawable/account"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tài khoản"
+                android:text="@string/menuAccount"
                 android:textColor="@color/white"
                 android:textAlignment="center"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
 

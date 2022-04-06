@@ -1,14 +1,25 @@
 package com.example.stdmanager;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+
+import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.PopupMenu;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
+import androidx.appcompat.view.menu.MenuPopupHelper;
 
 import com.example.stdmanager.models.Teacher;
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -18,7 +29,8 @@ public class HomeActivity extends AppCompatActivity {
                 buttonHomeSubject,
                 buttonHomeEvent,
                 buttonHomeScore,
-                buttonHomeAccount;
+                buttonHomeAccount,
+                buttonHomeMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +54,8 @@ public class HomeActivity extends AppCompatActivity {
 
         txtNameGV = findViewById(R.id.txtNameGV);
         txtIDGV = findViewById(R.id.txtIDGV);
+
+        buttonHomeMenu = findViewById(R.id.buttonHomeMenu);
     }
 
     private void loadData(){
@@ -50,8 +64,11 @@ public class HomeActivity extends AppCompatActivity {
         txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
+
+    @SuppressLint("RestrictedApi")
     private void setEvent(){
 
+        /*Step 1*/
         buttonHomeStatistic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,12 +77,63 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        /*Step 2*/
         buttonHomeClassroom.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, ClassroomActivity.class);
                 startActivity(intent);
             }
+        });
+
+        /*Step 3*/
+        MenuBuilder menuBuilder = new MenuBuilder(HomeActivity.this);
+        MenuInflater inflater = new MenuInflater(HomeActivity.this);
+
+        inflater.inflate(R.menu.menu_home_sidebar, menuBuilder);
+
+        buttonHomeMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                 MenuPopupHelper menuElement = new MenuPopupHelper(HomeActivity.this,menuBuilder, view);
+                 menuElement.setForceShowIcon(true);
+
+                 menuBuilder.setCallback(new MenuBuilder.Callback() {
+                     @SuppressLint("NonConstantResourceId")
+                     @Override
+                     public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
+                         Intent intent;
+                         switch (item.getItemId())
+                         {
+                             case R.id.classroom:
+                                 intent = new Intent(HomeActivity.this, ClassroomActivity.class);
+                                 startActivity(intent);
+                                 return true;
+                             case R.id.subject:
+                                 return true;
+                             case R.id.event:
+                                 return true;
+                             case R.id.mark:
+                                 return true;
+                             case R.id.statistics:
+                                 return true;
+                             case R.id.account:
+                                 return true;
+                             default:
+                                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
+                         }
+                     }
+
+                     @Override
+                     public void onMenuModeChange(@NonNull MenuBuilder menu) {
+
+                     }
+                 });
+
+                 menuElement.show();
+            }
+
+
         });
     }
 }

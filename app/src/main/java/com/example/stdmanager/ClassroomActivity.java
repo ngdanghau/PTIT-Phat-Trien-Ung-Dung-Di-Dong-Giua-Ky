@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -66,10 +67,10 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
-        //gradeOpenHelper.deleteAndCreatTable();
+        gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
-        //studentOpenHelper.deleteAndCreateTable();
+        studentOpenHelper.deleteAndCreateTable();
         objects = studentOpenHelper.retrieveAllStudents();
 
 
@@ -138,9 +139,12 @@ public class ClassroomActivity extends AppCompatActivity {
             return false;
         });
 
-        buttonCreation.setOnClickListener(view -> {
-            Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
-            startActivity(intent);
+        buttonCreation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
+                startActivity(intent);
+            }
         });
     }
 

@@ -40,4 +40,11 @@
     <string name="Cancel">Hủy bỏ</string>
     <string name="popupContent">This is a popup window.</string>
     <string name="deleteStudent">Bạn có chắc chắn muốn xóa học sinh này ?</string>
+    <string name="menuClassroom">Danh sách lớp</string>
+    <string name="menuSubject">Môn học</string>
+    <string name="menuEvent">Sự kiện</string>
+    <string name="menuMark">Điểm</string>
+    <string name="menuStatistics">Thống kê</string>
+    <string name="menuAccount">Tài khoản</string>
+    <string name="signout">Đăng xuất</string>
 </resources>
