@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/screen"
     android:orientation="vertical"
-    tools:context=".ClassroomActivity">
+    tools:context=".Classroom.ClassroomActivity">
 
     <!--Linear Layout Avatar & Home shortcut -->
     <LinearLayout

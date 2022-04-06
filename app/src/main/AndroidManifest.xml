@@ -13,19 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.STDManager">
         <activity
-            android:name=".ClassroomUpdateActivity"
+            android:name=".Classroom.ClassroomUpdateActivity"
             android:exported="false" />
         <activity
-            android:name=".ClassroomIndividualActivity"
+            android:name=".Classroom.ClassroomIndividualActivity"
             android:exported="false" />
         <activity
-            android:name=".ClassroomCreationActivity"
+            android:name=".Classroom.ClassroomCreationActivity"
             android:exported="false" />
         <activity
-            android:name=".ClassroomActivity"
+            android:name=".Classroom.ClassroomActivity"
             android:exported="false" />
         <activity
-            android:name=".StatisticActivity"
+            android:name=".Statistic.StatisticActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

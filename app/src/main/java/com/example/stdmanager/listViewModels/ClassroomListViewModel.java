@@ -2,21 +2,18 @@ package com.example.stdmanager.listViewModels;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.stdmanager.ClassroomActivity;
-import com.example.stdmanager.ClassroomIndividualActivity;
+import com.example.stdmanager.Classroom.ClassroomActivity;
+import com.example.stdmanager.Classroom.ClassroomIndividualActivity;
 import com.example.stdmanager.R;
 import com.example.stdmanager.models.Student;
 

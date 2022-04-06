@@ -1,4 +1,4 @@
-package com.example.stdmanager;
+package com.example.stdmanager.Classroom;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
+import com.example.stdmanager.R;
 import com.example.stdmanager.listViewModels.ClassroomListViewModel;
 import com.example.stdmanager.models.Grade;
 import com.example.stdmanager.models.Session;

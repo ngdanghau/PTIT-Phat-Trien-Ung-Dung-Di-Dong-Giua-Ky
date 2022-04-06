@@ -19,7 +19,6 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
 
     private static final String TABLE_NAME = "student";
     private static final  String REFERENCED_TABLE_NAME = "grade";
-    private static final String TAG = "SQLite";
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_FAMILY_NAME = "familyName";
