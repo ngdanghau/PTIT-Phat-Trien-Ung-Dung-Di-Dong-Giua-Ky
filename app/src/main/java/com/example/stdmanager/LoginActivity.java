@@ -3,11 +3,14 @@ package com.example.stdmanager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,6 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.example.stdmanager.DB.TeacherDBHelper;
+import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.models.Teacher;
 import com.example.stdmanager.models.Session;
 
@@ -58,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Lấy input
                 String username = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
-                db.deleteAndCreatTable();
+//                db.deleteAndCreatTable();
 
                 // kiểm tra input
                 if(username.isEmpty()){
@@ -68,12 +72,9 @@ public class LoginActivity extends AppCompatActivity {
                     txtPassword.setError( "Hãy nhập password!" );
                     return;
                 }
-                LayoutInflater inflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
-                // hiện popup
-                View popupView = inflater.inflate(R.layout.normal_alert, null);
-                TextView msgText = popupView.findViewById(R.id.msgText);
-                ImageView iconAlert = popupView.findViewById(R.id.iconAlert);
-                Button btnOK = popupView.findViewById(R.id.btnOK);
+                // khởi tạo alert
+                Alert alert = new Alert(LoginActivity.this);
+                alert.normal();
 
                 // lấy Data từ csdl dựa trên input
                 Teacher gv = db.getTeacher(Integer.parseInt(username));
@@ -81,12 +82,10 @@ public class LoginActivity extends AppCompatActivity {
                 // Kiểm tra login
                 if(gv == null){
                     isLogin = false;
-                    msgText.setText("Tài khoản không tồn tại!");
-                    iconAlert.setBackgroundResource(R.drawable.info_icon);
+                    alert.showAlert("Tài khoản không tồn tại!", R.drawable.info_icon);
                 }else if(!gv.getPassword().equals(password)){
                     isLogin = false;
-                    msgText.setText("Sai mật khẩu!");
-                    iconAlert.setBackgroundResource(R.drawable.info_icon);
+                    alert.showAlert("Sai mật khẩu!", R.drawable.info_icon);
                 }else{
                     isLogin = true;
                     // set biến toàn cục
@@ -95,25 +94,17 @@ public class LoginActivity extends AppCompatActivity {
                     session.set("teacherName", gv.getName());
                     session.set("teacherId", String.valueOf(gv.getId()) );
 
-                    // Set Control
-                    msgText.setText("Đăng nhập thành công!");
-                    iconAlert.setBackgroundResource(R.drawable.check_icon);
+                    alert.showAlert("Đăng nhập thành công!", R.drawable.check_icon);
                 }
 
-                // tạo popup
-                int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-                int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-                boolean focusable = true;
-                final PopupWindow popupWindow = new PopupWindow(popupView, width, height, focusable);
-                popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
 
-                btnOK.setOnClickListener(new View.OnClickListener() {
+                alert.btnOK.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         if(isLogin){
                             gotoHome();
                         }
-                        popupWindow.dismiss();
+                        alert.dismiss();
                     }
                 });
 

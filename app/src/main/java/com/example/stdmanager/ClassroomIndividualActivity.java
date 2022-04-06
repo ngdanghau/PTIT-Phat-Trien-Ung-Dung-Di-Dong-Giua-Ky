@@ -16,6 +16,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.models.Student;
 
 import java.lang.ref.WeakReference;
@@ -119,34 +120,18 @@ public class ClassroomIndividualActivity extends AppCompatActivity {
     private void triggerPopupWindow(View view, Student student)
     {
         /*Step 1*/
-        LayoutInflater inflater = (LayoutInflater)
-                getSystemService(LAYOUT_INFLATER_SERVICE);
-        @SuppressLint("InflateParams") View popupView = inflater.inflate(R.layout.confirm_alert, null);
+        // khởi tạo alert
+        Alert alert = new Alert(ClassroomIndividualActivity.this);
+
 
         /*Step 2*/
-        buttonAlertConfirmation = popupView.findViewById(R.id.btnOK);
-        buttonAlertCancel = popupView.findViewById(R.id.btnCancel);
-        contentAlert = popupView.findViewById(R.id.msgText);
-        contentAlert.setText(R.string.deleteStudent);
+        alert.confirm();
 
         /*Step 3*/
-        int width = LinearLayout.LayoutParams.WRAP_CONTENT;
-        int height = LinearLayout.LayoutParams.WRAP_CONTENT;
-        final PopupWindow popupWindow = new PopupWindow(popupView, width, height, true);
-
-
-        /*Step 4*/
-        popupWindow.showAtLocation(view, Gravity.CENTER, 0, 0);
-
-        /*Step 5*/
-        popupView.setOnTouchListener((v, event) -> {
-            popupWindow.dismiss();
-            return true;
-        });
-
+        alert.showAlert(R.string.deleteStudent, R.drawable.info_icon);
 
         /*Step 6*/
-        buttonAlertConfirmation.setOnClickListener(new View.OnClickListener() {
+        alert.btnOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 ClassroomActivity.getmInstanceActivity().deleteStudent(student);
@@ -154,10 +139,10 @@ public class ClassroomIndividualActivity extends AppCompatActivity {
             }
         });
 
-        buttonAlertCancel.setOnClickListener(new View.OnClickListener() {
+        alert.btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                popupWindow.dismiss();
+                alert.dismiss();
             }
         });
     }
