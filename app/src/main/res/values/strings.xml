@@ -26,6 +26,7 @@
     <string name="male">Nam</string>
     <string name="female">Nữ</string>
     <string name="birthday">Ngày Sinh</string>
+
     <!-- Phong's Temporary Content -->
     <string name="teacherName">Nguyễn Thị Thủy</string>
     <string name="teacherClassroom">GVCN Lớp 12A1</string>
@@ -36,4 +37,11 @@
     <string name="identifier">Mã số sinh viên</string>
     <string name="identifierCode">N18DCCN147</string>
     <string name="ourBirthday">01–05–2000</string>
+
+<!--    Khang -->
+    <string name="TitleSubject">Danh sách môn học</string>
+    <string name="SubjectTitleInformation">Thông tin môn học</string>
+    <string name="AddSubject">Thêm môn học</string>
+    <string name="ExportSubject">Xuất danh sách môn học</string>
+
 </resources>
