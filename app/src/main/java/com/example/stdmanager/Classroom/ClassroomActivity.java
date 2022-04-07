@@ -68,10 +68,10 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
-        gradeOpenHelper.deleteAndCreatTable();
+        //gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
-        studentOpenHelper.deleteAndCreateTable();
+        //studentOpenHelper.deleteAndCreateTable();
         objects = studentOpenHelper.retrieveAllStudents();
 
 
