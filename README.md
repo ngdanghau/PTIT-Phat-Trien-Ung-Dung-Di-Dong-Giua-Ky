@@ -84,6 +84,15 @@ Bước 2: Tìm đến dòng có số thứ tự 79 và 82, mở khóa dòng nà
 <p align="center">
     <img src="./avatar/screenshot3.png" height="400" />
     &nbsp;
+    <img src="./avatar/screenshot8.png" height="400" />
+</p>
+<h3 align="center">
+
+***Trang chủ***
+</h3>
+
+
+<p align="center">
     <img src="./avatar/screenshot4.png" height="400" />
     &nbsp;
     <img src="./avatar/screenshot5.png" height="400" />

@@ -180,11 +180,13 @@ public class ClassroomActivity extends AppCompatActivity {
     public void deleteStudent(Student student)
     {
         /*Step 1*/
-        for (Student element: objects) {
-            if(element.getId() == student.getId())
-                objects.remove(element);
+        for(int i = 0; i < objects.size(); i++)
+        {
+            if( objects.get(i).getId() == student.getId())
+            {
+                objects.remove( objects.get(i));
+            }
         }
-
         /*Step 2*/ listViewModel.notifyDataSetChanged();
 
         /*Step 3*/ studentOpenHelper.delete(student);

@@ -1,29 +1,22 @@
 package com.example.stdmanager.Classroom;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
-import com.example.stdmanager.DB.StudentOpenHelper;
 import com.example.stdmanager.R;
-import com.example.stdmanager.listViewModels.ClassroomListViewModel;
 import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ClassroomCreationActivity extends AppCompatActivity {
@@ -40,10 +33,6 @@ public class ClassroomCreationActivity extends AppCompatActivity {
     private final int year = cal.get(Calendar.YEAR);
     private final int month = cal.get(Calendar.MONTH) + 1;
     private final int day = cal.get(Calendar.DAY_OF_MONTH);
-
-
-    StudentOpenHelper studentOpenHelper = new StudentOpenHelper(ClassroomCreationActivity.this);
-    ClassroomListViewModel listViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,14 +64,10 @@ public class ClassroomCreationActivity extends AppCompatActivity {
     public void openDatePicker(View view)
     {
         /*Step 1*/
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day)
-            {
-                month = month + 1;
-                String birthday = day + "/" + month + "/" + year;
-                buttonBirthday.setText(birthday);
-            }
+        DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
+            month = month + 1;
+            String birthday = day + "/" + month + "/" + year;
+            buttonBirthday.setText(birthday);
         };
 
         /*Step 2*/
@@ -99,35 +84,27 @@ public class ClassroomCreationActivity extends AppCompatActivity {
 
     private void setEvent()
     {
-        buttonConfirm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        buttonConfirm.setOnClickListener(view -> {
 
-                int gender = male.isChecked() ? 0 : 1;
-                int gradeId = Integer.parseInt( session.get("gradeId"));
+            int gender = male.isChecked() ? 0 : 1;
+            int gradeId = Integer.parseInt( session.get("gradeId"));
 
-                Student student = new Student();
-                student.setFamilyName( familyName.getText().toString() );
-                student.setFirstName( firstName.getText().toString() );
-                student.setGender(gender);
-                student.setGradeId(gradeId);
-                student.setBirthday((String) buttonBirthday.getText());
+            Student student = new Student();
+            student.setFamilyName( familyName.getText().toString() );
+            student.setFirstName( firstName.getText().toString() );
+            student.setGender(gender);
+            student.setGradeId(gradeId);
+            student.setBirthday((String) buttonBirthday.getText());
 
-                boolean flag = validateStudentInformation(student);
-                if( !flag )
-                    return;
+            boolean flag = validateStudentInformation(student);
+            if( !flag )
+                return;
 
-                ClassroomActivity.getmInstanceActivity().createStudent(student);
-                finish();
-            }
+            ClassroomActivity.getmInstanceActivity().createStudent(student);
+            finish();
         });
 
-        buttonCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        buttonCancel.setOnClickListener(view -> finish());
     }
 
     private boolean validateStudentInformation(Student student) {
