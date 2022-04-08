@@ -47,4 +47,5 @@
     <string name="menuStatistics">Thống kê</string>
     <string name="menuAccount">Tài khoản</string>
     <string name="signout">Đăng xuất</string>
+    <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
 </resources>
