@@ -25,6 +25,7 @@ import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class ClassroomActivity extends AppCompatActivity {
@@ -44,7 +45,7 @@ public class ClassroomActivity extends AppCompatActivity {
     EditText searchBar;
     ImageView buttonHome;
 
-    AppCompatButton buttonCreation;
+    AppCompatButton buttonCreation, buttonExport;
 
 
 
@@ -68,10 +69,10 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
-        //gradeOpenHelper.deleteAndCreatTable();
+        gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
-        //studentOpenHelper.deleteAndCreateTable();
+        studentOpenHelper.deleteAndCreateTable();
         objects = studentOpenHelper.retrieveAllStudents();
 
 
@@ -98,6 +99,7 @@ public class ClassroomActivity extends AppCompatActivity {
         searchBar = findViewById(R.id.classroomSearchBar);
         buttonHome = findViewById(R.id.classroomButtonHome);
         buttonCreation = findViewById(R.id.classroomButtonCreation);
+        buttonExport = findViewById(R.id.classroomButtonExport);
     }
 
 
@@ -147,6 +149,14 @@ public class ClassroomActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        buttonExport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassroomActivity.this, ClassroomExportActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 
@@ -179,6 +189,10 @@ public class ClassroomActivity extends AppCompatActivity {
      * */
     public void deleteStudent(Student student)
     {
+        if( student.getId() == 0 ) {
+            Toast.makeText(this, "ID không hợp lệ", Toast.LENGTH_LONG).show();
+            return;
+        }
         /*Step 1*/
         for(int i = 0; i < objects.size(); i++)
         {
@@ -196,7 +210,10 @@ public class ClassroomActivity extends AppCompatActivity {
 
     public void updateStudent(Student student)
     {
-        Log.d("id", "classroom Ma sinh vien la " + student.getId() + student.getFamilyName() + student.getFirstName() );
+        if( student.getId() == 0 ) {
+            Toast.makeText(this, "ID không hợp lệ", Toast.LENGTH_LONG).show();
+            return;
+        }
         /*Step 1*/
         for (Student element: objects) {
             if(element.getId() == student.getId())
