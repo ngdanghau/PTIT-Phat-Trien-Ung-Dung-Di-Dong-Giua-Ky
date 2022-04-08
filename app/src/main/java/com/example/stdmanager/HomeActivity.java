@@ -57,7 +57,8 @@ public class HomeActivity extends AppCompatActivity {
         txtNameGV = findViewById(R.id.txtNameGV);
         txtIDGV = findViewById(R.id.txtIDGV);
 
-        buttonHomeMenu = findViewById(R.id.buttonHomeMenu);
+        View topbarView = (View) findViewById(R.id.topBar);
+        buttonHomeMenu = topbarView.findViewById(R.id.btnHomeMenu);
     }
 
     private void loadData(){

@@ -9,13 +9,16 @@ import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.stdmanager.App;
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
 import com.example.stdmanager.R;
@@ -23,6 +26,7 @@ import com.example.stdmanager.listViewModels.ClassroomListViewModel;
 import com.example.stdmanager.models.Grade;
 import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
+import com.example.stdmanager.models.Teacher;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -42,10 +46,10 @@ public class ClassroomActivity extends AppCompatActivity {
     StudentOpenHelper studentOpenHelper = new StudentOpenHelper(this);
 
     EditText searchBar;
-    ImageView buttonHome;
+    ImageButton btnHome;
 
     AppCompatButton buttonCreation;
-
+    TextView txtNameGV, txtIDGV;
 
 
 
@@ -82,6 +86,9 @@ public class ClassroomActivity extends AppCompatActivity {
         /*Step 4*/
         setEvent();
 
+
+        loadData();
+
         /*Step 5*/
         String teacherId = session.get("teacherId");
         String value = gradeOpenHelper.retriveIdByTeachId( teacherId );
@@ -96,8 +103,18 @@ public class ClassroomActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.classroomListView);
         searchBar = findViewById(R.id.classroomSearchBar);
-        buttonHome = findViewById(R.id.classroomButtonHome);
         buttonCreation = findViewById(R.id.classroomButtonCreation);
+
+        View topbarView = (View)findViewById(R.id.topBar);
+        btnHome = topbarView.findViewById(R.id.btnHome);
+        txtNameGV = findViewById(R.id.txtNameGV);
+        txtIDGV = findViewById(R.id.txtIDGV);
+    }
+
+    private void loadData(){
+        Teacher gv = ((App) this.getApplication()).getTeacher();
+        txtNameGV.setText(gv.getName());
+        txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
 
@@ -116,7 +133,7 @@ public class ClassroomActivity extends AppCompatActivity {
 
 
         /*Step 2*/
-        buttonHome.setOnClickListener(view -> finish());
+        btnHome.setOnClickListener(view -> finish());
 
         searchBar.setOnKeyListener((view, keyCode, keyEvent) -> {
 

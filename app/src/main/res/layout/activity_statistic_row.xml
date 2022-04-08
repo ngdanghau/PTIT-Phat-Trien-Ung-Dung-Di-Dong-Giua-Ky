@@ -22,6 +22,7 @@
                 android:singleLine="true"
                 android:textColor="@color/black"
                 android:text="Xếp loại"
+                android:id="@+id/titleStatistic"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -37,6 +38,7 @@
             android:text="Xem thống kê một lớp ở học kỳ nhất định có bao nhiêu học sinh giỏi, khá,... theo bảng điểm đã có "
             android:textColor="@color/black"
             android:textStyle="italic"
+            android:id="@+id/textStatistic"
             android:textSize="16sp" />
 
     </LinearLayout>
