@@ -6,15 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.stdmanager.App;
 import com.example.stdmanager.R;
 import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
+import com.example.stdmanager.models.Teacher;
 
 import java.util.Calendar;
 import java.util.regex.Pattern;
@@ -27,6 +31,8 @@ public class ClassroomCreationActivity extends AppCompatActivity {
     RadioButton male, female;
     Button buttonBirthday;
     AppCompatButton buttonConfirm, buttonCancel;
+    ImageButton btnHome;
+    TextView txtNameGV, txtIDGV;
 
 
     private final Calendar cal = Calendar.getInstance();
@@ -41,6 +47,7 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         session = new Session(ClassroomCreationActivity.this);
         setControl();
         setEvent();
+        loadData();
 
         String today = day + "/" + month + "/" + year;
         buttonBirthday.setText(today);
@@ -58,6 +65,17 @@ public class ClassroomCreationActivity extends AppCompatActivity {
 
         male = findViewById(R.id.classroomCreationRadioButtonMale);
         female = findViewById(R.id.classroomCreationRadioButtonFemale);
+
+        View topbarView = (View)findViewById(R.id.topBar);
+        btnHome = topbarView.findViewById(R.id.btnHome);
+        txtNameGV = findViewById(R.id.txtNameGV);
+        txtIDGV = findViewById(R.id.txtIDGV);
+    }
+
+    private void loadData(){
+        Teacher gv = ((App) this.getApplication()).getTeacher();
+        txtNameGV.setText(gv.getName());
+        txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
 
@@ -84,6 +102,9 @@ public class ClassroomCreationActivity extends AppCompatActivity {
 
     private void setEvent()
     {
+
+        btnHome.setOnClickListener(view -> finish());
+
         buttonConfirm.setOnClickListener(view -> {
 
             int gender = male.isChecked() ? 0 : 1;
