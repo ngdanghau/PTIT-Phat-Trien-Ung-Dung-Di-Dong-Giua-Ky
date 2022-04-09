@@ -18,8 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.example.stdmanager.DB.SubjectDBHelper;
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
+
 import com.example.stdmanager.DB.TeacherDBHelper;
 import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.models.Teacher;
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         checkAuth();
         setControl();
         setEvent();
+
     }
 
     private void checkAuth(){
