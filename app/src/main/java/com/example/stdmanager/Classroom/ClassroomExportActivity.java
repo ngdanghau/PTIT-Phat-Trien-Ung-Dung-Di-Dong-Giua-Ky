@@ -1,38 +1,54 @@
 package com.example.stdmanager.Classroom;
 
 import android.Manifest;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.pdf.PdfDocument;
+import android.graphics.pdf.PdfRenderer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 
 import com.example.stdmanager.DB.StudentOpenHelper;
 import com.example.stdmanager.R;
 import com.example.stdmanager.models.Student;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ClassroomExportActivity extends AppCompatActivity {
 
     ArrayList<Student> objects = new ArrayList<>();
     StudentOpenHelper studentOpenHelper = new StudentOpenHelper(this);
-    TableLayout mytable;
-    TextView textView1, textView2, textView3;
+    TableLayout table;
 
+    AppCompatButton buttonPhoto, buttonGoBack, buttonPDF;
+    LinearLayout linearLayout;
+
+    Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,10 +60,26 @@ public class ClassroomExportActivity extends AppCompatActivity {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         }, PackageManager.PERMISSION_GRANTED);
 
+        setControl();
+        setScreen();
+        setEvent();
+
+
+
+    }
+
+    private void setControl()
+    {
+        table = findViewById(R.id.classroomTable);
+        linearLayout = findViewById(R.id.classroomExportLayout);
+        buttonPhoto = findViewById(R.id.classroomExportButtonPhoto);
+        buttonGoBack = findViewById(R.id.classroomExportButtonGoBack);
+        buttonPDF = findViewById(R.id.classroomExportButtonPDF);
+    }
+
+    private void setScreen()
+    {
         objects = studentOpenHelper.retrieveAllStudents();
-
-
-        mytable = findViewById(R.id.myTable);
 
         for( int i = 0 ; i < objects.size() ; i++)
         {
@@ -81,8 +113,127 @@ public class ClassroomExportActivity extends AppCompatActivity {
             row.addView(tv3);
             row.addView(tv4);
 
-            mytable.addView(row);
+            table.addView(row);
         }
+    }
+
+    private void setEvent()
+    {
+        buttonPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ViewGroup viewGroup = table;
+                screenshotToPhoto(viewGroup, "result");
+                Toast.makeText(ClassroomExportActivity.this, "Xuất hình ảnh thành công ! Vui lòng kiểm tra trong phần bộ nhớ di động", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        buttonPDF.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                ViewGroup viewGroup = table;
+//                screenshotToPDF(viewGroup, "result");
+                Toast.makeText(ClassroomExportActivity.this, "Tính năng này đang trong giai đoạn phát triển", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        buttonGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+    }
+
+    /**
+     * @author Phong-Kaster
+     * This funtion uses bitmap library to capture screen and store the photo into root directory
+     * To check, open "View -> Tool Window -> Device File Explorer -> sdCard". We will see the stored photo
+     * */
+    private static File screenshotToPhoto(View view, String filename) {
+        /*Step 1*/
+        Date date = new Date();
+
+
+        CharSequence format = android.text.format.DateFormat.format("yyyy-MM-dd_hh:mm:ss", date);
+        try {
+            /*Step 2*/
+            String dirpath = Environment.getExternalStorageDirectory() + "";
+            File file = new File(dirpath);
+            if (!file.exists()) {
+                boolean mkdir = file.mkdir();
+            }
+
+            // File name
+            String path = dirpath + "/" + filename + "-" + format + ".jpeg";
+
+            /*Step 3*/
+            view.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+            view.setDrawingCacheEnabled(false);
+            File imageurl = new File(path);
+
+            /*Step 4*/
+            FileOutputStream outputStream = new FileOutputStream(imageurl);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
+
+            /*Step 5*/
+            outputStream.flush();
+            outputStream.close();
+            return imageurl;
+
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /**
+     * @author Phong-Kaster
+     * */
+    private static File screenshotToPDF(View view, String filename )
+    {
+        try {
+            // Initialising the directory of storage
+            String dirpath = Environment.getExternalStorageDirectory() + "";
+            File file = new File(dirpath);
+            if (!file.exists()) {
+                boolean mkdir = file.mkdir();
+            }
+
+
+
+            view.setDrawingCacheEnabled(true);
+            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
+            view.setDrawingCacheEnabled(false);
+
+
+            PdfDocument pdfDocument = new PdfDocument();
+            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(100, 100, 1).create();
+
+            PdfDocument.Page page = pdfDocument.startPage(pageInfo);
+
+            Canvas canvas = page.getCanvas();
+            canvas.drawBitmap(bitmap,0,0,null);
+            pdfDocument.finishPage(page);
+
+
+
+            // File name
+            String path = dirpath + "/" + filename + ".pdf";
+            File PDFfile = new File(path);
+            FileOutputStream outputStream = new FileOutputStream(PDFfile);
+
+            pdfDocument.writeTo(outputStream);
+            pdfDocument.close();
+            return PDFfile;
+
+        } catch (Exception io) {
+            io.printStackTrace();
+        }
+
+        return null;
     }
 
     private void exportPDFFile()
@@ -128,23 +279,4 @@ public class ClassroomExportActivity extends AppCompatActivity {
         finish();
     }
 
-//    /**
-//     * @author Phong-Kaster
-//     * this function uses iText library to create and export PDF file: https://kb.itextpdf.com/home/it7kb
-//     * */
-//    private void createPDFfile() throws FileNotFoundException {
-//        String filePath = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).toString();
-//        Log.d("filePath", filePath);
-//        File file = new File(filePath,"Danhsachlop.pdf");
-//        OutputStream outputStream = new FileOutputStream(file);
-//
-//        PdfWriter writer = new PdfWriter(file);
-//        PdfDocument pdfDocument = new PdfDocument(writer);
-//        Document document = new Document(pdfDocument);
-//
-//        Paragraph title = new Paragraph("Danh Sach Lop");
-//        document.add(title);
-//        document.close();
-//        Toast.makeText(ClassroomExportActivity.this, "Xuat PDF file thanh cong !", Toast.LENGTH_LONG).show();
-//    }
 }
