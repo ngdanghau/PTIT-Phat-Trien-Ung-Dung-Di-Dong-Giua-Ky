@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/classroomExportLayout"
     tools:context=".Classroom.ClassroomExportActivity">
 
     <TextView
@@ -17,7 +18,8 @@
         android:textStyle="bold"/>
 
     <TableLayout
-        android:id="@+id/myTable"
+        android:layout_weight="1"
+        android:id="@+id/classroomTable"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
@@ -71,11 +73,36 @@
                 />
 
         </TableRow>
-
-
-
-
-
     </TableLayout>
+
+    <LinearLayout
+        android:paddingBottom="10dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/classroomExportButtonPhoto"
+            android:text="@string/classroomExportButtonPhoto"
+            style="@style/button_style"
+            android:background="@drawable/button_background_1" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/classroomExportButtonPDF"
+            android:layout_marginTop="10dp"
+            android:text="@string/classroomExportButtonPDF"
+            style="@style/button_style"
+            android:background="@drawable/button_background_2" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/classroomExportButtonGoBack"
+            style="@style/button_style"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background_3"
+            android:text="@string/goback" />
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
