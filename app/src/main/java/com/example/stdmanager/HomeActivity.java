@@ -25,14 +25,12 @@ import com.example.stdmanager.models.Teacher;
 
 public class HomeActivity extends AppCompatActivity {
 
-    TextView txtNameGV, txtIDGV;
     ImageButton buttonHomeStatistic,
                 buttonHomeClassroom,
                 buttonHomeSubject,
                 buttonHomeEvent,
                 buttonHomeScore,
-                buttonHomeAccount,
-                buttonHomeMenu;
+                buttonHomeAccount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,6 @@ public class HomeActivity extends AppCompatActivity {
 
         setControl();
         setEvent();
-        loadData();
     }
 
     private void setControl()
@@ -53,18 +50,6 @@ public class HomeActivity extends AppCompatActivity {
 
         buttonHomeScore = findViewById(R.id.buttonHomeScore);
         buttonHomeAccount = findViewById(R.id.buttonHomeAccount);
-
-        txtNameGV = findViewById(R.id.txtNameGV);
-        txtIDGV = findViewById(R.id.txtIDGV);
-
-        View topbarView = (View) findViewById(R.id.topBar);
-        buttonHomeMenu = topbarView.findViewById(R.id.btnHomeMenu);
-    }
-
-    private void loadData(){
-        Teacher gv = ((App) this.getApplication()).getTeacher();
-        txtNameGV.setText(gv.getName());
-        txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
 
@@ -89,54 +74,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        /*Step 3*/
-        MenuBuilder menuBuilder = new MenuBuilder(HomeActivity.this);
-        MenuInflater inflater = new MenuInflater(HomeActivity.this);
 
-        inflater.inflate(R.menu.menu_home_sidebar, menuBuilder);
-
-        buttonHomeMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                 MenuPopupHelper menuElement = new MenuPopupHelper(HomeActivity.this,menuBuilder, view);
-                 menuElement.setForceShowIcon(true);
-
-                 menuBuilder.setCallback(new MenuBuilder.Callback() {
-                     @SuppressLint("NonConstantResourceId")
-                     @Override
-                     public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
-                         Intent intent;
-                         switch (item.getItemId())
-                         {
-                             case R.id.classroom:
-                                 intent = new Intent(HomeActivity.this, ClassroomActivity.class);
-                                 startActivity(intent);
-                                 return true;
-                             case R.id.subject:
-                                 return true;
-                             case R.id.event:
-                                 return true;
-                             case R.id.mark:
-                                 return true;
-                             case R.id.statistics:
-                                 return true;
-                             case R.id.account:
-                                 return true;
-                             default:
-                                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
-                         }
-                     }
-
-                     @Override
-                     public void onMenuModeChange(@NonNull MenuBuilder menu) {
-
-                     }
-                 });
-
-                 menuElement.show();
-            }
-
-
-        });
     }
 }

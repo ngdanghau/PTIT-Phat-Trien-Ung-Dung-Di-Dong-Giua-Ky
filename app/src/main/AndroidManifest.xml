@@ -17,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.STDManager">
         <activity
+            android:name=".Statistic.RankedStatsActivity"
+            android:exported="false" />
+        <activity
             android:name=".Statistic.GenderStatsActivity"
             android:exported="false" />
         <activity

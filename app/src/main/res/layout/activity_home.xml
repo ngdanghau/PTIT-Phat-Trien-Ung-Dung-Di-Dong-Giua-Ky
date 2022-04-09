@@ -8,9 +8,13 @@
     android:orientation="vertical"
     android:background="@drawable/screen">
 
-    <include
+    <fragment
         android:id="@+id/topBar"
-        layout="@layout/topbar_menu"/>
+        class="com.example.stdmanager.TopBarMenuIconFragment"
+        tools:layout="@layout/fragment_top_bar_menu_icon"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    </fragment>
 
     <LinearLayout
         android:layout_width="wrap_content"

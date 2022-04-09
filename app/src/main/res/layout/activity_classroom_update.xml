@@ -9,9 +9,13 @@
     tools:context=".Classroom.ClassroomActivity">
 
     <!--Linear Layout Avatar & Home shortcut -->
-    <include
+    <fragment
         android:id="@+id/topBar"
-        layout="@layout/topbar_home" />
+        class="com.example.stdmanager.TopBarHomeIconFragment"
+        tools:layout="@layout/fragment_top_bar_home_icon"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    </fragment>
     <!--End Linear Layout Avatar & Home shortcut -->
 
 

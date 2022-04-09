@@ -31,8 +31,6 @@ public class ClassroomCreationActivity extends AppCompatActivity {
     RadioButton male, female;
     Button buttonBirthday;
     AppCompatButton buttonConfirm, buttonCancel;
-    ImageButton btnHome;
-    TextView txtNameGV, txtIDGV;
 
 
     private final Calendar cal = Calendar.getInstance();
@@ -47,7 +45,6 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         session = new Session(ClassroomCreationActivity.this);
         setControl();
         setEvent();
-        loadData();
 
         String today = day + "/" + month + "/" + year;
         buttonBirthday.setText(today);
@@ -66,16 +63,6 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         male = findViewById(R.id.classroomCreationRadioButtonMale);
         female = findViewById(R.id.classroomCreationRadioButtonFemale);
 
-        View topbarView = (View)findViewById(R.id.topBar);
-        btnHome = topbarView.findViewById(R.id.btnHome);
-        txtNameGV = findViewById(R.id.txtNameGV);
-        txtIDGV = findViewById(R.id.txtIDGV);
-    }
-
-    private void loadData(){
-        Teacher gv = ((App) this.getApplication()).getTeacher();
-        txtNameGV.setText(gv.getName());
-        txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
 
@@ -102,8 +89,6 @@ public class ClassroomCreationActivity extends AppCompatActivity {
 
     private void setEvent()
     {
-
-        btnHome.setOnClickListener(view -> finish());
 
         buttonConfirm.setOnClickListener(view -> {
 
