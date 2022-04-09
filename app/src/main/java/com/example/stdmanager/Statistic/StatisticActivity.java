@@ -5,16 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.stdmanager.App;
 import com.example.stdmanager.R;
-import com.example.stdmanager.listViewModels.ClassroomListViewModel;
 import com.example.stdmanager.listViewModels.StatisticListViewModel;
 import com.example.stdmanager.models.Statistic;
-import com.example.stdmanager.models.Student;
 import com.example.stdmanager.models.Teacher;
 
 import java.util.ArrayList;

@@ -13,9 +13,10 @@
         layout="@layout/topbar_menu"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
         android:padding="20dp">
 
         <LinearLayout
@@ -90,9 +91,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
         android:padding="20dp">
 
         <LinearLayout
