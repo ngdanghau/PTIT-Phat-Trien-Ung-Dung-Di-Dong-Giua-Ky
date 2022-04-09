@@ -43,6 +43,9 @@
 
     <!--    Khang -->
     <string name="TitleSubject">Danh sách môn học</string>
+    <string name="subjectName">Toán</string>
+    <string name="subjectHS">Hệ số 2</string>
+    <string name="subjectNKHK">Học kì 1 Năm học 2021-2022</string>
     <string name="SubjectTitleInformation">Thông tin môn học</string>
     <string name="AddSubject">Thêm môn học</string>
     <string name="ExportSubject">Xuất danh sách môn học</string>
