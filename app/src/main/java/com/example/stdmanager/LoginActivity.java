@@ -18,6 +18,8 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.example.stdmanager.DB.GradeOpenHelper;
+import com.example.stdmanager.DB.StudentOpenHelper;
 import com.example.stdmanager.DB.TeacherDBHelper;
 import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.models.Teacher;
@@ -28,7 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     Session session;
 
     EditText txtUsername, txtPassword;
-    AppCompatButton btnSignIn;
+    AppCompatButton btnSignIn, btnRegister;
     TeacherDBHelper db = new TeacherDBHelper(this);
     Boolean isLogin = false;
     @Override
@@ -53,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         txtUsername = findViewById(R.id.txtUsername);
         txtPassword = findViewById(R.id.txtPassword);
         btnSignIn = findViewById(R.id.btnSignIn);
+        btnRegister = findViewById(R.id.btnRegister);
     }
 
     private void setEvent(){
@@ -62,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Lấy input
                 String username = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
-                db.deleteAndCreatTable();
+
 
                 // kiểm tra input
                 if(username.isEmpty()){
@@ -108,6 +111,21 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
 
+
+            }
+        });
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TeacherDBHelper dbDemoTeacher = new TeacherDBHelper(LoginActivity.this);
+                dbDemoTeacher.deleteAndCreatTable();
+
+                GradeOpenHelper dbDemoGrade = new GradeOpenHelper(LoginActivity.this);
+                dbDemoGrade.deleteAndCreatTable();
+
+                StudentOpenHelper dbDemoStudent = new StudentOpenHelper(LoginActivity.this);
+                dbDemoStudent.deleteAndCreateTable();
 
             }
         });

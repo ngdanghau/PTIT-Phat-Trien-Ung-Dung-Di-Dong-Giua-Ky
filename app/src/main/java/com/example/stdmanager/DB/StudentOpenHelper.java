@@ -11,9 +11,11 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import com.example.stdmanager.models.Grade;
+import com.example.stdmanager.models.ReportTotal;
 import com.example.stdmanager.models.Student;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentOpenHelper extends SQLiteOpenHelper {
 
@@ -232,6 +234,35 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
     }
 
     /**
+     * @author Ngdanghau
+     * count by gender
+     * @return list report total
+     */
+    public ArrayList<ReportTotal> countByGender()
+    {
+
+        ArrayList<ReportTotal> objects = new ArrayList<>();
+
+        String query = String.format("SELECT %s, count(id) FROM %s GROUP BY %s", COLUMN_GENDER, TABLE_NAME, COLUMN_GENDER);
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+
+        if( cursor.moveToFirst() )
+        {
+            do
+            {
+                Integer gender = cursor.getInt(0);
+                Double value = cursor.getDouble(1);
+                objects.add( new ReportTotal(gender == 0 ? "Male" : "Female", value));
+            }
+            while( cursor.moveToNext() );
+        }
+
+        return objects;
+    }
+
+    /**
      * @author Phong-Kaster
      * create default records if there is nothing in Grade table
      */
@@ -246,7 +277,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         Student student1 = new Student("Nguyen","Phong",0,"1/5/2000", 1);
         Student student2 = new Student("Ho","Hau",0,"1/5/2000", 1);
         Student student3 = new Student("Luong","Khang",0,"1/5/2000", 1);
-        Student student4 = new Student("Emma","Watson",1,"1/5/2000", 1);
+        Student student4 = new Student("Emma","Watson",1,"1/5/2000", 2);
         /*Step 3*/
         this.create(student1);
         this.create(student2);

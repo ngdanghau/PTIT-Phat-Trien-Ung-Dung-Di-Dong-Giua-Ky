@@ -1,6 +1,8 @@
 package com.example.stdmanager.models;
 
-public class Statistic {
+import java.io.Serializable;
+
+public class Statistic implements Serializable {
     private Integer id;
     private String title;
     private String text;
