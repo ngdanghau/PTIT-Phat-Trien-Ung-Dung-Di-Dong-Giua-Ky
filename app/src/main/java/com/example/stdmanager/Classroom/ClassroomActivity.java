@@ -1,28 +1,35 @@
-package com.example.stdmanager;
+package com.example.stdmanager.Classroom;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import com.example.stdmanager.App;
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
+import com.example.stdmanager.R;
 import com.example.stdmanager.listViewModels.ClassroomListViewModel;
 import com.example.stdmanager.models.Grade;
 import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
+import com.example.stdmanager.models.Teacher;
 
 import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class ClassroomActivity extends AppCompatActivity {
@@ -40,10 +47,7 @@ public class ClassroomActivity extends AppCompatActivity {
     StudentOpenHelper studentOpenHelper = new StudentOpenHelper(this);
 
     EditText searchBar;
-    ImageView buttonHome;
-
-    AppCompatButton buttonCreation;
-
+    AppCompatButton buttonCreation, buttonExport;
 
 
 
@@ -66,10 +70,10 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
-        //gradeOpenHelper.deleteAndCreatTable();
+        gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
-        //studentOpenHelper.deleteAndCreateTable();
+        studentOpenHelper.deleteAndCreateTable();
         objects = studentOpenHelper.retrieveAllStudents();
 
 
@@ -79,6 +83,7 @@ public class ClassroomActivity extends AppCompatActivity {
 
         /*Step 4*/
         setEvent();
+
 
         /*Step 5*/
         String teacherId = session.get("teacherId");
@@ -94,8 +99,9 @@ public class ClassroomActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.classroomListView);
         searchBar = findViewById(R.id.classroomSearchBar);
-        buttonHome = findViewById(R.id.classroomButtonHome);
         buttonCreation = findViewById(R.id.classroomButtonCreation);
+        buttonExport = findViewById(R.id.classroomButtonExport);
+
     }
 
 
@@ -114,7 +120,6 @@ public class ClassroomActivity extends AppCompatActivity {
 
 
         /*Step 2*/
-        buttonHome.setOnClickListener(view -> finish());
 
         searchBar.setOnKeyListener((view, keyCode, keyEvent) -> {
 
@@ -138,9 +143,20 @@ public class ClassroomActivity extends AppCompatActivity {
             return false;
         });
 
-        buttonCreation.setOnClickListener(view -> {
-            Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
-            startActivity(intent);
+        buttonCreation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassroomActivity.this, ClassroomCreationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        buttonExport.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ClassroomActivity.this, ClassroomExportActivity.class);
+                startActivity(intent);
+            }
         });
     }
 
@@ -174,12 +190,18 @@ public class ClassroomActivity extends AppCompatActivity {
      * */
     public void deleteStudent(Student student)
     {
-        /*Step 1*/
-        for (Student element: objects) {
-            if(element.getId() == student.getId())
-                objects.remove(element);
+        if( student.getId() == 0 ) {
+            Toast.makeText(this, "ID không hợp lệ", Toast.LENGTH_LONG).show();
+            return;
         }
-
+        /*Step 1*/
+        for(int i = 0; i < objects.size(); i++)
+        {
+            if( objects.get(i).getId() == student.getId())
+            {
+                objects.remove( objects.get(i));
+            }
+        }
         /*Step 2*/ listViewModel.notifyDataSetChanged();
 
         /*Step 3*/ studentOpenHelper.delete(student);
@@ -189,7 +211,10 @@ public class ClassroomActivity extends AppCompatActivity {
 
     public void updateStudent(Student student)
     {
-        Log.d("id", "classroom Ma sinh vien la " + student.getId() + student.getFamilyName() + student.getFirstName() );
+        if( student.getId() == 0 ) {
+            Toast.makeText(this, "ID không hợp lệ", Toast.LENGTH_LONG).show();
+            return;
+        }
         /*Step 1*/
         for (Student element: objects) {
             if(element.getId() == student.getId())

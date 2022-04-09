@@ -3,7 +3,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="username">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
-    <string name="action_register">Đăng ký</string>
+    <string name="action_register">Đăng ký Demo</string>
     <string name="action_sign_in">Đăng nhập</string>
     <string name="action_register_long">Bạn chưa có tài khoản?</string>
     <string name="welcome">Welcome !</string>
@@ -49,4 +49,16 @@
     <string name="SubjectTitleInformation">Thông tin môn học</string>
     <string name="AddSubject">Thêm môn học</string>
     <string name="ExportSubject">Xuất danh sách môn học</string>
+
+    <string name="menuClassroom">Danh sách lớp</string>
+    <string name="menuSubject">Môn học</string>
+    <string name="menuEvent">Sự kiện</string>
+    <string name="menuMark">Điểm</string>
+    <string name="menuStatistics">Thống kê</string>
+    <string name="menuAccount">Tài khoản</string>
+    <string name="signout">Đăng xuất</string>
+    <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
+    <string name="classroomExportButtonPhoto">Xuất dạng hình ảnh</string>
+    <string name="classroomExportButtonPDF">Xuất dạng PDF</string>
+
 </resources>

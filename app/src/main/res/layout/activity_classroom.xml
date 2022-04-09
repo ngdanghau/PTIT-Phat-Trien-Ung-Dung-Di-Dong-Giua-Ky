@@ -6,66 +6,16 @@
     android:layout_height="match_parent"
     android:background="@drawable/screen"
     android:orientation="vertical"
-    tools:context=".ClassroomActivity">
+    tools:context=".Classroom.ClassroomActivity">
 
     <!--Linear Layout Avatar & Home shortcut -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="10dp"
-        android:paddingBottom="5dp">
-
-        <!-- Avatar -->
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:src="@drawable/avatar"
-            tools:ignore="ContentDescription" />
-
-
-        <!-- Information & Home shortcut -->
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="60dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingTop="10dp"
-                tools:ignore="RelativeOverlap">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/teacherName"
-                    android:textColor="@color/white"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/teacherClassroom"
-                    android:textColor="#B9B9B9" />
-            </LinearLayout>
-
-
-            <ImageView
-                android:id="@+id/classroomButtonHome"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="15dp"
-                android:paddingBottom="5dp"
-                android:src="@drawable/home"
-                tools:ignore="ContentDescription" />
-        </RelativeLayout>
-        <!-- End Information & Home shortcut -->
-    </LinearLayout>
+    <fragment
+        android:id="@+id/topBar"
+        class="com.example.stdmanager.TopBarHomeIconFragment"
+        tools:layout="@layout/fragment_top_bar_home_icon"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    </fragment>
     <!--End Linear Layout Avatar & Home shortcut -->
 
 
@@ -159,6 +109,7 @@
                 style="@style/button_style" />
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/classroomButtonExport"
                 style="@style/button_style"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"

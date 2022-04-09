@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/screen"
-    tools:context=".Statistic.StatisticActivity">
+    tools:context=".Statistic.MarkStatsActivity">
 
     <fragment
         android:id="@+id/topBar"
@@ -18,20 +18,37 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="610dp"
-        android:layout_alignParentBottom="true"
         android:background="@drawable/rectangle_6"
         android:orientation="vertical"
+        android:layout_alignParentBottom="true"
         android:padding="30dp">
 
-        <ListView
-            android:id="@+id/lvListStatistic"
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
+            android:layout_height="wrap_content"
+            android:id="@+id/title"
+            android:text="Thống kê"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="@color/black"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                style="@style/button_blue_style"
+                android:text="@string/classroomExportButtonPDF"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/btnExport"/>
+
+        </RelativeLayout>
+
 
     </LinearLayout>
-
 
 
 </RelativeLayout>
