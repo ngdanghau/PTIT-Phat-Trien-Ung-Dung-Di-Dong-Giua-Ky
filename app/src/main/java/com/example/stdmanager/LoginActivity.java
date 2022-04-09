@@ -130,6 +130,9 @@ public class LoginActivity extends AppCompatActivity {
                 StudentOpenHelper dbDemoStudent = new StudentOpenHelper(LoginActivity.this);
                 dbDemoStudent.deleteAndCreateTable();
 
+                SubjectDBHelper dbDemoSubject = new SubjectDBHelper(LoginActivity.this);
+                dbDemoSubject.deleteAndCreateTable();
+
             }
         });
     }

@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.STDManager">
         <activity
-            android:name=".SubjectActivity"
+            android:name=".Subject.SubjectActivity"
             android:exported="false" />
         <activity
             android:name=".Statistic.RankedStatsActivity"

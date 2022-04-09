@@ -1,4 +1,4 @@
-package com.example.stdmanager;
+package com.example.stdmanager.Subject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -13,6 +13,7 @@ import android.widget.ListView;
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
 import com.example.stdmanager.DB.SubjectDBHelper;
+import com.example.stdmanager.R;
 import com.example.stdmanager.listViewModels.ClassroomListViewModel;
 import com.example.stdmanager.listViewModels.SubjectAdapter;
 import com.example.stdmanager.models.Grade;
@@ -32,7 +33,6 @@ public class SubjectActivity extends AppCompatActivity {
     SubjectAdapter listViewModel;
     SubjectDBHelper subjectDB = new SubjectDBHelper(this);
     EditText searchBar;
-    ImageView buttonHome;
     private ImageView btnEdit;
 
     AppCompatButton buttonCreation;
@@ -63,7 +63,6 @@ public class SubjectActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.subjectListView);
         searchBar = findViewById(R.id.subjectSearchBar);
-        buttonHome = findViewById(R.id.subjectButtonHome);
         buttonCreation = findViewById(R.id.subjectButtonCreation);
         btnEdit=findViewById(R.id.btn_edit);
 

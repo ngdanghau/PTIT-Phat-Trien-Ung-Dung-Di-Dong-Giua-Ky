@@ -4,23 +4,14 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 
-import android.util.Log;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.PopupMenu;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuBuilder;
-import androidx.appcompat.view.menu.MenuPopupHelper;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
-import com.example.stdmanager.models.Teacher;
+import com.example.stdmanager.Subject.SubjectActivity;
 
 
 public class HomeActivity extends AppCompatActivity {

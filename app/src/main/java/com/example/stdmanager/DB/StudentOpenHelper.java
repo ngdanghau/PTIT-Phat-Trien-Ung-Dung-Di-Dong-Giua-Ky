@@ -254,7 +254,7 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
             {
                 Integer gender = cursor.getInt(0);
                 Double value = cursor.getDouble(1);
-                objects.add( new ReportTotal(gender == 0 ? "Male" : "Female", value));
+                objects.add( new ReportTotal(gender == 0 ? "Nam" : "Nữ", value));
             }
             while( cursor.moveToNext() );
         }

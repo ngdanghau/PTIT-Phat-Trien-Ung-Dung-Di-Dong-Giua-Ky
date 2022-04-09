@@ -22,6 +22,7 @@ public class MarkStatsActivity extends AppCompatActivity {
     TextView title;
     Statistic item;
     AppCompatButton btnExport;
+    AnyChartView anyChartView;
 
 
     @Override
@@ -47,5 +48,9 @@ public class MarkStatsActivity extends AppCompatActivity {
     private void setControl() {
         title = findViewById(R.id.title);
         btnExport = findViewById(R.id.btnExport);
+
+        anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
     }
 }

@@ -58,6 +58,8 @@ public class GenderStatsActivity extends AppCompatActivity {
         title = findViewById(R.id.title);
         btnExport = findViewById(R.id.btnExport);
         anyChartView = findViewById(R.id.any_chart_view);
+        anyChartView.setProgressBar(findViewById(R.id.progress_bar));
+
     }
 
     private void setupPieChart(){
