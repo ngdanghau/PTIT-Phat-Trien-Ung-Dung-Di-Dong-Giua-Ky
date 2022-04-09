@@ -47,10 +47,7 @@ public class ClassroomActivity extends AppCompatActivity {
     StudentOpenHelper studentOpenHelper = new StudentOpenHelper(this);
 
     EditText searchBar;
-    ImageButton btnHome;
-
     AppCompatButton buttonCreation, buttonExport;
-    TextView txtNameGV, txtIDGV;
 
 
 
@@ -88,8 +85,6 @@ public class ClassroomActivity extends AppCompatActivity {
         setEvent();
 
 
-        loadData();
-
         /*Step 5*/
         String teacherId = session.get("teacherId");
         String value = gradeOpenHelper.retriveIdByTeachId( teacherId );
@@ -107,16 +102,6 @@ public class ClassroomActivity extends AppCompatActivity {
         buttonCreation = findViewById(R.id.classroomButtonCreation);
         buttonExport = findViewById(R.id.classroomButtonExport);
 
-        View topbarView = (View)findViewById(R.id.topBar);
-        btnHome = topbarView.findViewById(R.id.btnHome);
-        txtNameGV = findViewById(R.id.txtNameGV);
-        txtIDGV = findViewById(R.id.txtIDGV);
-    }
-
-    private void loadData(){
-        Teacher gv = ((App) this.getApplication()).getTeacher();
-        txtNameGV.setText(gv.getName());
-        txtIDGV.setText("Mã GV: " + gv.getId());
     }
 
 
@@ -135,7 +120,6 @@ public class ClassroomActivity extends AppCompatActivity {
 
 
         /*Step 2*/
-        btnHome.setOnClickListener(view -> finish());
 
         searchBar.setOnKeyListener((view, keyCode, keyEvent) -> {
 

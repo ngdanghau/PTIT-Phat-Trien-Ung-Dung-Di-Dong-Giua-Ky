@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Lấy input
                 String username = txtUsername.getText().toString();
                 String password = txtPassword.getText().toString();
-                //db.deleteAndCreatTable();
+                db.deleteAndCreatTable();
 
                 // kiểm tra input
                 if(username.isEmpty()){

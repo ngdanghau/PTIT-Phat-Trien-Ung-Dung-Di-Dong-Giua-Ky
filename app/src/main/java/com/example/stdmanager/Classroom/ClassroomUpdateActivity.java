@@ -26,10 +26,8 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
     EditText familyName, firstName, birthday;
     RadioButton male, female;
 
-    ImageButton buttonBirthday, btnHome;
+    ImageButton buttonBirthday;
     AppCompatButton buttonConfirm, buttonCancel;
-
-    TextView txtNameGV, txtIDGV;
 
     private final Calendar cal = Calendar.getInstance();
     private final int year = cal.get(Calendar.YEAR);
@@ -45,7 +43,6 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
         setControl();
         setScreen();
         setEvent();
-        loadData();
     }
 
     private void setControl()
@@ -62,17 +59,8 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
         male = findViewById(R.id.classroomUpdateRadioButtonMale);
         female = findViewById(R.id.classroomUpdateRadioButtonFemale);
 
-        View topbarView = (View)findViewById(R.id.topBar);
-        btnHome = topbarView.findViewById(R.id.btnHome);
-        txtNameGV = findViewById(R.id.txtNameGV);
-        txtIDGV = findViewById(R.id.txtIDGV);
     }
 
-    private void loadData(){
-        Teacher gv = ((App) this.getApplication()).getTeacher();
-        txtNameGV.setText(gv.getName());
-        txtIDGV.setText("Mã GV: " + gv.getId());
-    }
 
     private void setScreen()
     {
@@ -125,8 +113,6 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
 
         /*Step 2*/
         Student myStudent = new Student();
-
-        btnHome.setOnClickListener(view -> finish());
 
         /*Step 3*/
         birthday.setOnClickListener(this::openDatePicker);

@@ -7,13 +7,17 @@
     android:background="@drawable/screen"
     tools:context=".Statistic.StatisticActivity">
 
-    <include
+    <fragment
         android:id="@+id/topBar"
-        layout="@layout/topbar_home" />
+        class="com.example.stdmanager.TopBarHomeIconFragment"
+        tools:layout="@layout/fragment_top_bar_home_icon"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+    </fragment>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="570dp"
+        android:layout_height="610dp"
         android:layout_alignParentBottom="true"
         android:background="@drawable/rectangle_6"
         android:orientation="vertical"
