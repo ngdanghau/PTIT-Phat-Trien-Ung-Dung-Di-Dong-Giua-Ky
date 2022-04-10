@@ -1,6 +1,7 @@
 package com.example.stdmanager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -39,7 +40,12 @@ public class TopBarHomeIconFragment extends Fragment {
     }
 
     private void setEvent() {
-        btnHome.setOnClickListener(view -> activity.finish());
+        btnHome.setOnClickListener(view -> {
+            Intent mainActivity = new Intent(activity, HomeActivity.class);
+            mainActivity.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(mainActivity);
+            activity.finish();
+        });
     }
 
     @Override
