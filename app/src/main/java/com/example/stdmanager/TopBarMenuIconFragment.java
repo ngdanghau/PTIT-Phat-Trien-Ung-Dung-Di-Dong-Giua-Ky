@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
+import com.example.stdmanager.Subject.SubjectActivity;
 import com.example.stdmanager.models.Teacher;
 
 public class TopBarMenuIconFragment extends Fragment {
@@ -72,6 +73,8 @@ public class TopBarMenuIconFragment extends Fragment {
                                 startActivity(intent);
                                 return true;
                             case R.id.subject:
+                                intent = new Intent(context, SubjectActivity.class);
+                                startActivity(intent);
                                 return true;
                             case R.id.event:
                                 return true;

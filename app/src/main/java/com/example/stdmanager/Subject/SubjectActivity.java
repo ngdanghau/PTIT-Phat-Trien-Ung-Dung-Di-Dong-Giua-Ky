@@ -33,7 +33,6 @@ public class SubjectActivity extends AppCompatActivity {
     SubjectAdapter listViewModel;
     SubjectDBHelper subjectDB = new SubjectDBHelper(this);
     EditText searchBar;
-    private ImageView btnEdit;
 
     AppCompatButton buttonCreation;
     @Override
@@ -64,7 +63,6 @@ public class SubjectActivity extends AppCompatActivity {
         listView = findViewById(R.id.subjectListView);
         searchBar = findViewById(R.id.subjectSearchBar);
         buttonCreation = findViewById(R.id.subjectButtonCreation);
-        btnEdit=findViewById(R.id.btn_edit);
 
     }
 
@@ -72,12 +70,6 @@ public class SubjectActivity extends AppCompatActivity {
     {
         listViewModel = new SubjectAdapter(this, R.layout.activity_subject_element, objects);
         listView.setAdapter(listViewModel);
-//        btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
- //       });
     }
 
 }

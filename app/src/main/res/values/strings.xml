@@ -49,7 +49,21 @@
     <string name="SubjectTitleInformation">Thông tin môn học</string>
     <string name="AddSubject">Thêm môn học</string>
     <string name="ExportSubject">Xuất danh sách môn học</string>
+    <!--    Edit Subject-->
+    <string name="TitleEditSubject">Sửa môn học</string>
+    <string name="NameEditSubject">Tên môn học</string>
+    <string name="HKEditSubject">Học kì</string>
+    <string name="HK1EditSubject">Học kì 1</string>
+    <string name="HK2EditSubject">Học kì 2</string>
+    <string name="HSEditSubject">Hệ số</string>
+    <string name="SaveSubject">Lưu môn học</string>
 
+
+
+
+
+    <!--    End Edit Subject-->
+    <!--    End Khang-->
     <string name="menuClassroom">Danh sách lớp</string>
     <string name="menuSubject">Môn học</string>
     <string name="menuEvent">Sự kiện</string>

@@ -6,21 +6,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+
 import com.example.stdmanager.R;
+
+import com.example.stdmanager.Subject.SubjectEditActivity;
 import com.example.stdmanager.models.Subject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class SubjectAdapter extends ArrayAdapter<Subject> {
     /*
      * Declare global variable
      * */
+    ImageView btn_Edit;
+    ImageView btn_Delete;
+    Subject subject;
     Context context;
     int resource;
     ArrayList<Subject> data;
@@ -46,24 +54,44 @@ public class SubjectAdapter extends ArrayAdapter<Subject> {
 
 //      1
 //        ImageView avatar = convertView.findViewById(R.id.subjectIcon);
+        btn_Edit = convertView.findViewById(R.id.btn_edit);
+        btn_Delete = convertView.findViewById(R.id.btn_delete);
         TextView name = convertView.findViewById(R.id.subjectName);
         TextView NKHK = convertView.findViewById(R.id.subjectNKHK);
         TextView heSo = convertView.findViewById(R.id.subjectHS);
-
 //      2
-        Subject subject = data.get(position);
+        subject = data.get(position);
         String subject_name = subject.getTenMH();
         String subject_NKHK = "Học kỳ: " +  subject.getHocKy() +" Năm học: "+subject.getNamHoc();
         String subject_hs = "Hệ số: " +subject.getHeSo();
 
-
+        setEvent();
         name.setText(subject_name);
         NKHK.setText(subject_NKHK);
         heSo.setText(subject_hs);
 
-
-
         return convertView;
+    }
+
+    public void setEvent()
+    {
+        btn_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context.getApplicationContext(), SubjectEditActivity.class);
+                intent.putExtra("Subject",subject);
+                context.startActivity(intent);
+            }
+        });
+
+        btn_Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
     }
 
 }

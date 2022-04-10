@@ -1,6 +1,8 @@
 package com.example.stdmanager.models;
 
-public class Subject {
+import java.io.Serializable;
+
+public class Subject implements Serializable {
 
     int MaMH,HocKy,HeSo;
     String TenMH,NamHoc;

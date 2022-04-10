@@ -5,12 +5,27 @@
       <map>
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom.xml" value="0.2436923148431724" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_element.xml" value="0.36923078006541266" />
-        <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_export.xml" value="0.2436923148431724" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_home.xml" value="0.2436923148431724" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_login.xml" value="0.15519452757588714" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_main.xml" value="0.15519452757588714" />
-        <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/fragment_top_bar_home_icon.xml" value="0.16246154322878156" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/student_item.xml" value="0.11413043478260869" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2985" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2985" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/drawable/rectangle_5.xml" value="0.2985" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/drawable/rectangle_6.xml" value="0.2985" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/drawable/screen_background.xml" value="0.2985" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/drawable/student_button_add.xml" value="0.2985" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_creation.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_element.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_individual.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_update.xml" value="0.36666666666666664" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_login.xml" value="0.24954710144927536" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_statistic.xml" value="0.22" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject_edit.xml" value="0.22" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject_element.xml" value="0.358695652173913" />
         <entry key="..\:/Users/Hau Nguyen Dang/Downloads/Compressed/STDManager-master/STDManager-master/app/src/main/res/drawable/border.xml" value="0.257" />
         <entry key="..\:/Users/Hau Nguyen Dang/Downloads/Compressed/STDManager-master/STDManager-master/app/src/main/res/drawable/border_student_table.xml" value="0.22" />
         <entry key="..\:/Users/Hau Nguyen Dang/Downloads/Compressed/STDManager-master/STDManager-master/app/src/main/res/drawable/student_button_add.xml" value="0.22" />
@@ -30,34 +45,16 @@
         <entry key="app/src/main/res/drawable/rectangle_5.xml" value="0.2455" />
         <entry key="app/src/main/res/drawable/rectangle_6.xml" value="0.3075" />
         <entry key="app/src/main/res/layout-w1240dp/confirm_alert.xml" value="0.25" />
-        <entry key="app/src/main/res/layout-w936dp/topbar_menu.xml" value="0.2967896174863388" />
         <entry key="app/src/main/res/layout/activity_classroom.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/activity_classroom_creation.xml" value="0.39356884057971014" />
-        <entry key="app/src/main/res/layout/activity_classroom_element.xml" value="0.4076086956521739" />
-        <entry key="app/src/main/res/layout/activity_classroom_export.xml" value="0.35778985507246375" />
-        <entry key="app/src/main/res/layout/activity_classroom_individual.xml" value="0.3255208333333333" />
-        <entry key="app/src/main/res/layout/activity_classroom_update.xml" value="0.3255208333333333" />
-        <entry key="app/src/main/res/layout/activity_gender_stats.xml" value="0.3663949275362319" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2545289855072464" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login2.xml" value="0.4615036231884058" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/activity_mark_stats.xml" value="0.3663949275362319" />
-        <entry key="app/src/main/res/layout/activity_mark_stats2.xml" value="0.5606884057971014" />
-        <entry key="app/src/main/res/layout/activity_ranked_stats.xml" value="0.35778985507246375" />
         <entry key="app/src/main/res/layout/activity_slider.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/activity_statistic.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/activity_statistic_row.xml" value="0.4076086956521739" />
-        <entry key="app/src/main/res/layout/activity_subject.xml" value="0.39311594202898553" />
+        <entry key="app/src/main/res/layout/activity_statistic.xml" value="0.4615036231884058" />
         <entry key="app/src/main/res/layout/confirm_alert.xml" value="0.2545289855072464" />
-        <entry key="app/src/main/res/layout/fragment_top_bar_home_icon.xml" value="0.35778985507246375" />
-        <entry key="app/src/main/res/layout/fragment_top_bar_menu_icon.xml" value="0.35778985507246375" />
         <entry key="app/src/main/res/layout/normal_alert.xml" value="0.3663949275362319" />
         <entry key="app/src/main/res/layout/success_alert.xml" value="0.2545289855072464" />
-        <entry key="app/src/main/res/layout/topbar.xml" value="0.39356884057971014" />
-        <entry key="app/src/main/res/layout/topbar_home.xml" value="0.39356884057971014" />
-        <entry key="app/src/main/res/layout/topbar_menu.xml" value="0.39356884057971014" />
-        <entry key="app/src/main/res/menu/menu_home_sidebar.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2455" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2995" />
       </map>
