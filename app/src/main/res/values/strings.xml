@@ -3,7 +3,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="username">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
-    <string name="action_register">Đăng ký</string>
+    <string name="action_register">Đăng ký Demo</string>
     <string name="action_sign_in">Đăng nhập</string>
     <string name="action_register_long">Bạn chưa có tài khoản?</string>
     <string name="welcome">Welcome !</string>
@@ -40,6 +40,16 @@
     <string name="Cancel">Hủy bỏ</string>
     <string name="popupContent">This is a popup window.</string>
     <string name="deleteStudent">Bạn có chắc chắn muốn xóa học sinh này ?</string>
+
+    <!--    Khang -->
+    <string name="TitleSubject">Danh sách môn học</string>
+    <string name="subjectName">Toán</string>
+    <string name="subjectHS">Hệ số 2</string>
+    <string name="subjectNKHK">Học kì 1 Năm học 2021-2022</string>
+    <string name="SubjectTitleInformation">Thông tin môn học</string>
+    <string name="AddSubject">Thêm môn học</string>
+    <string name="ExportSubject">Xuất danh sách môn học</string>
+
     <string name="menuClassroom">Danh sách lớp</string>
     <string name="menuSubject">Môn học</string>
     <string name="menuEvent">Sự kiện</string>
@@ -50,6 +60,5 @@
     <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
     <string name="classroomExportButtonPhoto">Xuất dạng hình ảnh</string>
     <string name="classroomExportButtonPDF">Xuất dạng PDF</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
