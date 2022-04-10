@@ -1,20 +1,12 @@
 package com.example.stdmanager.Classroom;
 
 import android.Manifest;
-import android.app.Activity;
-import android.content.Intent;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Point;
-import android.graphics.pdf.PdfDocument;
-import android.graphics.pdf.PdfRenderer;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -31,13 +23,27 @@ import com.example.stdmanager.DB.StudentOpenHelper;
 import com.example.stdmanager.R;
 import com.example.stdmanager.models.Student;
 
-import java.io.ByteArrayOutputStream;
+
+import com.itextpdf.kernel.colors.DeviceGray;
+import com.itextpdf.kernel.pdf.*;
+
+import com.itextpdf.layout.Document;
+import com.itextpdf.layout.element.Cell;
+import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.Table;
+import com.itextpdf.layout.property.TextAlignment;
+import com.itextpdf.layout.property.UnitValue;
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
+
+
 
 public class ClassroomExportActivity extends AppCompatActivity {
 
@@ -48,7 +54,7 @@ public class ClassroomExportActivity extends AppCompatActivity {
     AppCompatButton buttonPhoto, buttonGoBack, buttonPDF;
     LinearLayout linearLayout;
 
-    Bitmap bitmap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -119,38 +125,36 @@ public class ClassroomExportActivity extends AppCompatActivity {
 
     private void setEvent()
     {
-        buttonPhoto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ViewGroup viewGroup = table;
-                screenshotToPhoto(viewGroup, "result");
-                Toast.makeText(ClassroomExportActivity.this, "Xuất hình ảnh thành công ! Vui lòng kiểm tra trong phần bộ nhớ di động", Toast.LENGTH_LONG).show();
-            }
+        buttonPhoto.setOnClickListener(view -> {
+            ViewGroup viewGroup = table;
+            screenshotToPhoto(viewGroup, "result");
+
+            Toast.makeText(ClassroomExportActivity.this,
+                            "Xuất hình ảnh thành công !",
+                            Toast.LENGTH_LONG)
+                .show();
         });
 
-        buttonPDF.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                ViewGroup viewGroup = table;
-//                screenshotToPDF(viewGroup, "result");
-                Toast.makeText(ClassroomExportActivity.this, "Tính năng này đang trong giai đoạn phát triển", Toast.LENGTH_LONG).show();
-            }
+        buttonPDF.setOnClickListener(view -> {
+            createPdfWithItext7(view);
+            Toast.makeText(ClassroomExportActivity.this,
+                        "Xuất tệp tin PDF thành công !",
+                        Toast.LENGTH_LONG)
+                .show();
         });
 
-        buttonGoBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
+        buttonGoBack.setOnClickListener(view -> finish());
     }
 
     /**
      * @author Phong-Kaster
-     * This funtion uses bitmap library to capture screen and store the photo into root directory
+     * This funtion uses bitmap library - a pre-installed Android libray so as to
+     * capture screen and store the photo into root directory
+     *
      * To check, open "View -> Tool Window -> Device File Explorer -> sdCard". We will see the stored photo
+     * Remember choose "Synchronize" to refresh sdCard
      * */
-    private static File screenshotToPhoto(View view, String filename) {
+    private static void screenshotToPhoto(View view, String filename) {
         /*Step 1*/
         Date date = new Date();
 
@@ -159,13 +163,9 @@ public class ClassroomExportActivity extends AppCompatActivity {
         try {
             /*Step 2*/
             String dirpath = Environment.getExternalStorageDirectory() + "";
-            File file = new File(dirpath);
-            if (!file.exists()) {
-                boolean mkdir = file.mkdir();
-            }
 
             // File name
-            String path = dirpath + "/" + filename + "-" + format + ".jpeg";
+            String path = dirpath + "/" + filename + "-" + format +".jpeg";
 
             /*Step 3*/
             view.setDrawingCacheEnabled(true);
@@ -173,110 +173,124 @@ public class ClassroomExportActivity extends AppCompatActivity {
             view.setDrawingCacheEnabled(false);
             File imageurl = new File(path);
 
+
             /*Step 4*/
             FileOutputStream outputStream = new FileOutputStream(imageurl);
             bitmap.compress(Bitmap.CompressFormat.JPEG, 50, outputStream);
 
+
             /*Step 5*/
             outputStream.flush();
             outputStream.close();
-            return imageurl;
 
         } catch (IOException io) {
             io.printStackTrace();
         }
-        return null;
     }
 
 
     /**
      * @author Phong-Kaster
+     * Create Pdf with iText 7 - a third-party library to instanciate PDF file
+     *
+     * To check, open "View -> Tool Window -> Device File Explorer -> sdCard". We will see the stored photo
+     * Remember choose "Synchronize" to refresh sdCard
+     *
+     * Step 1: instanciate output PDF File
+     * Step 2: declare PdfWriter, PdfDocument and Document
+     * Step 3: declare number of column and dimension
+     *          #   Ho   Ten    Gioi Tinh      Ngay Sinh
+     * Step 4: declare header
+     * Step 5: declare columns name
+     * Step 6: insert student information from database
      * */
-    private static File screenshotToPDF(View view, String filename )
+    public void createPdfWithItext7(View v)
     {
+
         try {
-            // Initialising the directory of storage
-            String dirpath = Environment.getExternalStorageDirectory() + "";
-            File file = new File(dirpath);
-            if (!file.exists()) {
-                boolean mkdir = file.mkdir();
+            /*Step 1*/
+            @SuppressLint("SdCardPath") String path = "/sdcard/DanhSachSinhVien.pdf";
+            File file = new File(path);
+            OutputStream output = new FileOutputStream(file);
+
+
+            /*Step 2*/
+            PdfWriter writer = new PdfWriter(output);
+            com.itextpdf.kernel.pdf.PdfDocument pdfDocument = new com.itextpdf.kernel.pdf.PdfDocument(writer);
+
+            Document document = new Document(pdfDocument);
+
+
+            /*Step 3*/
+            float[] dimension = {1, 2, 2, 2, 2};
+            Table table = new Table(UnitValue.createPercentArray(dimension));
+
+
+            /*Step 4*/
+            ArrayList<Student> objects = studentOpenHelper.retrieveAllStudents();
+            String gradeName = objects.get(1).getGradeName();
+
+            Paragraph header = new Paragraph("Danh Sách Sinh Viên " + gradeName);
+            Cell cell = new Cell(1, 5)
+                    .add( header )
+                    .setFontSize(13)
+                    .setFontColor(DeviceGray.WHITE)
+                    .setBackgroundColor(DeviceGray.GRAY)
+                    .setTextAlignment(TextAlignment.CENTER);
+            table.addHeaderCell(cell);
+
+
+            /*Step 5*/
+            DeviceGray color = new DeviceGray(0.75f);
+
+            Paragraph column1 = new Paragraph("#");
+            Paragraph column2 = new Paragraph("Ho");
+            Paragraph column3 = new Paragraph("Ten");
+            Paragraph column4 = new Paragraph("Gioi tinh");
+            Paragraph column5 = new Paragraph("Ngay sinh");
+
+            for (int i = 0; i < 2; i++)
+            {
+                Cell[] headerFooter = new Cell[]{
+                        new Cell().setBackgroundColor(color).add(column1),
+                        new Cell().setBackgroundColor(color).add(column2),
+                        new Cell().setBackgroundColor(color).add(column3),
+                        new Cell().setBackgroundColor(color).add(column4),
+                        new Cell().setBackgroundColor(color).add(column5)
+                };
+
+                for (Cell hfCell : headerFooter) {
+                    if (i == 0) {
+                        table.addHeaderCell(hfCell);
+                    } else {
+                        table.addFooterCell(hfCell);
+                    }
+                }
             }
 
 
+            /*Step 6*/
+            for (int i = 0; i < objects.size(); i++) {
+                Student student = objects.get(i);
+                String family = student.getFamilyName();
+                String first = student.getFirstName();
+                String gender = student.getGender() == 0 ? "Nam" : "Nu";
+                String birthday = student.getBirthday();
 
-            view.setDrawingCacheEnabled(true);
-            Bitmap bitmap = Bitmap.createBitmap(view.getDrawingCache());
-            view.setDrawingCacheEnabled(false);
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(String.valueOf(i + 1))));
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(  family  )));
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(  first   )));
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(  gender  )));
+                table.addCell(new Cell().setTextAlignment(TextAlignment.CENTER).add(new Paragraph(  birthday )));
+            }
 
+            document.add(table);
+            document.close();
 
-            PdfDocument pdfDocument = new PdfDocument();
-            PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(100, 100, 1).create();
-
-            PdfDocument.Page page = pdfDocument.startPage(pageInfo);
-
-            Canvas canvas = page.getCanvas();
-            canvas.drawBitmap(bitmap,0,0,null);
-            pdfDocument.finishPage(page);
-
-
-
-            // File name
-            String path = dirpath + "/" + filename + ".pdf";
-            File PDFfile = new File(path);
-            FileOutputStream outputStream = new FileOutputStream(PDFfile);
-
-            pdfDocument.writeTo(outputStream);
-            pdfDocument.close();
-            return PDFfile;
-
-        } catch (Exception io) {
-            io.printStackTrace();
-        }
-
-        return null;
-    }
-
-    private void exportPDFFile()
-    {
-        PdfDocument pdfDocument = new PdfDocument();
-        Point windowSize = new Point();
-        getWindowManager().getDefaultDisplay().getSize(windowSize);
-
-
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(windowSize.x, windowSize.y,1 ).create();
-        PdfDocument.Page page = pdfDocument.startPage(pageInfo);
-
-
-        Paint paint = new Paint();
-
-
-        String content = "Danh sach sinh vien lop \r \n";
-        for(int i = 0; i < objects.size(); i++)
-        {
-            Student element = objects.get(i);
-            content += i + ". " + element.getFamilyName() + "\t\t" + element.getFirstName() + "\t\t" + element.getBirthday() +"\r \n";
-        }
-
-        int x = 10, y =25;
-        page.getCanvas().drawText(content, x, y,paint);
-        pdfDocument.finishPage(page);
-
-        String filePath = Environment.getExternalStorageDirectory().getPath() + "/Classroom-PDF-File.pdf";
-        File file = new File(filePath);
-
-        try
-        {
-            FileOutputStream fout = new FileOutputStream(file);
-            pdfDocument.writeTo(fout);
-            Log.d("fileText", filePath);
-            Toast.makeText(ClassroomExportActivity.this, "Xuat file thanh cong: " + filePath, Toast.LENGTH_LONG).show();
-        }
-        catch(Exception e)
-        {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        pdfDocument.close();
-        finish();
-    }
 
+
+    }
 }

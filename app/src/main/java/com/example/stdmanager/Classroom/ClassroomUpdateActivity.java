@@ -18,7 +18,9 @@ import com.example.stdmanager.R;
 import com.example.stdmanager.models.Student;
 import com.example.stdmanager.models.Teacher;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class ClassroomUpdateActivity extends AppCompatActivity {
@@ -90,8 +92,12 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
         /*Step 1*/
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
             month = month + 1;
-            String birthdayValue = day + "/" + month + "/" + year;
+
+            Date date = new Date(year-1900, month, day);
+            SimpleDateFormat formatter =  new SimpleDateFormat("dd/MM/yyyy");
+            String birthdayValue = formatter.format(date);
             birthday.setText(birthdayValue);
+
         };
 
         /*Step 2*/
@@ -164,7 +170,7 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
             return false;
         }
 
-        int yearBirhday = Integer.parseInt( student.getBirthday().substring(4,8) );
+        int yearBirhday = Integer.parseInt( student.getBirthday().substring(6) );
         int flagAge = year - yearBirhday;
         if( flagAge < 18)
         {

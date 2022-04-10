@@ -243,10 +243,10 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
             return;
 
         /*Step 2*/
-        Student student1 = new Student("Nguyen","Phong",0,"1/5/2000", 1);
-        Student student2 = new Student("Ho","Hau",0,"1/5/2000", 1);
-        Student student3 = new Student("Luong","Khang",0,"1/5/2000", 1);
-        Student student4 = new Student("Emma","Watson",1,"1/5/2000", 1);
+        Student student1 = new Student("Thanh","Phong",0,"01/05/2000", 1);
+        Student student2 = new Student("Dang","Hau",0,"20/01/2000", 1);
+        Student student3 = new Student("Dinh","Khang",0,"24/03/2000", 1);
+        Student student4 = new Student("Emma","Watson",1,"21/07/2000", 1);
         /*Step 3*/
         this.create(student1);
         this.create(student2);
