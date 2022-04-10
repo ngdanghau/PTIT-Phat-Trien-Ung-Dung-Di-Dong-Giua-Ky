@@ -2,6 +2,7 @@ package com.example.stdmanager.Classroom;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -20,7 +22,12 @@ import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Student;
 import com.example.stdmanager.models.Teacher;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.regex.Pattern;
 
 public class ClassroomCreationActivity extends AppCompatActivity {
@@ -66,12 +73,19 @@ public class ClassroomCreationActivity extends AppCompatActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void openDatePicker(View view)
     {
         /*Step 1*/
         DatePickerDialog.OnDateSetListener dateSetListener = (datePicker, year, month, day) -> {
             month = month + 1;
-            String birthday = day + "/" + month + "/" + year;
+
+
+            Date date = new Date(year-1900, month, day);
+            SimpleDateFormat formatter =  new SimpleDateFormat("dd/MM/yyyy");
+
+            String birthday = formatter.format(date);
+
             buttonBirthday.setText(birthday);
         };
 
@@ -129,7 +143,7 @@ public class ClassroomCreationActivity extends AppCompatActivity {
             return false;
         }
 
-        int yearBirhday = Integer.parseInt( student.getBirthday().substring(4,8) );
+        int yearBirhday = Integer.parseInt( student.getBirthday().substring(6) );
         int flagAge = year - yearBirhday;
         if( flagAge < 18)
         {
