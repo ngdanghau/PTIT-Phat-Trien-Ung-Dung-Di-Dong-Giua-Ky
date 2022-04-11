@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.stdmanager.models.Student;
 import com.example.stdmanager.models.Subject;
 import com.example.stdmanager.models.Teacher;
 
@@ -72,8 +73,46 @@ public class SubjectDBHelper extends SQLiteOpenHelper
         db.close();
     }
 
-    // If Subject table has no data
-    // default, Insert 6 records.
+    public boolean update(Subject subject) {
+        /*Step 1*/
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        /*Step 2*/
+        int id = subject.getMaMH();
+
+        String tenMH = subject.getTenMH();
+        int hocKy = subject.getHocKy();
+        int heSo = subject.getHeSo();
+        String namHoc = subject.getNamHoc();
+
+        /*Step 3*/
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_tenmh, tenMH);
+        values.put(COLUMN_hocky, hocKy);
+        values.put(COLUMN_heso, heSo);
+        values.put(COLUMN_namhoc, namHoc);
+
+
+
+        /*Step 4*/
+        try{
+            sqLiteDatabase.update(TABLE_NAME, values, COLUMN_mamh + " = ?",
+                    new String[]{String.valueOf(id)});
+            return true;
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+
+
+
+        // If Subject table has no data
+    // default, Insert 3 records.
+
     public void createDefaultSubject()  {
 //        String countQuery = "SELECT  * FROM " + TABLE_NAME;
 //        SQLiteDatabase db = this.getReadableDatabase();

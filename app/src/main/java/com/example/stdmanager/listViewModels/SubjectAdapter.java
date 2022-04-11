@@ -8,14 +8,17 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
+import com.example.stdmanager.MainActivity;
 import com.example.stdmanager.R;
 
+import com.example.stdmanager.Subject.SubjectActivity;
 import com.example.stdmanager.Subject.SubjectEditActivity;
 import com.example.stdmanager.models.Subject;
 
@@ -66,6 +69,25 @@ public class SubjectAdapter extends ArrayAdapter<Subject> {
         String subject_hs = "Hệ số: " +subject.getHeSo();
 
         setEvent();
+
+        btn_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Subject subject1 = data.get(position);
+                Intent intent = new Intent(context.getApplicationContext(), SubjectEditActivity.class);
+                intent.putExtra("Subject",subject1);
+
+                context.startActivity(intent);
+            }
+        });
+
+
+        btn_Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         name.setText(subject_name);
         NKHK.setText(subject_NKHK);
         heSo.setText(subject_hs);
@@ -75,21 +97,7 @@ public class SubjectAdapter extends ArrayAdapter<Subject> {
 
     public void setEvent()
     {
-        btn_Edit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(context.getApplicationContext(), SubjectEditActivity.class);
-                intent.putExtra("Subject",subject);
-                context.startActivity(intent);
-            }
-        });
 
-        btn_Delete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
 
     }

@@ -54,18 +54,32 @@
                     android:textStyle="bold"
                     android:layout_marginTop="16dp"/>
 
-                <EditText
-                    android:id="@+id/txt_tenMH"
-                    android:layout_width="309dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:layout_marginTop="8dp"
-                    android:paddingLeft="10dp"
-                    android:background="@drawable/border"
-                    android:text="Toán"
-                    android:textSize="20dp"
-                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/txt_tenMH"
+                        android:layout_width="309dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="8dp"
+                        android:paddingLeft="10dp"
+                        android:background="@drawable/border"
+                        android:text="Toán"
+                        android:textSize="20dp"
+                        />
+                    <ImageView
+
+                        android:id="@+id/errorName"
+                        android:layout_width="20dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/info_icon" />
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -98,6 +112,16 @@
                         android:text="@string/HK2EditSubject"
                         android:textSize="20dp" />
 
+                    <ImageView
+
+                        android:id="@+id/errorHK"
+                        android:layout_width="20dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/info_icon" />
+
 
                 </LinearLayout>
 
@@ -112,23 +136,74 @@
                     android:textStyle="bold"
                     android:layout_marginTop="16dp"/>
 
-                <EditText
-                    android:id="@+id/txt_HeSo"
-                    android:layout_width="309dp"
-                    android:layout_height="40dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:paddingLeft="10dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/border"
-                    android:text="1.0"
-                    android:textSize="20dp"
-                    android:ems="10"
-                    android:inputType="number" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <EditText
+                        android:id="@+id/txt_HeSo"
+                        android:layout_width="309dp"
+                        android:layout_height="40dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_alignParentTop="true"
+                        android:paddingLeft="10dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border"
+                        android:text="1"
+                        android:textSize="20dp"
+                        android:ems="10"
+                        android:maxLength="1"
+                        android:inputType="number" />
+                    <ImageView
 
+                        android:id="@+id/errorHS"
+                        android:layout_width="20dp"
+                        android:layout_height="18dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@drawable/info_icon" />
+                </LinearLayout>
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/NHEditSubject"
+                    android:lineSpacingExtra="-3sp"
+                    android:textSize="20sp"
+                    android:letterSpacing="-0.03"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
+                        <EditText
+                            android:id="@+id/txt_namHoc"
+                            android:layout_width="309dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentLeft="true"
+                            android:layout_alignParentTop="true"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border"
+                            android:ems="10"
+                            android:paddingLeft="10dp"
+                            android:text="@string/NHEditSubjectex"
+                            android:textSize="20dp"
+                            android:tooltipText="@string/NHEditSubjectex" />
 
+                        <ImageView
+
+                            android:id="@+id/errorNH"
+                            android:layout_width="20dp"
+                            android:layout_height="18dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginLeft="5dp"
+                            android:visibility="invisible"
+                            app:srcCompat="@drawable/info_icon" />
+                    </LinearLayout>
 
             </LinearLayout>
 

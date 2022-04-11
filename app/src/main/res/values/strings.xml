@@ -56,6 +56,9 @@
     <string name="HK1EditSubject">Học kì 1</string>
     <string name="HK2EditSubject">Học kì 2</string>
     <string name="HSEditSubject">Hệ số</string>
+    <string name="NHEditSubject">Năm học</string>
+    <string name="NHEditSubjectex">2021-2022</string>
+
     <string name="SaveSubject">Lưu môn học</string>
 
 
