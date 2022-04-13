@@ -67,8 +67,7 @@ public class TopBarMenuIconFragment extends Fragment {
                     @Override
                     public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
                         Intent intent;
-                        switch (item.getItemId())
-                        {
+                        switch (item.getItemId()) {
                             case R.id.classroom:
                                 intent = new Intent(context, ClassroomActivity.class);
                                 startActivity(intent);
@@ -85,21 +84,22 @@ public class TopBarMenuIconFragment extends Fragment {
                                 intent = new Intent(context, StatisticActivity.class);
                                 startActivity(intent);
                                 return true;
-                            case R.id.account:
+                            case R.id.settings:
+                                intent = new Intent(context, SettingsActivity.class);
+                                startActivity(intent);
                                 return true;
                             default:
                                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
                         }
                     }
-                }
 
-                @Override
-                public void onMenuModeChange(@NonNull MenuBuilder menu) {
+                    @Override
+                    public void onMenuModeChange(@NonNull MenuBuilder menu) {
 
-                }
-            });
-
-            menuElement.show();
+                    }
+                });
+                menuElement.show();
+            }
         });
     }
 
