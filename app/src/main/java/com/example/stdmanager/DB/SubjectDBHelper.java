@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.stdmanager.models.Student;
 import com.example.stdmanager.models.Subject;
 import com.example.stdmanager.models.Teacher;
 
@@ -58,22 +59,88 @@ public class SubjectDBHelper extends SQLiteOpenHelper
 //        onCreate(db);
     }
 
-    public void AddSubject(Subject subject) {
+    public boolean AddSubject(Subject subject) {
         Log.i(TAG, "AddSubject " + subject.getTenMH());
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_tenmh, subject.getTenMH());
-        values.put(COLUMN_heso, subject.getHeSo());
-        values.put(COLUMN_hocky, subject.getHocKy());
-        values.put(COLUMN_namhoc,subject.getNamHoc());
-        // Inserting Row
-        db.insert(TABLE_NAME, null, values);
-        // Closing database connection
-        db.close();
+        try{
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_tenmh, subject.getTenMH());
+            values.put(COLUMN_heso, subject.getHeSo());
+            values.put(COLUMN_hocky, subject.getHocKy());
+            values.put(COLUMN_namhoc,subject.getNamHoc());
+            // Inserting Row
+            db.insert(TABLE_NAME, null, values);
+            // Closing database connection
+            db.close();
+            return true;
+        }catch(Exception e )
+        {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
-    // If Subject table has no data
-    // default, Insert 6 records.
+    public boolean update(Subject subject) {
+        /*Step 1*/
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+        /*Step 2*/
+        int id = subject.getMaMH();
+
+        String tenMH = subject.getTenMH();
+        int hocKy = subject.getHocKy();
+        int heSo = subject.getHeSo();
+        String namHoc = subject.getNamHoc();
+
+        /*Step 3*/
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_tenmh, tenMH);
+        values.put(COLUMN_hocky, hocKy);
+        values.put(COLUMN_heso, heSo);
+        values.put(COLUMN_namhoc, namHoc);
+
+
+
+        /*Step 4*/
+        try{
+            sqLiteDatabase.update(TABLE_NAME, values, COLUMN_mamh + " = ?",
+                    new String[]{String.valueOf(id)});
+            return true;
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+
+    public boolean deleteSubject(Subject subject)
+    {
+        /*Step 1*/
+        try{
+            int id = subject.getMaMH();
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+            /*Step 2*/
+            sqLiteDatabase.delete(TABLE_NAME, COLUMN_mamh + " = ?",
+                    new String[]{ String.valueOf(id) } );
+            sqLiteDatabase.close();
+            return true;
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
+
+
+
+        // If Subject table has no data
+    // default, Insert 3 records.
+
     public void createDefaultSubject()  {
 //        String countQuery = "SELECT  * FROM " + TABLE_NAME;
 //        SQLiteDatabase db = this.getReadableDatabase();

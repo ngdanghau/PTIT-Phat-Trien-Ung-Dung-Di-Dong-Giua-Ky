@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.example.stdmanager.Classroom.ClassroomActivity;
 import com.example.stdmanager.Settings.SettingsActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
+import com.example.stdmanager.Subject.SubjectActivity;
 import com.example.stdmanager.models.Teacher;
 
 public class TopBarMenuIconFragment extends Fragment {
@@ -55,37 +56,40 @@ public class TopBarMenuIconFragment extends Fragment {
 
         inflater.inflate(R.menu.menu_home_sidebar, menuBuilder);
 
-        btnMenu.setOnClickListener(view -> {
-            MenuPopupHelper menuElement = new MenuPopupHelper(context, menuBuilder, view);
-            menuElement.setForceShowIcon(true);
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MenuPopupHelper menuElement = new MenuPopupHelper(context, menuBuilder, view);
+                menuElement.setForceShowIcon(true);
 
-            menuBuilder.setCallback(new MenuBuilder.Callback() {
-                @SuppressLint("NonConstantResourceId")
-                @Override
-                public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
-                    Intent intent;
-                    switch (item.getItemId())
-                    {
-                        case R.id.classroom:
-                            intent = new Intent(context, ClassroomActivity.class);
-                            startActivity(intent);
-                            return true;
-                        case R.id.subject:
-                            return true;
-                        case R.id.event:
-                            return true;
-                        case R.id.mark:
-                            return true;
-                        case R.id.statistics:
-                            intent = new Intent(context, StatisticActivity.class);
-                            startActivity(intent);
-                            return true;
-                        case R.id.settings:
-                            intent = new Intent(context, SettingsActivity.class);
-                            startActivity(intent);
-                            return true;
-                        default:
-                            throw new IllegalStateException("Unexpected value: " + item.getItemId());
+                menuBuilder.setCallback(new MenuBuilder.Callback() {
+                    @SuppressLint("NonConstantResourceId")
+                    @Override
+                    public boolean onMenuItemSelected(@NonNull MenuBuilder menu, @NonNull MenuItem item) {
+                        Intent intent;
+                        switch (item.getItemId())
+                        {
+                            case R.id.classroom:
+                                intent = new Intent(context, ClassroomActivity.class);
+                                startActivity(intent);
+                                return true;
+                            case R.id.subject:
+                                intent = new Intent(context, SubjectActivity.class);
+                                startActivity(intent);
+                                return true;
+                            case R.id.event:
+                                return true;
+                            case R.id.mark:
+                                return true;
+                            case R.id.statistics:
+                                intent = new Intent(context, StatisticActivity.class);
+                                startActivity(intent);
+                                return true;
+                            case R.id.account:
+                                return true;
+                            default:
+                                throw new IllegalStateException("Unexpected value: " + item.getItemId());
+                        }
                     }
                 }
 
