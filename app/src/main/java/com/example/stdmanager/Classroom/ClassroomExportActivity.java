@@ -2,11 +2,15 @@ package com.example.stdmanager.Classroom;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.DocumentsContract;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -55,6 +59,40 @@ public class ClassroomExportActivity extends AppCompatActivity {
     LinearLayout linearLayout;
 
 
+    /**
+     * @author Phong-Kaster
+     * @path is the name of PDF file we need to open
+     *
+     * Open PDF file
+     * */
+    private void openPDFfile(String path)
+    {
+        File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +"/" + path);
+        Intent target = new Intent(Intent.ACTION_VIEW);
+
+        target.setDataAndType(Uri.fromFile(file),"application/pdf");
+        target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+        Intent intent = Intent.createChooser(target, "Open File");
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+           e.printStackTrace();
+        }
+    }
+
+    /**
+     * @author Phong-Kaster
+     * @path is the name of JPEG file we need to open
+     *
+     * Open JPEG file
+     * */
+    private void openJPEGfile()
+    {
+       Intent intent = new Intent(ClassroomExportActivity.this, ClassroomExportPreviewActivity.class);
+       startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +107,6 @@ public class ClassroomExportActivity extends AppCompatActivity {
         setControl();
         setScreen();
         setEvent();
-
 
 
     }
@@ -123,6 +160,10 @@ public class ClassroomExportActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * @author Phong-Kaster
+     * set button and listen event click on button
+     * */
     private void setEvent()
     {
         buttonPhoto.setOnClickListener(view -> {
@@ -133,6 +174,7 @@ public class ClassroomExportActivity extends AppCompatActivity {
                             "Xuất hình ảnh thành công !",
                             Toast.LENGTH_LONG)
                 .show();
+            openJPEGfile();
         });
 
         buttonPDF.setOnClickListener(view -> {
@@ -141,6 +183,8 @@ public class ClassroomExportActivity extends AppCompatActivity {
                         "Xuất tệp tin PDF thành công !",
                         Toast.LENGTH_LONG)
                 .show();
+        openPDFfile("DanhSachSinhVien.pdf");
+
         });
 
         buttonGoBack.setOnClickListener(view -> finish());
@@ -153,6 +197,8 @@ public class ClassroomExportActivity extends AppCompatActivity {
      *
      * To check, open "View -> Tool Window -> Device File Explorer -> sdCard". We will see the stored photo
      * Remember choose "Synchronize" to refresh sdCard
+     *
+     * File name: DanhSachSinhVien.jpeg
      * */
     private static void screenshotToPhoto(View view, String filename) {
         /*Step 1*/
@@ -165,7 +211,7 @@ public class ClassroomExportActivity extends AppCompatActivity {
             String dirpath = Environment.getExternalStorageDirectory() + "";
 
             // File name
-            String path = dirpath + "/" + filename + "-" + format +".jpeg";
+            String path = dirpath + "/DanhSachSinhVien.jpeg";
 
             /*Step 3*/
             view.setDrawingCacheEnabled(true);
@@ -191,10 +237,12 @@ public class ClassroomExportActivity extends AppCompatActivity {
 
     /**
      * @author Phong-Kaster
-     * Create Pdf with iText 7 - a third-party library to instanciate PDF file
+     * Create Pdf with iText 7 - a third-party library to instanciate and handle PDF file
      *
      * To check, open "View -> Tool Window -> Device File Explorer -> sdCard". We will see the stored photo
      * Remember choose "Synchronize" to refresh sdCard
+     *
+     * File name: DanhSachSinhVien.pdf
      *
      * Step 1: instanciate output PDF File
      * Step 2: declare PdfWriter, PdfDocument and Document

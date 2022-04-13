@@ -27,9 +27,9 @@
         android:title="@string/menuStatistics"
         app:showAsAction="ifRoom|withText"/>
 
-    <item android:id="@+id/account"
+    <item android:id="@+id/settings"
         android:icon="@drawable/menu_account"
-        android:title="@string/menuAccount"
+        android:title="@string/menuSettings"
         app:showAsAction="never|withText"/>
 
     <item android:id="@+id/signout"

@@ -1,5 +1,5 @@
 <h1 align="center">Phát Triển Ứng Dụng Cho Các Thiết Bị Di Động<br/>
-    Đồ Án Quản Lý Học Sinh/Sinh Viên
+    Đồ Án Giữa Kỳ - Quản Lý Học Sinh/Sinh Viên
 </h1>
 
 <p align="center">
@@ -11,6 +11,7 @@
 - [**Table Of Content**](#table-of-content)
 - [**Introduction**](#introduction)
 - [**Usage**](#usage)
+- [**Base-lined Knowledge**](#base-lined-knowledge)
 - [**Features**](#features)
 - [**Our Team**](#our-team)
 - [**Made with 💘 and Java <img src="https://www.vectorlogo.zone/logos/java/java-horizontal.svg" width="60">**](#made-with--and-java-)
@@ -70,7 +71,29 @@ Bước 1: Truy cập `app->java->com.example.stdmanager->ClassroomActivity`
 Bước 2: Tìm đến dòng có số thứ tự 79 và 82, mở khóa dòng này.
 
 
+# [**Base-lined Knowledge**](#base-lined-knowledge)
 
+Những kiến thức nền tảng được sử dụng trong đồ án này bao gồm
+
+1. SQLite và các giao tiếp thông qua SQLiteOpenHelper
+
+2. ListView và các tùy biến chuyên sâfa-ul
+
+3. Tùy biến các layout với @style 
+
+4. MenuInflater - xây dựng menu phụ trợ
+
+5. Alert - hiển thị cảnh báo
+
+6. Bitmap - chụp ảnh màn hình
+
+7. Thư viện iText7 tạo tệp tin PDF 
+
+8. Thư viện Picasso để hiển thị hình ảnh
+
+9. Hỗ trợ tạo biểu đồ 
+
+10. Tùy biến button với xml nằm trong `res/drawable`
 # [**Features**](#features)
 
 <p align="center">
@@ -102,6 +125,16 @@ Bước 2: Tìm đến dòng có số thứ tự 79 và 82, mở khóa dòng nà
 <h3 align="center">
 
 ***Quản lý danh sách sinh viên với mỗi giáo viên làm chủ nhiệm của 1 lớp duy nhất***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot9.png" height="400" />
+    &nbsp;
+    <img src="./avatar/screenshot10.png" height="400" />
+</p>
+<h3 align="center">
+
+***Xuất danh sách ra dạng JPEG và PDF***
 </h3>
 
 # [**Our Team**](#our-team)

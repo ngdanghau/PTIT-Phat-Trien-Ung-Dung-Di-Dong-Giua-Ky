@@ -20,6 +20,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
+import com.example.stdmanager.Settings.SettingsActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
 import com.example.stdmanager.Subject.SubjectActivity;
 import com.example.stdmanager.models.Teacher;
@@ -90,17 +91,15 @@ public class TopBarMenuIconFragment extends Fragment {
                                 throw new IllegalStateException("Unexpected value: " + item.getItemId());
                         }
                     }
+                }
 
-                    @Override
-                    public void onMenuModeChange(@NonNull MenuBuilder menu) {
+                @Override
+                public void onMenuModeChange(@NonNull MenuBuilder menu) {
 
-                    }
-                });
+                }
+            });
 
-                menuElement.show();
-            }
-
-
+            menuElement.show();
         });
     }
 
@@ -110,6 +109,7 @@ public class TopBarMenuIconFragment extends Fragment {
         appState = (App) getActivity().getApplication();
     }
 
+    @SuppressLint("SetTextI18n")
     private void getData(){
         Teacher gv = appState.getTeacher();
         txtNameGV.setText(gv.getName());

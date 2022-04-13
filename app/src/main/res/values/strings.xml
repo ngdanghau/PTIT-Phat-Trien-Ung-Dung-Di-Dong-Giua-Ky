@@ -72,10 +72,17 @@
     <string name="menuEvent">Sự kiện</string>
     <string name="menuMark">Điểm</string>
     <string name="menuStatistics">Thống kê</string>
-    <string name="menuAccount">Tài khoản</string>
+    <string name="menuSettings">Cài đặt</string>
     <string name="signout">Đăng xuất</string>
     <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
     <string name="classroomExportButtonPhoto">Xuất dạng hình ảnh</string>
     <string name="classroomExportButtonPDF">Xuất dạng PDF</string>
+    <string name="menuAccount">Tài khoản</string>
+    <string name="darkMode">Chế độ ban đêm</string>
+    <string name="eventTextView">Bật/tắt danh sách sự kiện ở màn hình chính</string>
+    <string name="darkModeTextOn">Bật chế độ ban đêm</string>
+    <string name="darkModeTextOff">Tắt chế độ ban đêm</string>
+    <string name="eventTextOff">Tắt danh sách sự kiện ở màn hình chính</string>
+    <string name="eventTextOn">Bật danh sách sự kiện ở màn hình chính</string>
 
 </resources>

@@ -19,6 +19,16 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.STDManager">
         <activity
+            android:name=".Settings.SettingsApplicationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Settings.SettingsAccountActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Settings.SettingsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Classroom.ClassroomExportPreviewActivity"
             android:name=".Subject.SubjectAddActivity"
             android:exported="false" />
         <activity

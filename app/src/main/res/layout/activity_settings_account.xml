@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:clickable="true"
+    tools:context=".Settings.SettingsAccountActivity">
+
+
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/avatar4" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp" />
+
+        <!-- NAME -->
+        <LinearLayout
+            android:id="@+id/linearLayoutName"
+            tools:ignore="KeyboardInaccessibleWidget"
+            style="@style/setting_account_linear_layout_style">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingStart="20dp"
+                    android:text="@string/familyName"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry"
+                    style="@style/setting_account_text_view_style" />
+
+                <TextView
+                    style="@style/setting_account_text_view_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text="@string/teacherName"
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                <ImageView
+                    android:layout_marginEnd="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/arrow_right"
+                    tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp" />
+
+        <!-- NAME -->
+        <LinearLayout
+            android:id="@+id/linearLayoutPassword"
+            tools:ignore="KeyboardInaccessibleWidget"
+            style="@style/setting_account_linear_layout_style">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingStart="20dp"
+                    android:text="Thay đổi mật khẩu"
+                    android:textStyle="bold"
+                    tools:ignore="RtlSymmetry"
+                    style="@style/setting_account_text_view_style" />
+
+                <TextView
+                    style="@style/setting_account_text_view_style"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:gravity="right"
+                    android:text=""
+                    tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+                <ImageView
+                    android:layout_marginEnd="40dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/arrow_right"
+                    tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+
+</LinearLayout>
