@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.stdmanager.DB.SubjectDBHelper;
 import com.example.stdmanager.DB.GradeOpenHelper;
@@ -133,6 +134,7 @@ public class LoginActivity extends AppCompatActivity {
                 SubjectDBHelper dbDemoSubject = new SubjectDBHelper(LoginActivity.this);
                 dbDemoSubject.deleteAndCreateTable();
 
+                Toast.makeText(LoginActivity.this, "Tạo dữ liệu mẫu thành công !", Toast.LENGTH_SHORT).show();
             }
         });
     }

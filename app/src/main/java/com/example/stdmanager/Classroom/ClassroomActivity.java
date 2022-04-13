@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -118,6 +119,22 @@ public class ClassroomActivity extends AppCompatActivity {
         listViewModel = new ClassroomListViewModel(this, R.layout.activity_classroom_element, objects);
         listView.setAdapter(listViewModel);
 
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                Student student = (Student) adapterView.getAdapter().getItem(position);
+
+                /*Open the screen which shows student's detail*/
+                Intent intent = new Intent(ClassroomActivity.this, ClassroomIndividualActivity.class);
+                /*Pass student object to next activity - Student class must implements Serializable*/
+                intent.putExtra("student", student );
+                /*start next activity*/
+                startActivity(intent);
+
+            }
+        });
 
         /*Step 2*/
 
