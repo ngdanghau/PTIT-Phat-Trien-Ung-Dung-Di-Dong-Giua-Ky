@@ -58,11 +58,11 @@
     <string name="HSEditSubject">Hệ số</string>
     <string name="NHEditSubject">Năm học</string>
     <string name="NHEditSubjectex">2021-2022</string>
+    <!--Add Subject-->
+    <string name="TitleAddSubject">Thêm môn học</string>
+
 
     <string name="SaveSubject">Lưu môn học</string>
-
-
-
 
 
     <!--    End Edit Subject-->

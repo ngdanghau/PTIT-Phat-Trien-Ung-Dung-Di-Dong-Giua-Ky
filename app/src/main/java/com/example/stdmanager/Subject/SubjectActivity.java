@@ -3,6 +3,7 @@ package com.example.stdmanager.Subject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -39,7 +40,7 @@ public class SubjectActivity extends AppCompatActivity {
     EditText searchBar;
 
 
-    AppCompatButton buttonCreation;
+    AppCompatButton Btn_add;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +68,19 @@ public class SubjectActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.subjectListView);
         searchBar = findViewById(R.id.subjectSearchBar);
-        buttonCreation = findViewById(R.id.subjectButtonCreation);
+        Btn_add = findViewById(R.id.subjectButtonCreation);
+
+    }
+
+    public void addSubject(Subject subject)
+    {
+        if(subjectDB.AddSubject(subject)) {
+            objects.add(subject);
+            listViewModel.notifyDataSetChanged();
+            Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(getApplicationContext(),"Xảy ra lỗi",Toast.LENGTH_SHORT).show();
 
     }
 
@@ -91,6 +104,18 @@ public class SubjectActivity extends AppCompatActivity {
 
     }
 
+    public void delSubject(Subject subject)
+    {
+        if(subjectDB.deleteSubject(subject)) {
+            objects.remove(subject);
+            listViewModel.notifyDataSetChanged();
+            Toast.makeText(getApplicationContext(), "Xoá thành công", Toast.LENGTH_SHORT).show();
+        }
+        else
+            Toast.makeText(getApplicationContext(),"Xảy ra lỗi",Toast.LENGTH_SHORT).show();
+
+    }
+
     private void setEvent()
     {
         listViewModel = new SubjectAdapter(this, R.layout.activity_subject_element, objects);
@@ -99,6 +124,13 @@ public class SubjectActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
+            }
+        });
+        Btn_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),SubjectAddActivity.class);
+                startActivity(intent);
             }
         });
     }

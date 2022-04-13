@@ -18,14 +18,17 @@
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom.xml" value="0.358695652173913" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_creation.xml" value="0.358695652173913" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_element.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_export.xml" value="0.3009833262077811" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_individual.xml" value="0.358695652173913" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_update.xml" value="0.36666666666666664" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_login.xml" value="0.24954710144927536" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_statistic.xml" value="0.22" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject_add.xml" value="0.14709569577935647" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject_edit.xml" value="0.26685393258426965" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject_element.xml" value="0.358695652173913" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/confirm_alert.xml" value="0.22" />
         <entry key="..\:/Users/Hau Nguyen Dang/Downloads/Compressed/STDManager-master/STDManager-master/app/src/main/res/drawable/border.xml" value="0.257" />
         <entry key="..\:/Users/Hau Nguyen Dang/Downloads/Compressed/STDManager-master/STDManager-master/app/src/main/res/drawable/border_student_table.xml" value="0.22" />
         <entry key="..\:/Users/Hau Nguyen Dang/Downloads/Compressed/STDManager-master/STDManager-master/app/src/main/res/drawable/student_button_add.xml" value="0.22" />

@@ -20,6 +20,7 @@ import com.example.stdmanager.R;
 
 import com.example.stdmanager.Subject.SubjectActivity;
 import com.example.stdmanager.Subject.SubjectEditActivity;
+import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.models.Subject;
 
 import java.io.Serializable;
@@ -70,13 +71,13 @@ public class SubjectAdapter extends ArrayAdapter<Subject> {
 
         setEvent();
 
+
         btn_Edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Subject subject1 = data.get(position);
-                Intent intent = new Intent(context.getApplicationContext(), SubjectEditActivity.class);
+                Intent intent = new Intent(context, SubjectEditActivity.class);
                 intent.putExtra("Subject",subject1);
-
                 context.startActivity(intent);
             }
         });
@@ -85,6 +86,24 @@ public class SubjectAdapter extends ArrayAdapter<Subject> {
         btn_Delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Subject subject1 = data.get(position);
+                Alert alert = new Alert(context);
+                alert.confirm();
+                alert.showAlert("Bạn có muốn xóa môn:\n"+subject1.getTenMH(), R.drawable.info_icon);
+                alert.btnOK.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        SubjectActivity.getmInstanceActivity().delSubject(subject1);
+                        alert.dismiss();
+                    }
+                });
+
+                alert.btnCancel.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alert.dismiss();
+                    }
+                });
 
             }
         });

@@ -13,30 +13,26 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.stdmanager.DB.SubjectDBHelper;
 import com.example.stdmanager.R;
-import com.example.stdmanager.models.Student;
 import com.example.stdmanager.models.Subject;
-import com.itextpdf.kernel.colors.ColorConstants;
 
-public class SubjectEditActivity extends AppCompatActivity {
+public class SubjectAddActivity extends AppCompatActivity {
+
 
     EditText txt_tenMH,txt_heSo,txt_namHoc;
     CheckBox cb_HK1,cb_HK2;
     AppCompatButton btn_save,btn_cancel;
     boolean isError;
     ImageView errorName,errorNH,errorHS,errorHK;
-    Subject subject;
     String regex;
-    SubjectDBHelper subjectDBHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_subject_edit);
+        setContentView(R.layout.activity_subject_add);
         setControl();
         Validate();
         setEvent();
-
     }
 
     public void setControl()
@@ -54,18 +50,6 @@ public class SubjectEditActivity extends AppCompatActivity {
         cb_HK2 = findViewById(R.id.cb_HK2);
         btn_save = findViewById(R.id.Btn_save);
         btn_cancel = findViewById(R.id.Btn_cancel);
-//        END SET
-
-        subject = (Subject) getIntent().getSerializableExtra("Subject");
-        txt_tenMH.setText(subject.getTenMH());
-        txt_namHoc.setText(subject.getNamHoc());
-        txt_heSo.setText(String.valueOf(subject.getHeSo()));
-        if(subject.getHocKy()==1)
-            cb_HK1.setChecked(true);
-        if(subject.getHocKy()==2)
-            cb_HK2.setChecked(true);
-
-
 
     }
 
@@ -77,31 +61,42 @@ public class SubjectEditActivity extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(errorName.getVisibility()==View.VISIBLE)
+                if(errorName.getVisibility()==View.VISIBLE||txt_tenMH.getText().toString().isEmpty())
                 {
+                    isError=true;
+                    errorName.setVisibility(View.VISIBLE);
                     txt_tenMH.requestFocus();
                     Toast.makeText(getApplicationContext(),"Tên môn học không hợp lệ ",Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                else if(errorHK.getVisibility()==View.VISIBLE)
+                else if(errorHK.getVisibility()==View.VISIBLE||cb_HK1.isChecked()==cb_HK2.isChecked())
                 {
+                    isError=true;
+                    errorHK.setVisibility(View.VISIBLE);
                     cb_HK1.requestFocus();
-                    Toast.makeText(getApplicationContext(),"Hệ số không đúng (1 hoặc 2)",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(),"Vui lòng chọn học kì",Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                else if(errorHS.getVisibility()==View.VISIBLE)
+                else if(errorHS.getVisibility()==View.VISIBLE||txt_heSo.getText().toString().isEmpty())
                 {
+                    isError=true;
+                    errorHS.setVisibility(View.VISIBLE);
                     txt_heSo.requestFocus();
                     Toast.makeText(getApplicationContext(),"Hệ số không đúng (1 hoặc 2)",Toast.LENGTH_SHORT).show();
+                    return;
                 }
-                else if(errorNH.getVisibility()==View.VISIBLE)
+                else if(errorNH.getVisibility()==View.VISIBLE||txt_namHoc.getText().toString().isEmpty())
                 {
+                    isError=true;
+                    errorNH.setVisibility(View.VISIBLE);
                     txt_namHoc.requestFocus();
                     Toast.makeText(getApplicationContext(),"Năm học không hợp lệ (2021-2022)",Toast.LENGTH_SHORT).show();
+                    return;
                 }
 
-                else if(!isError)
+                if(!isError)
                 {
                     Subject item = new Subject();
-                    item.setMaMH(subject.getMaMH());
                     item.setTenMH(txt_tenMH.getText().toString());
                     item.setNamHoc(txt_namHoc.getText().toString());
                     if(cb_HK1.isChecked()&&!cb_HK2.isChecked())
@@ -109,7 +104,7 @@ public class SubjectEditActivity extends AppCompatActivity {
                     else if(cb_HK2.isChecked()&&!cb_HK1.isChecked())
                         item.setHocKy(2);
                     item.setHeSo(Integer.parseInt(txt_heSo.getText().toString()));
-                    SubjectActivity.getmInstanceActivity().updateSubject(item);
+                    SubjectActivity.getmInstanceActivity().addSubject(item);
                     finish();
                 }
                 else{
@@ -249,5 +244,4 @@ public class SubjectEditActivity extends AppCompatActivity {
         });
 
     }
-
 }

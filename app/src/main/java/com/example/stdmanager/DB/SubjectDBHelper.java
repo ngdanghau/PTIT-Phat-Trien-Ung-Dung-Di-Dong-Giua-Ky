@@ -59,18 +59,26 @@ public class SubjectDBHelper extends SQLiteOpenHelper
 //        onCreate(db);
     }
 
-    public void AddSubject(Subject subject) {
+    public boolean AddSubject(Subject subject) {
         Log.i(TAG, "AddSubject " + subject.getTenMH());
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_tenmh, subject.getTenMH());
-        values.put(COLUMN_heso, subject.getHeSo());
-        values.put(COLUMN_hocky, subject.getHocKy());
-        values.put(COLUMN_namhoc,subject.getNamHoc());
-        // Inserting Row
-        db.insert(TABLE_NAME, null, values);
-        // Closing database connection
-        db.close();
+        try{
+            SQLiteDatabase db = this.getWritableDatabase();
+            ContentValues values = new ContentValues();
+            values.put(COLUMN_tenmh, subject.getTenMH());
+            values.put(COLUMN_heso, subject.getHeSo());
+            values.put(COLUMN_hocky, subject.getHocKy());
+            values.put(COLUMN_namhoc,subject.getNamHoc());
+            // Inserting Row
+            db.insert(TABLE_NAME, null, values);
+            // Closing database connection
+            db.close();
+            return true;
+        }catch(Exception e )
+        {
+            e.printStackTrace();
+            return false;
+        }
+
     }
 
     public boolean update(Subject subject) {
@@ -107,6 +115,26 @@ public class SubjectDBHelper extends SQLiteOpenHelper
 
     }
 
+
+    public boolean deleteSubject(Subject subject)
+    {
+        /*Step 1*/
+        try{
+            int id = subject.getMaMH();
+            SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+
+            /*Step 2*/
+            sqLiteDatabase.delete(TABLE_NAME, COLUMN_mamh + " = ?",
+                    new String[]{ String.valueOf(id) } );
+            sqLiteDatabase.close();
+            return true;
+        }catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+
+    }
 
 
 
