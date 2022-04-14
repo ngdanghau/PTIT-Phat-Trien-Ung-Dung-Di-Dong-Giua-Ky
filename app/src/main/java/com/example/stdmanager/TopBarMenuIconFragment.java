@@ -127,8 +127,8 @@ public class TopBarMenuIconFragment extends Fragment {
 
     public void setData(Teacher teacher)
     {
-        txtNameGV.setText(teacher.getName());
-        txtIDGV.setText("Mã GV: " + teacher.getId());
+        appState.setTeacher(teacher);
+        getData();
     }
 
 

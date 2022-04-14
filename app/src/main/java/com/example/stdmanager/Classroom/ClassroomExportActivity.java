@@ -68,17 +68,26 @@ public class ClassroomExportActivity extends AppCompatActivity {
     private void openPDFfile(String path)
     {
         File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +"/" + path);
-        Intent target = new Intent(Intent.ACTION_VIEW);
+        if(file.exists()){
+            Intent target = new Intent(Intent.ACTION_VIEW);
 
-        target.setDataAndType(Uri.fromFile(file),"application/pdf");
-        target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+            target.setDataAndType(Uri.fromFile(file),"application/pdf");
+            target.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
-        Intent intent = Intent.createChooser(target, "Open File");
-        try {
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-           e.printStackTrace();
+            Intent intent = Intent.createChooser(target, "Open File");
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                e.printStackTrace();
+            }
+        }else{
+            Toast.makeText(ClassroomExportActivity.this,
+                    "Hãy thử lại!",
+                    Toast.LENGTH_LONG)
+                    .show();
         }
+
+
     }
 
     /**
@@ -183,6 +192,8 @@ public class ClassroomExportActivity extends AppCompatActivity {
                         "Xuất tệp tin PDF thành công !",
                         Toast.LENGTH_LONG)
                 .show();
+
+
         openPDFfile("DanhSachSinhVien.pdf");
 
         });

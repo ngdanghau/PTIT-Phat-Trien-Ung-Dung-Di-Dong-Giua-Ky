@@ -82,13 +82,12 @@
             </TableRow>
         </TableLayout>
 
-
-
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnExport"
             android:background="@drawable/button_background_1"
             android:text="@string/ExportSubject"
             style="@style/button_style" />
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/Btn_ExportCancel"
             style="@style/button_style"
