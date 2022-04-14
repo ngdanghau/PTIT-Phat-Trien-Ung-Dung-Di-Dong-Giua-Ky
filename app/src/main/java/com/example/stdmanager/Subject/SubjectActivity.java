@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
@@ -37,7 +38,6 @@ public class SubjectActivity extends AppCompatActivity {
     ArrayList<Subject> objects = new ArrayList<>();
     SubjectAdapter listViewModel;
     SubjectDBHelper subjectDB = new SubjectDBHelper(this);
-    EditText searchBar;
 
 
     AppCompatButton Btn_add;
@@ -55,19 +55,47 @@ public class SubjectActivity extends AppCompatActivity {
 
         objects = subjectDB.getAllSubjects();
 
+
         /*Step 3*/
         setControl();
 
 
         /*Step 4*/
         setEvent();
+        inItSearchWidgets();
 
+    }
+
+
+    private void inItSearchWidgets(){
+        SearchView searchView = findViewById(R.id.searchSubject);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Subject> filteredSubject = new ArrayList<Subject>();
+
+                for (Subject subject: objects) {
+                    if(subject.getTenMH().toLowerCase().trim().contains(s.toLowerCase().trim()))
+                    {
+                        filteredSubject.add(subject);
+                    }
+
+                }
+                setFilteredSubject(filteredSubject);
+                return false;
+            }
+        });
     }
 
     private void setControl()
     {
         listView = findViewById(R.id.subjectListView);
-        searchBar = findViewById(R.id.subjectSearchBar);
         Btn_add = findViewById(R.id.subjectButtonCreation);
 
     }
@@ -84,6 +112,11 @@ public class SubjectActivity extends AppCompatActivity {
 
     }
 
+    private void setFilteredSubject(ArrayList<Subject> filtered)
+    {
+        SubjectAdapter subjectAdapter = new SubjectAdapter(this, R.layout.activity_subject_element, filtered);
+        listView.setAdapter(subjectAdapter);
+    }
     public void updateSubject(Subject subject)
     {
         if(subjectDB.update(subject)) {
@@ -120,12 +153,6 @@ public class SubjectActivity extends AppCompatActivity {
     {
         listViewModel = new SubjectAdapter(this, R.layout.activity_subject_element, objects);
         listView.setAdapter(listViewModel);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-        });
         Btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

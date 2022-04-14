@@ -9,13 +9,13 @@
         tools:context=".Subject.SubjectActivity">
 
         <!--Linear Layout Avatar & Home shortcut -->
-        <fragment
-            android:id="@+id/topBar"
-            class="com.example.stdmanager.TopBarHomeIconFragment"
-            tools:layout="@layout/fragment_top_bar_home_icon"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content">
-        </fragment>
+<!--        <fragment-->
+<!--            android:id="@+id/topBar"-->
+<!--            class="com.example.stdmanager.TopBarHomeIconFragment"-->
+<!--            tools:layout="@layout/fragment_top_bar_home_icon"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content">-->
+<!--        </fragment>-->
         <!--End Linear Layout Avatar & Home shortcut -->
 
 
@@ -46,19 +46,16 @@
                     android:textStyle="bold" />
 
 
-                <EditText
-                    android:id="@+id/subjectSearchBar"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/border"
-                    android:hint="@string/search"
-                    android:inputType="text"
-                    android:textAlignment="center"
-                    android:textSize="16sp"
-                    android:textStyle="italic"
-                    android:autofillHints="" />
+                <SearchView
+                    android:id="@+id/searchSubject"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:iconifiedByDefault="false"
+                    android:queryHint="Tìm môn học"/>
+
             </LinearLayout>
             <!--  End Subject Classroom title & search bar -->
 
