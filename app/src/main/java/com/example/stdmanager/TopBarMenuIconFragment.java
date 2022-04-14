@@ -25,6 +25,8 @@ import com.example.stdmanager.Statistic.StatisticActivity;
 import com.example.stdmanager.Subject.SubjectActivity;
 import com.example.stdmanager.models.Teacher;
 
+import java.lang.ref.WeakReference;
+
 public class TopBarMenuIconFragment extends Fragment {
     private TextView txtNameGV, txtIDGV;
     private ImageButton btnMenu;
@@ -32,11 +34,18 @@ public class TopBarMenuIconFragment extends Fragment {
     private App appState;
     Context context;
 
+    public static WeakReference<TopBarMenuIconFragment> weakActivity;
+
+    public static TopBarMenuIconFragment getmInstanceActivity() {
+        return weakActivity.get();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_top_bar_menu_icon, container, false);
+        weakActivity = new WeakReference<>(TopBarMenuIconFragment.this);
 
         txtNameGV = view.findViewById(R.id.txtNameGV);
         txtIDGV = view.findViewById(R.id.txtIDGV);
@@ -115,6 +124,13 @@ public class TopBarMenuIconFragment extends Fragment {
         txtNameGV.setText(gv.getName());
         txtIDGV.setText("Mã GV: " + gv.getId());
     }
+
+    public void setData(Teacher teacher)
+    {
+        txtNameGV.setText(teacher.getName());
+        txtIDGV.setText("Mã GV: " + teacher.getId());
+    }
+
 
     @Override
     public void onAttach(@NonNull Context context) {

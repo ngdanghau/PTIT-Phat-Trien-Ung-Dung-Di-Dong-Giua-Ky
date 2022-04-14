@@ -16,23 +16,17 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
             android:id="@+id/darkModeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/setting_application_text_view_style"
             android:text="@string/darkMode" />
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/darkModeSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_toEndOf="@id/darkModeTextView"
-            android:checked="false"
-            android:paddingEnd="20sp"
-            android:switchMinWidth="50sp"
             android:textOff="@string/darkModeTextOff"
-            android:textOn="@string/darkModeTextOn" />
+            android:textOn="@string/darkModeTextOn"
+            tools:ignore="RtlSymmetry"
+            style="@style/setting_application_switch_style" />
 
     </RelativeLayout>
 
@@ -42,24 +36,17 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
             android:id="@+id/eventTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/setting_application_text_view_style"
             android:text="@string/eventTextView" />
 
         <androidx.appcompat.widget.SwitchCompat
-            android:paddingEnd="20sp"
             android:id="@+id/eventSwitch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_toEndOf="@id/eventTextView"
-            android:textOn="@string/eventTextOn"
+            style="@style/setting_application_switch_style"
             android:textOff="@string/eventTextOff"
-            android:checked="false"
-            android:switchMinWidth="50sp"
-            />
+            android:textOn="@string/eventTextOn"
+            tools:ignore="RtlSymmetry" />
 
     </RelativeLayout>
 

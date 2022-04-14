@@ -94,6 +94,8 @@ Những kiến thức nền tảng được sử dụng trong đồ án này bao
 9. Hỗ trợ tạo biểu đồ 
 
 10. Tùy biến button với xml nằm trong `res/drawable`
+
+11. Sử dụng Tab Host để xây dựng menu đa màn hình
 # [**Features**](#features)
 
 <p align="center">
@@ -135,6 +137,16 @@ Những kiến thức nền tảng được sử dụng trong đồ án này bao
 <h3 align="center">
 
 ***Xuất danh sách ra dạng JPEG và PDF***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot11.png" height="400" />
+    &nbsp;
+    <img src="./avatar/screenshot12.png" height="400" />
+</p>
+<h3 align="center">
+
+***Màn hình cài đặt ứng dụng | tài khoản***
 </h3>
 
 # [**Our Team**](#our-team)
