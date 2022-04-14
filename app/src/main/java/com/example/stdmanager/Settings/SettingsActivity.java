@@ -4,26 +4,41 @@ import static com.itextpdf.kernel.pdf.PdfName.Intent;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.TextView;
 
+import com.example.stdmanager.Classroom.ClassroomActivity;
+import com.example.stdmanager.DB.TeacherDBHelper;
 import com.example.stdmanager.R;
+import com.example.stdmanager.models.Session;
+import com.example.stdmanager.models.Teacher;
+
+import java.lang.ref.WeakReference;
 
 public class SettingsActivity extends TabActivity {
 
     TabHost tabHost;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
+
+
+
+
         setControl();
         setEvent();
 
     }
+
 
     /**
      * @author Phong-Kaster
@@ -44,6 +59,8 @@ public class SettingsActivity extends TabActivity {
      * Step 3: create tabSpec ung dung
      * */
     private void setEvent() {
+
+
         tabHost.setup();
 
         TabHost.TabSpec specAccount = tabHost.newTabSpec("Tài khoản");

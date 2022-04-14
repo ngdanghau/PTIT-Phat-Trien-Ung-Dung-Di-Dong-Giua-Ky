@@ -3,6 +3,9 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="username">Tên đăng nhập</string>
     <string name="password">Mật khẩu</string>
+    <string name="enter_former_password">Mật khẩu cũ</string>
+    <string name="enter_new_password">Mật khẩu mới</string>
+    <string name="enter_confirmation_password">Xác nhận mật khẩu mới</string>
     <string name="action_register">Đăng ký Demo</string>
     <string name="action_sign_in">Đăng nhập</string>
     <string name="action_register_long">Bạn chưa có tài khoản?</string>
@@ -12,6 +15,8 @@
     <string name="login_failed">Đăng nhập thất bại</string>
     <string name="search">Tìm kiếm …</string>
     <string name="goback">Trở về</string>
+
+    <!-- Phong's Content -->
     <string name="student_table_title_infomation">Thông Tin Học Sinh</string>
     <string name="student_table_title_action">Thao tác</string>
     <string name="student_table_button_add">Thêm học sinh</string>
@@ -22,11 +27,11 @@
     <string name="student_creation">Xác Nhận</string>
     <string name="familyName">Họ</string>
     <string name="firstName">Tên</string>
+    <string name="fullName">Họ Tên</string>
     <string name="gender">Giới Tính</string>
     <string name="male">Nam</string>
     <string name="female">Nữ</string>
     <string name="birthday">Ngày Sinh</string>
-    <!-- Phong's Temporary Content -->
     <string name="teacherName">Nguyễn Thị Thủy</string>
     <string name="teacherClassroom">GVCN Lớp 12A1</string>
     <string name="teacherTitleList">Danh sách lớp 12A1</string>
@@ -37,9 +42,29 @@
     <string name="gradeName">D18CQCN03</string>
     <string name="ourBirthday">01–05–2000</string>
     <string name="OK">Đồng ý</string>
+    <string name="Save">Lưu</string>
     <string name="Cancel">Hủy bỏ</string>
     <string name="popupContent">This is a popup window.</string>
     <string name="deleteStudent">Bạn có chắc chắn muốn xóa học sinh này ?</string>
+    <string name="menuClassroom">Danh sách lớp</string>
+    <string name="menuSubject">Môn học</string>
+    <string name="menuEvent">Sự kiện</string>
+    <string name="menuMark">Điểm</string>
+    <string name="menuStatistics">Thống kê</string>
+    <string name="menuSettings">Cài đặt</string>
+    <string name="signout">Đăng xuất</string>
+    <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
+    <string name="classroomExportButtonPhoto">Xuất dạng hình ảnh</string>
+    <string name="classroomExportButtonPDF">Xuất dạng PDF</string>
+    <string name="menuAccount">Tài khoản</string>
+    <string name="darkMode">Chế độ ban đêm</string>
+    <string name="eventTextView">Bật/tắt danh sách sự kiện ở màn hình chính</string>
+    <string name="darkModeTextOn">Bật chế độ ban đêm</string>
+    <string name="darkModeTextOff">Tắt chế độ ban đêm</string>
+    <string name="eventTextOff">Tắt danh sách sự kiện ở màn hình chính</string>
+    <string name="eventTextOn">Bật danh sách sự kiện ở màn hình chính</string>
+    <string name="teacherId">Mã GV: 1</string>
+    <!-- end Phong's Content -->
 
     <!--    Khang -->
     <string name="TitleSubject">Danh sách môn học</string>
@@ -63,26 +88,11 @@
 
 
     <string name="SaveSubject">Lưu môn học</string>
+    <string name="ChangeAvatar">Đổi hình đại diện</string>
 
 
     <!--    End Edit Subject-->
     <!--    End Khang-->
-    <string name="menuClassroom">Danh sách lớp</string>
-    <string name="menuSubject">Môn học</string>
-    <string name="menuEvent">Sự kiện</string>
-    <string name="menuMark">Điểm</string>
-    <string name="menuStatistics">Thống kê</string>
-    <string name="menuSettings">Cài đặt</string>
-    <string name="signout">Đăng xuất</string>
-    <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
-    <string name="classroomExportButtonPhoto">Xuất dạng hình ảnh</string>
-    <string name="classroomExportButtonPDF">Xuất dạng PDF</string>
-    <string name="menuAccount">Tài khoản</string>
-    <string name="darkMode">Chế độ ban đêm</string>
-    <string name="eventTextView">Bật/tắt danh sách sự kiện ở màn hình chính</string>
-    <string name="darkModeTextOn">Bật chế độ ban đêm</string>
-    <string name="darkModeTextOff">Tắt chế độ ban đêm</string>
-    <string name="eventTextOff">Tắt danh sách sự kiện ở màn hình chính</string>
-    <string name="eventTextOn">Bật danh sách sự kiện ở màn hình chính</string>
+
 
 </resources>
