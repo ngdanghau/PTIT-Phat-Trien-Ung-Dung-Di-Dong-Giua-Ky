@@ -40,7 +40,7 @@ public class SubjectActivity extends AppCompatActivity {
     SubjectDBHelper subjectDB = new SubjectDBHelper(this);
 
 
-    AppCompatButton Btn_add;
+    AppCompatButton Btn_add,Btn_export;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +97,7 @@ public class SubjectActivity extends AppCompatActivity {
     {
         listView = findViewById(R.id.subjectListView);
         Btn_add = findViewById(R.id.subjectButtonCreation);
+        Btn_export = findViewById(R.id.subjectButtonExport);
 
     }
 
@@ -157,6 +158,14 @@ public class SubjectActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(),SubjectAddActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Btn_export.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),SubjectExportActivity.class);
                 startActivity(intent);
             }
         });

@@ -151,8 +151,8 @@ public class SubjectDBHelper extends SQLiteOpenHelper
 //        if(count == 0 ) {
 //
 //        }
-            Subject subject1 = new Subject(0,"Toán",1,2,"2021-2022");
-            Subject subject2 = new Subject(0,"Văn",1,2,"2021-2022");
+            Subject subject1 = new Subject(0,"Toan",1,2,"2021-2022");
+            Subject subject2 = new Subject(0,"Van",1,2,"2021-2022");
             Subject subject3 = new Subject(0,"Anh",1,2,"2021-2022");
             this.AddSubject(subject1);
             this.AddSubject(subject2);
