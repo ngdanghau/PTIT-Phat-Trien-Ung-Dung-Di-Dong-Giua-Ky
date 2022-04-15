@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/mainBackground"
     tools:context=".Settings.SettingsApplicationActivity">
 
     <Space
@@ -22,11 +23,11 @@
 
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/darkModeSwitch"
+            style="@style/setting_application_switch_style"
             android:layout_toEndOf="@id/darkModeTextView"
             android:textOff="@string/darkModeTextOff"
             android:textOn="@string/darkModeTextOn"
-            tools:ignore="RtlSymmetry"
-            style="@style/setting_application_switch_style" />
+            tools:ignore="RtlSymmetry" />
 
     </RelativeLayout>
 

@@ -1,10 +1,6 @@
 package com.example.stdmanager.Settings;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -13,31 +9,25 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.stdmanager.App;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
+
 import com.example.stdmanager.DB.TeacherDBHelper;
-import com.example.stdmanager.LoginActivity;
 import com.example.stdmanager.R;
 import com.example.stdmanager.TopBarMenuIconFragment;
-import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.helpers.InterfaceHelper;
 import com.example.stdmanager.models.Session;
 import com.example.stdmanager.models.Teacher;
-
-import java.io.File;
 
 public class SettingsAccountActivity extends AppCompatActivity {
 
@@ -47,6 +37,7 @@ public class SettingsAccountActivity extends AppCompatActivity {
     TeacherDBHelper teacherOpenHelper;
     Teacher teacher;
     AppCompatButton buttonAvatar;
+
 
     private final static int RESULT_LOAD_IMAGE = 1;
 

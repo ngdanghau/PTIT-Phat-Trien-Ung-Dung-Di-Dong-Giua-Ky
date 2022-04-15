@@ -11,6 +11,7 @@ import androidx.appcompat.view.menu.MenuBuilder;
 import androidx.appcompat.view.menu.MenuPopupHelper;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,8 +19,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
+import com.example.stdmanager.DB.TeacherDBHelper;
 import com.example.stdmanager.Settings.SettingsActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
 import com.example.stdmanager.Subject.SubjectActivity;
@@ -50,6 +53,8 @@ public class TopBarMenuIconFragment extends Fragment {
         txtNameGV = view.findViewById(R.id.txtNameGV);
         txtIDGV = view.findViewById(R.id.txtIDGV);
         btnMenu = view.findViewById(R.id.btnMenu);
+
+
 
         setEvent();
 
@@ -96,6 +101,15 @@ public class TopBarMenuIconFragment extends Fragment {
                             case R.id.settings:
                                 intent = new Intent(context, SettingsActivity.class);
                                 startActivity(intent);
+                                return true;
+                            case R.id.signout:
+                                if( appState.getTeacher() != null)
+                                {
+                                    appState.setTeacher(null);
+                                }
+                                intent = new Intent(context, LoginActivity.class);
+                                startActivity(intent);
+                                Toast.makeText(context, "Đăng xuất thành công !", Toast.LENGTH_LONG).show();
                                 return true;
                             default:
                                 throw new IllegalStateException("Unexpected value: " + item.getItemId());

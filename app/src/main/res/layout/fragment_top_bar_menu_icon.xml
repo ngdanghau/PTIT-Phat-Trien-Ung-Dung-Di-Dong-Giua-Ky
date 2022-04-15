@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
+
     android:padding="20dp"
     tools:context=".TopBarMenuIconFragment">
 
@@ -13,6 +14,7 @@
         android:background="@drawable/avatar" />
 
     <RelativeLayout
+        android:id="@+id/topBarMenuIcon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">

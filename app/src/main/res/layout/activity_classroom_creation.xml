@@ -24,7 +24,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="@color/mainBackground"
         android:orientation="vertical"
         android:paddingTop="10dp">
 
@@ -32,7 +32,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="@color/mainBackground"
             android:orientation="vertical">
 
             <TextView
@@ -43,6 +43,7 @@
                 android:paddingTop="10dp"
                 android:text="@string/student_creation"
                 android:textSize="24sp"
+                android:textColor="@color/mainText"
                 android:textStyle="bold"
                 tools:ignore="RtlHardcoded" />
 
@@ -76,6 +77,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/familyName"
+                        android:textColor="@color/mainText"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
 
@@ -86,7 +88,7 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/border"
                         android:hint="@string/familyNameHint"
-
+                        android:textColor="@color/mainText"
                         android:inputType="textPersonName"
                         android:textAlignment="center"
                         tools:ignore="Autofill" />
@@ -104,6 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/firstName"
+                        android:textColor="@color/mainText"
                         android:textSize="18sp"
                         android:textStyle="bold"/>
 
@@ -116,6 +119,7 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/border"
                         android:inputType="text"
+                        android:textColor="@color/mainText"
                         tools:ignore="Autofill" />
                 </LinearLayout>
 
@@ -135,9 +139,12 @@
                     android:layout_height="wrap_content"
                     android:textSize="18sp"
                     android:textStyle="bold"
+                    android:textColor="@color/mainText"
+                    android:background="@color/mainBackground"
                     android:text="@string/gender"/>
 
                 <RadioGroup
+                    android:background="@color/mainBackground"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -146,9 +153,11 @@
                         android:id="@+id/classroomCreationRadioButtonMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/mainText"
                         android:text="@string/male"/>
 
                     <RadioButton
+                        android:textColor="@color/mainText"
                         android:id="@+id/classroomCreationRadioButtonFemale"
                         android:layout_marginStart="40dp"
                         android:layout_width="wrap_content"
@@ -169,6 +178,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/birthday"
                     android:textSize="18sp"
+                    android:textColor="@color/mainText"
+                    android:background="@color/mainBackground"
                     android:textStyle="bold"/>
 
                 <Button
@@ -179,7 +190,8 @@
                     android:backgroundTint="@android:color/white"
                     android:onClick="openDatePicker"
                     android:text="01/05/2000"
-                    android:textColor="@color/black"
+                    android:textColor="@color/mainText"
+                    android:background="@color/mainBackground"
                     android:textSize="18sp"
                     tools:ignore="OnClick" />
 

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
+        android:textColor="@color/mainText"
         android:layout_width="match_parent"
         android:layout_height="400dp"
         android:background="@drawable/rectangle_6"
@@ -12,27 +13,22 @@
         android:padding="30dp">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:text="@string/firstName"
-            android:textColor="@color/black"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            style="@style/settings_account_edit_name_text_style" />
 
         <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/settings_account_edit_name_text_style"
             android:minHeight="20dp" />
 
         <EditText
             android:id="@+id/settingsAccountEditTextName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/settings_account_edit_name_text_style"
             android:hint="@string/fullName"
-            android:textColor="@color/black" />
+             />
 
         <Space
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            style="@style/settings_account_edit_name_text_style"
             android:minHeight="20dp" />
 
 

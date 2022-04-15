@@ -2,6 +2,8 @@ package com.example.stdmanager;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,6 +12,7 @@ import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,12 +45,18 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         session = new Session(LoginActivity.this);
 
+        /*This block of code below, could support us to call LoginActivity's method from fragment*/
+
+        /*This block of code above, could support us to call LoginActivity's method from fragment*/
+
 
         checkAuth();
         setControl();
         setEvent();
 
     }
+
+
 
     private void checkAuth(){
         Teacher gv = ((App) LoginActivity.this.getApplication()).getTeacher();
@@ -138,7 +147,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-    private void gotoHome(){
+    public void gotoHome(){
         Intent i = new Intent(LoginActivity.this, HomeActivity.class);
         LoginActivity.this.startActivity(i);
     }
