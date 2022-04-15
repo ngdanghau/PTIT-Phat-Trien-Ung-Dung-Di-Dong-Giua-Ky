@@ -100,6 +100,10 @@ Những kiến thức nền tảng được sử dụng trong đồ án này bao
 
 <p align="center">
     <img src="./avatar/screenshot2.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot3.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot4.png" height="400" />
 </p>
 <h3 align="center">
 
@@ -107,9 +111,9 @@ Những kiến thức nền tảng được sử dụng trong đồ án này bao
 </h3>
 
 <p align="center">
-    <img src="./avatar/screenshot3.png" height="400" />
-    &nbsp;
-    <img src="./avatar/screenshot8.png" height="400" />
+    <img src="./avatar/screenshot5.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot6.png" height="400" />
 </p>
 <h3 align="center">
 
@@ -118,36 +122,108 @@ Những kiến thức nền tảng được sử dụng trong đồ án này bao
 
 
 <p align="center">
-    <img src="./avatar/screenshot4.png" height="400" />
-    &nbsp;
-    <img src="./avatar/screenshot5.png" height="400" />
-    &nbsp;
     <img src="./avatar/screenshot7.png" height="400" />
-</p>
-<h3 align="center">
-
-***Quản lý danh sách sinh viên với mỗi giáo viên làm chủ nhiệm của 1 lớp duy nhất***
-</h3>
-
-<p align="center">
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot8.png" height="400" />
+    &nbsp;&nbsp;
     <img src="./avatar/screenshot9.png" height="400" />
-    &nbsp;
+    &nbsp;&nbsp;
     <img src="./avatar/screenshot10.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot11.png" height="400" />
+    &nbsp;&nbsp;
 </p>
+
 <h3 align="center">
 
-***Xuất danh sách ra dạng JPEG và PDF***
+***Quản lý danh sách sinh viên với mỗi giáo viên làm chủ nhiệm của 1 lớp***
 </h3>
 
 <p align="center">
-    <img src="./avatar/screenshot11.png" height="400" />
-    &nbsp;
     <img src="./avatar/screenshot12.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot13.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot14.png" height="400" />
+    &nbsp;&nbsp;
 </p>
 <h3 align="center">
 
-***Màn hình cài đặt ứng dụng | tài khoản***
+***Danh sách sinh viên hỗ trợ xuất ra dạng JPEG và PDF***
 </h3>
+
+<p align="center">
+    <img src="./avatar/screenshot15.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot16.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot17.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot18.png" height="400" />
+    &nbsp;&nbsp;
+</p>
+<h3 align="center">
+
+***Môn học***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot19.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot20.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot21.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot22.png" height="400" />
+    &nbsp;&nbsp;
+</p>
+<h3 align="center">
+
+***Tài khoản***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot23.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot24.png" height="400" />
+    &nbsp;&nbsp;
+</p>
+<h3 align="center">
+
+***Thống kê***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot25.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot26.png" height="400" />
+    &nbsp;&nbsp;
+</p>
+<h3 align="center">
+
+***Thiết lập cài đặt với đa màn hình***
+</h3>
+
+<p align="center">
+    <img src="./avatar/screenshot27.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot28.png" height="400" />
+    &nbsp;&nbsp;
+</p>
+<p align="center">
+    <img src="./avatar/screenshot29.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot30.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot31.png" height="400" />
+    &nbsp;&nbsp;
+    <img src="./avatar/screenshot32.png" height="400" />
+    &nbsp;&nbsp;
+</p>
+
+<h3 align="center">
+
+***Hỗ trợ chế độ ban đêm***
 
 # [**Our Team**](#our-team)
 

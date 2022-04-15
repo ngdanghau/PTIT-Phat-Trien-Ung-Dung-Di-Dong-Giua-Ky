@@ -40,7 +40,7 @@ tools:context=".TopBarHomeIconFragment">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/teacherId"
-            android:textColor="#B9B9B9"
+            android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="italic" />
     </LinearLayout>

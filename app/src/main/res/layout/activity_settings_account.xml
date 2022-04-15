@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:clickable="true"
+    android:background="@color/mainBackground"
     tools:context=".Settings.SettingsAccountActivity">
 
 
@@ -46,6 +47,7 @@
                     android:layout_width="wrap_content"
                     android:paddingStart="20dp"
                     android:text="@string/fullName"
+                    android:textColor="@color/mainText"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry"
                     style="@style/setting_account_text_view_style" />
@@ -82,7 +84,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:paddingStart="20dp"
-                    android:text="Thay đổi mật khẩu"
+                    android:text="@string/changePassword"
+                    android:textColor="@color/mainText"
                     android:textStyle="bold"
                     tools:ignore="RtlSymmetry"
                     style="@style/setting_account_text_view_style" />
