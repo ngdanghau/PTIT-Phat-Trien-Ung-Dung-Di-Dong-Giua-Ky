@@ -22,6 +22,7 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.stdmanager.DB.ScoreDBHelper;
 import com.example.stdmanager.DB.SubjectDBHelper;
 import com.example.stdmanager.DB.GradeOpenHelper;
 import com.example.stdmanager.DB.StudentOpenHelper;
@@ -142,6 +143,14 @@ public class LoginActivity extends AppCompatActivity {
 
                 SubjectDBHelper dbDemoSubject = new SubjectDBHelper(LoginActivity.this);
                 dbDemoSubject.deleteAndCreateTable();
+
+                ScoreDBHelper scoreDBHelper = new ScoreDBHelper(LoginActivity.this);
+                scoreDBHelper.deleteAndCreateTable();
+
+                SubjectDBHelper subjectDB = new SubjectDBHelper(LoginActivity.this);
+                subjectDB.deleteAndCreateTable();
+                StudentOpenHelper studentDB = new StudentOpenHelper(LoginActivity.this);
+                studentDB.deleteAndCreateTable();
 
                 Toast.makeText(LoginActivity.this, "Tạo dữ liệu mẫu thành công !", Toast.LENGTH_SHORT).show();
             }

@@ -53,7 +53,7 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 style="@style/button_blue_style"
-                android:text="@string/classroomExportButtonPDF"
+                android:text="@string/btnExportReport"
                 android:layout_alignParentBottom="true"
                 android:id="@+id/btnExport"/>
 

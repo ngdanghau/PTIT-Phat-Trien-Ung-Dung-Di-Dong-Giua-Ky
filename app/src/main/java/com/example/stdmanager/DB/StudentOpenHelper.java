@@ -174,6 +174,47 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         return objects;
     }
 
+    /**
+     * Thuận lấy danh sách học torng trong 1 lớp
+     * @param grade
+     * @return
+     */
+    public ArrayList<Student> getStudentInGrade(String grade)
+    {
+        /*Step 1*/
+        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+        ArrayList<Student> objects = new ArrayList<>();
+
+        /*Step 2*/
+        String query = "SELECT s.*" +
+                "FROM student s " +
+                "WHERE s.gradeid =  "+ grade;
+        @SuppressLint("Recycle") Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+
+        /*Step 3*/
+        if( cursor.moveToFirst() )
+        {
+            do
+            {
+                Student student = new Student();
+
+                student.setId( Integer.parseInt( cursor.getString(0) ) );
+
+                student.setFamilyName( cursor.getString(1));
+                student.setFirstName(  cursor.getString(2));
+
+                student.setGender(Integer.parseInt( cursor.getString(3) ));
+                student.setBirthday(cursor.getString(4));
+
+                student.setGradeId(Integer.parseInt( cursor.getString(5) ));
+
+                objects.add(student);
+            }while( cursor.moveToNext() );
+        }
+
+        return objects;
+    }
+
 
     public ArrayList<Student> retrieveStudentWithKeyword(String keyword)
     {

@@ -15,6 +15,8 @@
     <string name="login_failed">Đăng nhập thất bại</string>
     <string name="search">Tìm kiếm …</string>
     <string name="goback">Trở về</string>
+    <string name="btnExportReport">Xuất báo cáo</string>
+
 
     <!-- Phong's Content -->
     <string name="student_table_title_infomation">Thông Tin Học Sinh</string>
@@ -94,6 +96,23 @@
 
     <!--    End Edit Subject-->
     <!--    End Khang-->
+
+
+    <!-- Thuận -->
+    <string name="title_score_subject">Quản lý điểm theo môn học</string>
+    <string name="title_score_student">Danh sách điểm học sinh</string>
+    <string name="score_subject_infomation">Danh sách môn học</string>
+    <string name="button_edit_score_student">Chỉnh sửa điểm</string>
+    <string name="button_export_score_student">Xuất danh sách điểm</string>
+    <string name="score_student_name">Nguyễn Văn A</string>
+    <string name="score_student_code">1</string>
+    <string name="score_student_score">1</string>
+    <string name="title_score_student_edit">Chỉnh sửa điểm sinh viên</string>
+    <string name="button_scoreave_student_save">Lưu</string>
+    <string name="tv_id_lable">Mã học sinh:</string>
+    <string name="tv_full_name_lable">Họ và tên:</string>
+    <string name="tv_score_lable">Điểm:</string>
+    <string name="tv_subject_lable">Môn học</string>
 
 
 </resources>
