@@ -317,12 +317,20 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
         Student student1 = new Student("Thanh","Phong",0,"01/05/2000", 1);
         Student student2 = new Student("Dang","Hau",0,"20/01/2000", 1);
         Student student3 = new Student("Dinh","Khang",0,"24/03/2000", 1);
-        Student student4 = new Student("Emma","Watson",1,"21/07/2000", 2);
+        Student student4 = new Student("Duc","Thuan",0,"12/03/2000", 1);
+        Student student5 = new Student("Van","Chung",0,"21/07/2000", 1);
+        Student student6 = new Student("Ngoc","Thanh",1,"12/01/2000", 1);
+        Student student7 = new Student("Thu","Ha",1,"30/08/2000", 1);
+        Student student8 = new Student("Truc","Thy",1,"04/12/2000", 1);
         /*Step 3*/
         this.create(student1);
         this.create(student2);
         this.create(student3);
         this.create(student4);
+        this.create(student5);
+        this.create(student6);
+        this.create(student7);
+        this.create(student8);
     }
 
     public void deleteAndCreateTable()

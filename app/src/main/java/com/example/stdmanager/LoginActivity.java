@@ -124,8 +124,6 @@ public class LoginActivity extends AppCompatActivity {
                         alert.dismiss();
                     }
                 });
-
-
             }
         });
 
