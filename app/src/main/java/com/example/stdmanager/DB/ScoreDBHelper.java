@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.stdmanager.models.ReportScore;
+import com.example.stdmanager.models.ReportTotal;
 import com.example.stdmanager.models.Score;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
     public static final String COLUMN_mahs = "MAHS";
     public static final String COLUMN_mamh = "MAMH";
     public static final String COLUMN_diem = "DIEM";
+    private SQLiteDatabase db;
 
     public ScoreDBHelper(Context context)
     {
@@ -72,36 +75,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
         db.update(TABLE_NAME, values, "MAHS=? and MAMH = ?", new String[]{String.valueOf(student), String.valueOf(subject)});
         db.close();
     }
-//    public void create()  {
-//        String countQuery = "SELECT  * FROM " + TABLE_NAME;
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(countQuery, null);
-//
-//        int count = cursor.getCount();
-//        db.close();
-//        if(count == 0 ) {
-//
-//        }
-////        Score s1 = new Score(1, 1, 5);
-////        Score s2 = new Score(2, 1, 4);
-////        Score s3 = new Score(3, 1, 8);
-////        Score s4 = new Score(4, 1, 9);
-////        Score s5 = new Score(1, 2, 10);
-////        Score s6 = new Score(1, 2, 5);
-////        Score s7 = new Score(2, 2, 4);
-////        Score s8 = new Score(3, 2, 8);
-////        Score s9 = new Score(4, 2, 9);
-////
-////        this.add(s1);
-////        this.add(s2);
-////        this.add(s3);
-////        this.add(s4);
-////        this.add(s5);
-////        this.add(s6);
-////        this.add(s7);
-////        this.add(s8);
-////        this.add(s9);
-//    }
+
     public ArrayList<Score> getByStudent(String student) {
         Log.i(TAG, "Score.getAll ... " );
 
@@ -159,7 +133,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
     } public ArrayList<Score> getStudentBySubject(String subject) {
     Log.i(TAG, "Score.getAll ... " );
 
-    ArrayList<com.example.stdmanager.models.Score> scores = new ArrayList<>();
+    ArrayList<Score> scores = new ArrayList<>();
     // Select All Query
     String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE MAMH = '" + subject + "'";
 
@@ -170,7 +144,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
     if (cursor.moveToFirst()) {
         do {
             try{
-                com.example.stdmanager.models.Score score = new com.example.stdmanager.models.Score();
+                Score score = new Score();
                 score.setMaHS(Integer.parseInt(cursor.getString(0)));
                 score.setMaMH(Integer.parseInt(cursor.getString(1)));
                 score.setDiem(Integer.parseInt(cursor.getString(2)));
@@ -188,7 +162,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
     public ArrayList<Score> getStudentAndSubject(String student, String subject) {
         Log.i(TAG, "Score.getAll ... " );
 
-        ArrayList<com.example.stdmanager.models.Score> scores = new ArrayList<>();
+        ArrayList<Score> scores = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE MAHS = '" + student + "' AND MAMH = '" + subject + "'";
 
@@ -213,38 +187,109 @@ public class ScoreDBHelper extends SQLiteOpenHelper
         }
         return scores;
     }
-    public ArrayList<Score> getStudentScore(String id) {
-    Log.i(TAG, "Score.getAll ... " );
 
-    ArrayList<com.example.stdmanager.models.Score> scores = new ArrayList<>();
-    // Select All Query
-    String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE MAHS = '" + id + "'";
+    public ArrayList<ReportScore> getReportScore() {
+        Log.i(TAG, "Score.getAll ... " );
 
-    SQLiteDatabase db = this.getReadableDatabase();
-    Cursor cursor = db.rawQuery(selectQuery, null);
+        ArrayList<ReportScore> scores = new ArrayList<>();
+        // Select All Query
+        String selectQuery = String.format("SELECT s.id, ROUND(CAST(SUM (sc.DIEM * sj.HESO) AS float)  /  CAST(SUM ( sj.HESO)  AS float ) , 2) AS DIEM " +
+                "FROM STUDENT s " +
+                "INNER JOIN SCORES sc " +
+                "ON sc.MAHS = s.id " +
+                "INNER JOIN SUBJECT sj " +
+                "ON sj.MAMH = sc.MAMH " +
+                "WHERE s.id > 0 " +
+                "GROUP BY s.id");
 
-    // looping through all rows and adding to list
-    if (cursor.moveToFirst()) {
-        do {
-            try{
-                com.example.stdmanager.models.Score score = new com.example.stdmanager.models.Score();
-                score.setMaHS(Integer.parseInt(cursor.getString(0)));
-                score.setMaMH(Integer.parseInt(cursor.getString(1)));
-                score.setDiem(Integer.parseInt(cursor.getString(2)));
-                scores.add(score);
-            }catch (Exception exception)
-            {
-                Log.i(TAG,  "ScoreDHelper.getAll error ");
-            }
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
-        } while (cursor.moveToNext());
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                try{
+                    ReportScore score = new ReportScore();
+                    score.setMaHS(Integer.parseInt(cursor.getString(0)));
+                    score.setDiem(Integer.parseInt(cursor.getString(1)));
+                    scores.add(score);
+                }catch (Exception exception)
+                {
+                    Log.i(TAG,  "ScoreDHelper.getAll error ");
+                }
+
+            } while (cursor.moveToNext());
+        }
+        return scores;
     }
-    return scores;
-}
+
+    public ArrayList<ReportTotal> getReportCountByScore(int MAMH) {
+        Log.i(TAG, "Score.getAll ... " );
+
+        ArrayList<ReportTotal> scores = new ArrayList<>();
+        // Select All Query
+        String selectQuery = String.format("SELECT sc.DIEM, COUNT(sc.MAHS) AS AMOUNT " +
+                "FROM SCORES sc " +
+                "WHERE sc.MAMH = %d " +
+                "GROUP BY sc.DIEM", MAMH);
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                try{
+                    ReportTotal score = new ReportTotal();
+                    score.setName(String.valueOf(cursor.getString(0)));
+                    score.setValue(Double.valueOf(cursor.getString(1)));
+                    scores.add(score);
+                }catch (Exception exception)
+                {
+                    Log.i(TAG,  "ScoreDHelper.getAll error ");
+                }
+
+            } while (cursor.moveToNext());
+        }
+        return scores;
+    }
+
+    public ArrayList<Score> getStudentScore(String id) {
+        Log.i(TAG, "Score.getAll ... " );
+
+        ArrayList<Score> scores = new ArrayList<>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_NAME + " WHERE MAHS = '" + id + "'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                try{
+                    Score score = new Score();
+                    score.setMaHS(Integer.parseInt(cursor.getString(0)));
+                    score.setMaMH(Integer.parseInt(cursor.getString(1)));
+                    score.setDiem(Integer.parseInt(cursor.getString(2)));
+                    scores.add(score);
+                }catch (Exception exception)
+                {
+                    Log.i(TAG,  "ScoreDHelper.getAll error ");
+                }
+
+            } while (cursor.moveToNext());
+        }
+        return scores;
+    }
+
+
     public SQLiteDatabase open()
     {
         return this.getWritableDatabase();
     }
+
+
     public void deleteAndCreateTable()
     {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -252,6 +297,11 @@ public class ScoreDBHelper extends SQLiteOpenHelper
         onCreate(db);
 //        create();
     }
+
+
+
+
+
 
 
 

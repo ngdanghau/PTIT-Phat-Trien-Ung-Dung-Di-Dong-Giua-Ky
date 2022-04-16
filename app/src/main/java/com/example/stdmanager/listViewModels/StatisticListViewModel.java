@@ -18,6 +18,7 @@ import com.example.stdmanager.Statistic.GenderStatsActivity;
 import com.example.stdmanager.Statistic.MarkStatsActivity;
 import com.example.stdmanager.Statistic.RankedStatsActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
+import com.example.stdmanager.Statistic.SubjectListActivity;
 import com.example.stdmanager.models.Statistic;
 import com.example.stdmanager.models.Student;
 
@@ -66,7 +67,7 @@ public class StatisticListViewModel extends ArrayAdapter<Statistic> {
                         ((StatisticActivity)context).startActivity(intent1);
                         break;
                     case 2:
-                        Intent intent2 = new Intent(context, MarkStatsActivity.class);
+                        Intent intent2 = new Intent(context, SubjectListActivity.class);
                         intent2.putExtra("detail", entry);
                         ((StatisticActivity)context).startActivity(intent2);
                         break;

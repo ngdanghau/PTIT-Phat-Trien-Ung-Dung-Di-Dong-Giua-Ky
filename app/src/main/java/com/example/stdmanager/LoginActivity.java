@@ -147,10 +147,6 @@ public class LoginActivity extends AppCompatActivity {
                 ScoreDBHelper scoreDBHelper = new ScoreDBHelper(LoginActivity.this);
                 scoreDBHelper.deleteAndCreateTable();
 
-                SubjectDBHelper subjectDB = new SubjectDBHelper(LoginActivity.this);
-                subjectDB.deleteAndCreateTable();
-                StudentOpenHelper studentDB = new StudentOpenHelper(LoginActivity.this);
-                studentDB.deleteAndCreateTable();
 
                 Toast.makeText(LoginActivity.this, "Tạo dữ liệu mẫu thành công !", Toast.LENGTH_SHORT).show();
             }

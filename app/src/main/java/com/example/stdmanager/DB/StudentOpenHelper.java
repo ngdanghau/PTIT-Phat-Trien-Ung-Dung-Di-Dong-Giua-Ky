@@ -19,8 +19,7 @@ import java.util.List;
 
 public class StudentOpenHelper extends SQLiteOpenHelper {
 
-    private static final String TABLE_NAME = "student";
-    private static final  String REFERENCED_TABLE_NAME = "grade";
+    private static final String TABLE_NAME = "STUDENT";
 
     private static final String COLUMN_ID = "id";
     private static final String COLUMN_FAMILY_NAME = "familyName";
@@ -36,17 +35,17 @@ public class StudentOpenHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query = String.format("CREATE TABLE %s" +
-                "( %s INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "%s TEXT, " +
-                "%s TEXT," +
-                "%s INTEGER," +
-                "%s TEXT, " +
-                "%s INTEGER REFERENCES [%s](id) ON DELETE CASCADE NOT NULL )",
-                TABLE_NAME, COLUMN_ID, COLUMN_FAMILY_NAME, COLUMN_FIRST_NAME, COLUMN_GENDER, COLUMN_BIRTHDAY, COLUMN_GRADE_ID, REFERENCED_TABLE_NAME);
-
-        sqLiteDatabase.execSQL(query);
+    public void onCreate(SQLiteDatabase db) {
+        String CREATE_TABLE =
+                String.format("CREATE TABLE %s (" +
+                                "%s INTEGER PRIMARY KEY AUTOINCREMENT," +
+                                "%s TEXT, " +
+                                "%s TEXT, " +
+                                "%s INTEGER, " +
+                                "%s TEXT, " +
+                                "%s INTEGER)",
+                        TABLE_NAME, COLUMN_ID, COLUMN_FAMILY_NAME, COLUMN_FIRST_NAME, COLUMN_GENDER, COLUMN_BIRTHDAY, COLUMN_GRADE_ID);
+        db.execSQL(CREATE_TABLE);
     }
 
     @Override

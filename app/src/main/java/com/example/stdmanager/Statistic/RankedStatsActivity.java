@@ -4,9 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.anychart.AnyChart;
 import com.anychart.AnyChartView;
@@ -15,9 +20,11 @@ import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.anychart.charts.Pie;
 import com.anychart.enums.Align;
 import com.anychart.enums.LegendLayout;
-import com.example.stdmanager.DB.StudentOpenHelper;
+import com.example.stdmanager.Classroom.ClassroomExportActivity;
+import com.example.stdmanager.DB.ScoreDBHelper;
 import com.example.stdmanager.R;
 import com.example.stdmanager.helpers.Alert;
+import com.example.stdmanager.models.ReportScore;
 import com.example.stdmanager.models.ReportTotal;
 import com.example.stdmanager.models.Statistic;
 
@@ -41,8 +48,11 @@ public class RankedStatsActivity extends AppCompatActivity {
     AnyChartView anyChartView;
 
     Alert alert;
-    StudentOpenHelper studentOpenHelper = new StudentOpenHelper(this);
-    ArrayList<ReportTotal> listData;
+    ScoreDBHelper db = new ScoreDBHelper(this);
+    ArrayList<ReportTotal> listData = new ArrayList<>();
+    String ranked[] = new String[]{ "Giỏi", "Khá", "Trung bình", "Yếu"};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +79,6 @@ public class RankedStatsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 createExcel(view);
                 alert.showAlert("Xuất thành công!", R.drawable.check_icon);
-
             }
         });
 
@@ -95,16 +104,18 @@ public class RankedStatsActivity extends AppCompatActivity {
         Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
-//        ArrayList<ReportTotal> listData = studentOpenHelper.countByGender();
+        ArrayList<ReportScore> list = db.getReportScore();
 
-        ArrayList<ReportTotal> listData = new ArrayList<ReportTotal>();
-        listData.add(new ReportTotal("Giỏi", 20.0));
-        listData.add(new ReportTotal("Khá", 17.0));
-        listData.add(new ReportTotal("Trung Bình", 7.0));
-        listData.add(new ReportTotal("Yếu", 2.0));
-
-        for (int i = 0; i < listData.size(); i++){
-            data.add(new ValueDataEntry(listData.get(i).getName(), listData.get(i).getValue()));
+        for (int i = 0; i < ranked.length; i++){
+            int count = 0;
+            for (int j = 0; j < list.size(); j++){
+                String xeploai = getXepLoai(list.get(j).getDiem());
+                if(xeploai.equals(ranked[i])){
+                    count++;
+                }
+            }
+            listData.add(new ReportTotal(ranked[i], Double.valueOf(count)));
+            data.add(new ValueDataEntry(ranked[i], count));
         }
 
         pie.data(data);
@@ -120,10 +131,23 @@ public class RankedStatsActivity extends AppCompatActivity {
         anyChartView.setChart(pie);
     }
 
+    private String getXepLoai(Double diem){
+        if(diem >= 8) {
+            return "Giỏi";
+        }else if(diem >= 6.5 && diem < 8) {
+            return "Khá";
+        }else if(diem >= 5 && diem < 6.5) {
+            return "Trung bình";
+        }else{
+            return "Yếu";
+        }
+    }
+
     public void createExcel(View view)
     {
         HSSFWorkbook hssfWorkbook = new HSSFWorkbook();
         HSSFSheet hssfSheet = hssfWorkbook.createSheet();
+
 
         ArrayList<String> headers = new ArrayList<>();
         headers.add("Xếp loại");
@@ -146,7 +170,7 @@ public class RankedStatsActivity extends AppCompatActivity {
         }
 
         try {
-            @SuppressLint("SdCardPath") String path = "/sdcard/ThongKeXepLoai.xls";
+            @SuppressLint("SdCardPath") String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/ThongKeXepLoai.xls";
             File file = new File(path);
             if(!file.exists()){
                 file.createNewFile();
@@ -159,6 +183,9 @@ public class RankedStatsActivity extends AppCompatActivity {
                 output.flush();
                 output.close();
             }
+
+            hssfWorkbook.cloneSheet(0);
+            hssfWorkbook.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();

@@ -84,11 +84,15 @@
         <entry key="app/src/main/res/layout/activity_slider.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_statistic.xml" value="0.4615036231884058" />
         <entry key="app/src/main/res/layout/activity_statistic_row.xml" value="0.12685185185185185" />
+        <entry key="app/src/main/res/layout/activity_subject.xml" value="0.15830800405268491" />
+        <entry key="app/src/main/res/layout/activity_subject_element.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/activity_subject_export.xml" value="0.12685185185185185" />
+        <entry key="app/src/main/res/layout/activity_subject_list.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/confirm_alert.xml" value="0.2545289855072464" />
         <entry key="app/src/main/res/layout/fragment_top_bar_home_icon.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_top_bar_menu_icon.xml" value="0.12685185185185185" />
         <entry key="app/src/main/res/layout/normal_alert.xml" value="0.3663949275362319" />
+        <entry key="app/src/main/res/layout/statistic_subject_element.xml" value="0.2875905797101449" />
         <entry key="app/src/main/res/layout/success_alert.xml" value="0.2545289855072464" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2455" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2995" />

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeacherDBHelper extends  SQLiteOpenHelper {
-    private static final String TABLE_NAME = "teacher";
+    private static final String TABLE_NAME = "TEACHER";
     private static final String TAG = "SQLite";
 
     private static final String COLUMN_ID = "id";

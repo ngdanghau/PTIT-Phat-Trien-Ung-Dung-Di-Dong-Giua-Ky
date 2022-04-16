@@ -4,6 +4,10 @@ public class ReportTotal {
     private String name;
     private Double value;
 
+    public ReportTotal(){
+
+    }
+
     public ReportTotal(String name, Double value) {
         this.name = name;
         this.value = value;

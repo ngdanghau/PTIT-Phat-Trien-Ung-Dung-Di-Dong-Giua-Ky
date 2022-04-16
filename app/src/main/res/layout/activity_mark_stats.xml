@@ -49,11 +49,6 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"/>
 
-            <androidx.appcompat.widget.AppCompatButton
-                style="@style/button_blue_style"
-                android:text="@string/classroomExportButtonPDF"
-                android:layout_alignParentBottom="true"
-                android:id="@+id/btnExport"/>
 
         </RelativeLayout>
 

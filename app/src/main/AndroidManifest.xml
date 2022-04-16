@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.STDManager">
         <activity
+            android:name=".Statistic.SubjectListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Score.ScoreSubjectActivity"
             android:exported="false" />
         <activity

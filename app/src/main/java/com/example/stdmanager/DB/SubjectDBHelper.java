@@ -142,15 +142,7 @@ public class SubjectDBHelper extends SQLiteOpenHelper
     // default, Insert 3 records.
 
     public void createDefaultSubject()  {
-//        String countQuery = "SELECT  * FROM " + TABLE_NAME;
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor cursor = db.rawQuery(countQuery, null);
-//
-//        int count = cursor.getCount();
-//        db.close();
-//        if(count == 0 ) {
-//
-//        }
+
             Subject subject1 = new Subject(0,"Toan",1,2,"2021-2022");
             Subject subject2 = new Subject(0,"Van",1,2,"2021-2022");
             Subject subject3 = new Subject(0,"Anh",1,2,"2021-2022");
