@@ -113,7 +113,7 @@
     <string name="tv_full_name_lable">Họ và tên:</string>
     <string name="tv_score_lable">Điểm:</string>
     <string name="tv_subject_lable">Môn học</string>
-
+    <string name="button_score_student_save_file_pdf">Lưu file pdf</string>
 
 
     <!-- Chung -->
