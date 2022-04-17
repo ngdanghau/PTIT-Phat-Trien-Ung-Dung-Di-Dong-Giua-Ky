@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
 import com.example.stdmanager.DB.TeacherDBHelper;
+import com.example.stdmanager.Event.EventActivity;
 import com.example.stdmanager.Score.ScoreSubjectActivity;
 import com.example.stdmanager.Settings.SettingsActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
@@ -92,6 +93,8 @@ public class TopBarMenuIconFragment extends Fragment {
                                 startActivity(intent);
                                 return true;
                             case R.id.event:
+                                intent = new Intent(context, EventActivity.class);
+                                startActivity(intent);
                                 return true;
                             case R.id.mark:
                                 intent = new Intent(context, ScoreSubjectActivity.class);

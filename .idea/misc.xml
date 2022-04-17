@@ -71,6 +71,10 @@
         <entry key="app/src/main/res/layout-w1240dp/confirm_alert.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_classroom.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_classroom_update.xml" value="0.2740628166160081" />
+        <entry key="app/src/main/res/layout/activity_event.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_event_creation.xml" value="0.5494791666666666" />
+        <entry key="app/src/main/res/layout/activity_event_element.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/activity_event_update.xml" value="0.5494791666666666" />
         <entry key="app/src/main/res/layout/activity_gender_stats.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2545289855072464" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />
