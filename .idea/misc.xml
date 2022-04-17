@@ -41,8 +41,13 @@
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_export_preview.xml" value="0.29713552800342025" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_individual.xml" value="0.358695652173913" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_classroom_update.xml" value="0.36666666666666664" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_event.xml" value="0.25" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_home.xml" value="0.358695652173913" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_login.xml" value="0.24954710144927536" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_score_student.xml" value="0.33" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_score_student_edit.xml" value="0.29713552800342025" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_score_subject.xml" value="0.33" />
+        <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_score_subject_element.xml" value="0.1452152110321772" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_statistic.xml" value="0.22" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject.xml" value="0.22" />
         <entry key="..\:/LDK/HK2NAM4/DiDong/STDManager/app/src/main/res/layout/activity_subject_add.xml" value="0.14709569577935647" />
@@ -70,11 +75,6 @@
         <entry key="app/src/main/res/drawable/rectangle_6.xml" value="0.3075" />
         <entry key="app/src/main/res/layout-w1240dp/confirm_alert.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_classroom.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/activity_classroom_update.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/activity_event.xml" value="0.5635416666666667" />
-        <entry key="app/src/main/res/layout/activity_event_creation.xml" value="0.5494791666666666" />
-        <entry key="app/src/main/res/layout/activity_event_element.xml" value="0.5635416666666667" />
-        <entry key="app/src/main/res/layout/activity_event_update.xml" value="0.5494791666666666" />
         <entry key="app/src/main/res/layout/activity_gender_stats.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2545289855072464" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.25" />

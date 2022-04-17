@@ -7,6 +7,7 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,7 +40,7 @@ public class ScoreStudentActivity extends AppCompatActivity {
     ScoreDBHelper scoreDBHelper = new ScoreDBHelper(this);
     StudentOpenHelper studentDB = new StudentOpenHelper(this);
     TextView tvSubject;
-    EditText searchBar;
+    SearchView scoreSearch;
     private ImageView btnEdit;
     String teacher;
     String grade;
@@ -58,6 +59,8 @@ public class ScoreStudentActivity extends AppCompatActivity {
         objects = scoreDBHelper.getAll();
         setControl();
         setEvent();
+        inItSearchWidgets();
+
     }
 
     @Override
@@ -107,7 +110,7 @@ public class ScoreStudentActivity extends AppCompatActivity {
     private void setControl()
     {
         listView = findViewById(R.id.score_student_list_view);
-        searchBar = findViewById(R.id.score_student_search_bar);
+        scoreSearch = findViewById(R.id.scoreStudentSearch);
         tvSubject = findViewById(R.id.score_student_subject_name);
         tvSubject.setText("Môn học: " + subject.getTenMH());
     }
@@ -126,4 +129,38 @@ public class ScoreStudentActivity extends AppCompatActivity {
         }
 
     }
+
+    private void inItSearchWidgets(){
+        scoreSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<ScoreInfo> filteredScore = new ArrayList<ScoreInfo>();
+
+                for (ScoreInfo score: scores) {
+                    if(score.getStudentFullName().toLowerCase().trim().contains(s.toLowerCase().trim()))
+                    {
+                        filteredScore.add(score);
+                    }
+
+                }
+                setFilteredSubject(filteredScore);
+                return false;
+            }
+        });
+    }
+
+    private void setFilteredSubject(ArrayList<ScoreInfo> filtered)
+    {
+        ScoreStudentAdapter scoreAdapter = new ScoreStudentAdapter(this, R.layout.activity_score_student_element, filtered);
+        listView.setAdapter(scoreAdapter);
+    }
+
+
+
 }

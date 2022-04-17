@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.stdmanager.DB.EventDBHelper;
@@ -23,6 +24,7 @@ public class EventActivity extends AppCompatActivity implements OnEvent {
     ListView listViewEvent;
     ArrayList <Event> eventArrayList;
     EventListViewModel listViewModel;
+    SearchView EventSearch;
     Button btn_addEvent;
     Button btn_exportEvent;
     int PositionUpdate=-1;
@@ -35,6 +37,7 @@ public class EventActivity extends AppCompatActivity implements OnEvent {
 
         setContentView(R.layout.activity_event);
 
+
         weakReference = new WeakReference<>(EventActivity.this);
 
         btn_addEvent=(Button) findViewById(R.id.eventButtonCreation);
@@ -46,6 +49,7 @@ public class EventActivity extends AppCompatActivity implements OnEvent {
 
         setControl();
         setEvent();
+        inItSearchWidgets();
 
     }
 
@@ -72,6 +76,39 @@ public class EventActivity extends AppCompatActivity implements OnEvent {
 
     private void setControl() {
         listViewEvent = findViewById(R.id.eventListView);
+        EventSearch = findViewById(R.id.eventSearchView);
+    }
+
+    private void inItSearchWidgets(){
+
+        EventSearch.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Event> filteredEvent = new ArrayList<>();
+
+                for (Event evt: eventArrayList) {
+                    if(evt.getNameEvent().toLowerCase().trim().contains(s.toLowerCase().trim()))
+                    {
+                        filteredEvent.add(evt);
+                    }
+
+                }
+                setFilteredEvent(filteredEvent);
+                return false;
+            }
+        });
+    }
+
+    private void setFilteredEvent(ArrayList<Event> filtered)
+    {
+        EventListViewModel eventmodel = new EventListViewModel(this, R.layout.activity_event_element, filtered,this);
+        listViewEvent.setAdapter(eventmodel);
     }
 
 

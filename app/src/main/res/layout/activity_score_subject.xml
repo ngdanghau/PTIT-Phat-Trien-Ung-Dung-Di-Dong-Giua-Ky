@@ -42,19 +42,14 @@
                 android:text="@string/title_score_subject"
                 android:textSize="24sp"
                 android:textStyle="bold" />
-            <EditText
-                android:id="@+id/score_subject_search_bar"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+
+            <SearchView
+                android:id="@+id/ScoreSearch"
+                android:layout_width="299dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border"
-                android:hint="@string/search"
-                android:inputType="text"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                android:autofillHints="" />
+                android:iconifiedByDefault="false"
+                android:queryHint="Tìm kiếm"/>
         </LinearLayout>
         <!--  End Student Classroom title & search bar -->
 

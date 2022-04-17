@@ -48,13 +48,13 @@
 
                 <SearchView
                     android:id="@+id/searchSubject"
-                    android:layout_width="match_parent"
+                    android:layout_width="257dp"
                     android:layout_height="30dp"
+                    android:layout_gravity="center"
+
                     android:gravity="center"
-                    android:layout_marginLeft="40dp"
-                    android:layout_marginRight="40dp"
                     android:iconifiedByDefault="false"
-                    android:queryHint="Tìm môn học"/>
+                    android:queryHint="Tìm môn học" />
 
             </LinearLayout>
             <!--  End Subject Classroom title & search bar -->

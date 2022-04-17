@@ -36,28 +36,26 @@
                 android:text="@string/title_score_student"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/score_student_subject_name"
-                android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:paddingTop="10dp"
                 android:text="@string/title_score_student"
+                android:textAlignment="center"
                 android:textSize="15sp"
                 android:textStyle="bold" />
-            <EditText
-                android:id="@+id/score_student_search_bar"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+
+            <SearchView
+                android:id="@+id/scoreStudentSearch"
+                android:layout_width="220dp"
+                android:layout_height="27dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border"
-                android:hint="@string/search"
-                android:inputType="text"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                android:autofillHints="" />
+                android:iconifiedByDefault="false"
+                android:queryHint="Tìm kiếm" />
+
         </LinearLayout>
         <LinearLayout
             android:layout_weight="1"
