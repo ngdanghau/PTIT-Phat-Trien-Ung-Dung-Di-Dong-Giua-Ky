@@ -17,6 +17,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.STDManager">
         <activity
+            android:name=".Event.EventActivityCreation"
+            android:exported="false"
+            android:label="@string/title_activity_event_creation"
+            android:theme="@style/Theme.STDManager.NoActionBar" />
+        <activity
+            android:name=".Event.EventActivityUpdate"
+            android:exported="false"
+            android:label="@string/title_activity_event_update"
+            android:theme="@style/Theme.STDManager.NoActionBar" />
+        <activity
+            android:name=".Event.EventActivity"
+            android:exported="false" />
+        <activity
             android:name=".Subject.SubjectActivity"
             android:exported="false" />
         <activity

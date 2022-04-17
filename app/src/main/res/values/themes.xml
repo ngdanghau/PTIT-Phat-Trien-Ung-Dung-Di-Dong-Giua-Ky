@@ -15,4 +15,13 @@
 
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="Theme.STDManager.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.STDManager.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.STDManager.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

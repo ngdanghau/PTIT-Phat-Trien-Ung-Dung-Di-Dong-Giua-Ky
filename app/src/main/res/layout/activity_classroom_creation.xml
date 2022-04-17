@@ -86,7 +86,6 @@
                         android:layout_marginTop="10dp"
                         android:background="@drawable/border"
                         android:hint="@string/familyNameHint"
-
                         android:inputType="textPersonName"
                         android:textAlignment="center"
                         tools:ignore="Autofill" />

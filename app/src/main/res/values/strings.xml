@@ -50,6 +50,31 @@
     <string name="AddSubject">Thêm môn học</string>
     <string name="ExportSubject">Xuất danh sách môn học</string>
 
+    <!-- Chung -->
+    <string name="TitleEvent">Danh sách sự kiện</string>
+    <string name="nameEvent">Họp phụ huynh tổng kết học kỳ</string>
+    <string name="place">Địa điểm: Phòng học C2</string>
+    <string name="eventDateTime">07:00 a.m-11:00 a.m 22/03/2022</string>
+    <string name="EventTitleInformation">Thông tin sự kiện</string>
+    <string name="AddEvent">Thêm sự kiện</string>
+    <string name="ExportEvent">Xuất danh sách sự kiện</string>
+
+    <string name="PageAddEvent">Thêm sự kiện</string>
+    <string name="EventName">Tên sự kiện</string>
+    <string name="StartTime">Bắt đầu</string>
+    <string name="EndTime">Kết thúc</string>
+    <string name="Date">Ngày diễn ra</string>
+    <string name="Place">Địa điểm</string>
+    <string name="EVName">Event name</string>
+    <string name="EVstart">Start</string>
+    <string name="EVend">End</string>
+    <string name="EVdate">Date</string>
+    <string name="EVplace">Place</string>
+
+    <string name="PageUpdateEvent">Sửa thông tin sự kiện</string>
+
+    <!-- end Chung -->
+
     <string name="menuClassroom">Danh sách lớp</string>
     <string name="menuSubject">Môn học</string>
     <string name="menuEvent">Sự kiện</string>
@@ -60,5 +85,16 @@
     <string name="classroomExportTitle">Danh Sách Sinh Viên</string>
     <string name="classroomExportButtonPhoto">Xuất dạng hình ảnh</string>
     <string name="classroomExportButtonPDF">Xuất dạng PDF</string>
+    <string name="title_activity_event_update">EventActivityUpdate</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="title_activity_event_creation">EventActivityCreation</string>
+
 
 </resources>

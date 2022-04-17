@@ -3,6 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_classroom.xml" value="0.36666666666666664" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_classroom_creation.xml" value="0.36666666666666664" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_classroom_element.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_classroom_export.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_classroom_individual.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_classroom_update.xml" value="0.1" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_event.xml" value="0.264" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_event_creation.xml" value="0.2" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_event_element.xml" value="0.36666666666666664" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_event_update.xml" value="0.264" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_mark_stats.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_ranked_stats.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_statistic.xml" value="0.36666666666666664" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_statistic_row.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_subject.xml" value="0.264" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/activity_subject_element.xml" value="0.36666666666666664" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/content_event_activity_creation.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/content_event_activity_update.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/fragment_first.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/fragment_first2.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/fragment_second2.xml" value="0.25416666666666665" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/layout/fragment_top_bar_home_icon.xml" value="0.36666666666666664" />
+        <entry key="..\:/ALL_inPTITHCM/Nam4HK2/Androi/GiuaKy/giuakyPJ/STDManager/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.332" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom.xml" value="0.2436923148431724" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_element.xml" value="0.36923078006541266" />
         <entry key="..\:/GitHub/STDManager/app/src/main/res/layout/activity_classroom_export.xml" value="0.2436923148431724" />

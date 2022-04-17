@@ -139,8 +139,4 @@ public class SubjectDBHelper extends SQLiteOpenHelper
         onCreate(db);
         createDefaultSubject();
     }
-
-
-
-
 }

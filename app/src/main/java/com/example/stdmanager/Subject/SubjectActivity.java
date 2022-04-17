@@ -59,7 +59,7 @@ public class SubjectActivity extends AppCompatActivity {
 
     }
 
-    private void setControl()
+    private void setControl() // gán biến ở layout cho biến,
     {
         listView = findViewById(R.id.subjectListView);
         searchBar = findViewById(R.id.subjectSearchBar);

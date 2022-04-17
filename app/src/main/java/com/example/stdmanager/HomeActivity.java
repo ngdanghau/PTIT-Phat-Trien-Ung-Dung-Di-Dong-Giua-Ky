@@ -10,6 +10,7 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.stdmanager.Classroom.ClassroomActivity;
+import com.example.stdmanager.Event.EventActivity;
 import com.example.stdmanager.Statistic.StatisticActivity;
 import com.example.stdmanager.Subject.SubjectActivity;
 
@@ -69,6 +70,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(HomeActivity.this, SubjectActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonHomeEvent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(HomeActivity.this, EventActivity.class);
                 startActivity(intent);
             }
         });
