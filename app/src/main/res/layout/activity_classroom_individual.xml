@@ -133,16 +133,8 @@
             android:orientation="vertical">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/individualButtonScore"
-                style="@style/button_style"
-                android:background="@drawable/button_background_3"
-                android:gravity="center"
-                android:text="@string/student_table_button_score" />
-
-            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/individualButtonUpdate"
                 style="@style/button_style"
-                android:layout_marginTop="20dp"
                 android:background="@drawable/button_background_5"
                 android:gravity="center"
                 android:text="@string/student_table_button_edit" />
@@ -154,6 +146,14 @@
                 android:background="@drawable/button_background_4"
                 android:gravity="center"
                 android:text="@string/student_table_button_delete" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/individualButtonGoBack"
+                android:layout_marginTop="20dp"
+                style="@style/button_style"
+                android:background="@drawable/button_background_3"
+                android:gravity="center"
+                android:text="@string/goback" />
 
         </LinearLayout>
         <!-- end BUTTONS -->

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.stdmanager.App;
@@ -34,11 +36,11 @@ public class ClassroomCreationActivity extends AppCompatActivity {
 
     Session session;
 
-    EditText familyName, firstName;
+    EditText familyName, firstName, birthday;
     RadioButton male, female;
-    Button buttonBirthday;
     AppCompatButton buttonConfirm, buttonCancel;
 
+    ImageButton buttonBirthday;
 
     private final Calendar cal = Calendar.getInstance();
     private final int year = cal.get(Calendar.YEAR);
@@ -54,12 +56,11 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         setEvent();
 
         String today = day + "/" + month + "/" + year;
-        buttonBirthday.setText(today);
+        birthday.setText("01/05/2000");
     }
 
     private void setControl()
     {
-        buttonBirthday = findViewById(R.id.classroomCreationButtonBirthday);
         buttonConfirm = findViewById(R.id.classroomCreationButtonConfirm);
         buttonCancel = findViewById(R.id.classroomCreationButtonGoBack);
 
@@ -70,6 +71,8 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         male = findViewById(R.id.classroomCreationRadioButtonMale);
         female = findViewById(R.id.classroomCreationRadioButtonFemale);
 
+        buttonBirthday = findViewById(R.id.classroomCreationButtonBirthday2);
+        birthday = findViewById(R.id.classroomCreationBirthday);
     }
 
 
@@ -84,9 +87,9 @@ public class ClassroomCreationActivity extends AppCompatActivity {
             Date date = new Date(year-1900, month, day);
             SimpleDateFormat formatter =  new SimpleDateFormat("dd/MM/yyyy");
 
-            String birthday = formatter.format(date);
+            String birthdayValue = formatter.format(date);
 
-            buttonBirthday.setText(birthday);
+            birthday.setText(birthdayValue);
         };
 
         /*Step 2*/
@@ -94,16 +97,26 @@ public class ClassroomCreationActivity extends AppCompatActivity {
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        int style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+
+        int style;
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+        } else {
+            style = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
+        }
 
         /*Step 3*/
         DatePickerDialog datePicker = new DatePickerDialog(this, style, dateSetListener, year, month, day);
         datePicker.show();
     }
 
+
     private void setEvent()
     {
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            birthday.setOnClickListener(this::openDatePicker);
+        }
         buttonConfirm.setOnClickListener(view -> {
 
             int gender = male.isChecked() ? 0 : 1;
@@ -114,7 +127,7 @@ public class ClassroomCreationActivity extends AppCompatActivity {
             student.setFirstName( firstName.getText().toString() );
             student.setGender(gender);
             student.setGradeId(gradeId);
-            student.setBirthday((String) buttonBirthday.getText());
+            student.setBirthday( birthday.getText().toString());
 
             boolean flag = validateStudentInformation(student);
             if( !flag )

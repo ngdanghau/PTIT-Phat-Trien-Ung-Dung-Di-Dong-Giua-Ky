@@ -153,6 +153,7 @@
                         android:id="@+id/classroomCreationRadioButtonMale"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:checked="true"
                         android:textColor="@color/mainText"
                         android:text="@string/male"/>
 
@@ -173,27 +174,42 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/mainBackground"
                     android:text="@string/birthday"
-                    android:textSize="18sp"
                     android:textColor="@color/mainText"
-                    android:background="@color/mainBackground"
-                    android:textStyle="bold"/>
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
-                <Button
-                    android:id="@+id/classroomCreationButtonBirthday"
-                    style="?android:spinnerStyle"
+                <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@android:color/white"
-                    android:onClick="openDatePicker"
-                    android:text="01/05/2000"
-                    android:textColor="@color/mainText"
-                    android:background="@color/mainBackground"
-                    android:textSize="18sp"
-                    tools:ignore="OnClick" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:focusable="false"
+                        android:id="@+id/classroomCreationBirthday"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/border"
+                        android:hint="@string/ourBirthday"
+                        android:inputType="text"
+                        android:textAlignment="center" />
+
+                    <ImageButton
+                        android:id="@+id/classroomCreationButtonBirthday2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="openDatePicker"
+                        android:src="@drawable/calendar"
+                        tools:ignore="ContentDescription,OnClick" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 

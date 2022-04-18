@@ -1,6 +1,7 @@
 package com.example.stdmanager.Classroom;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.AppCompatButton;
 
 import android.app.AlertDialog;
@@ -105,7 +106,14 @@ public class ClassroomUpdateActivity extends AppCompatActivity {
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        int style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+        int style;
+        if (AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            style = AlertDialog.THEME_DEVICE_DEFAULT_DARK;
+        } else {
+            style = AlertDialog.THEME_DEVICE_DEFAULT_LIGHT;
+        }
+
+
 
         /*Step 3*/
         DatePickerDialog datePicker = new DatePickerDialog(this, style, dateSetListener, year, month, day);

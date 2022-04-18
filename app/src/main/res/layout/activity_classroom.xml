@@ -46,20 +46,16 @@
                 android:textStyle="bold" />
 
 
-            <EditText
-                android:id="@+id/classroomSearchBar"
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
+            <SearchView
+                android:id="@+id/classroomSearchView"
+                android:layout_width="257dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/border"
-                android:hint="@string/search"
-                android:inputType="text"
-                android:textAlignment="center"
-                android:textColor="@color/mainText"
-                android:textSize="16sp"
-                android:textStyle="italic"
-                android:autofillHints="" />
+
+                android:gravity="center"
+                android:iconifiedByDefault="false"
+                android:queryHint="Tìm sinh viên" />
+
         </LinearLayout>
         <!--  End Student Classroom title & search bar -->
 

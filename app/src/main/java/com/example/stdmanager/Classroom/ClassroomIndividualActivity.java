@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.stdmanager.R;
+import com.example.stdmanager.Score.ScoreStudentActivity;
 import com.example.stdmanager.helpers.Alert;
 import com.example.stdmanager.models.Student;
 
@@ -20,7 +21,7 @@ public class ClassroomIndividualActivity extends AppCompatActivity {
     public static WeakReference<ClassroomIndividualActivity> weakActivity;
 
     TextView studentFamilyName, studentFirstName, studentGradeName, studentBirthday, studentGender, contentAlert;
-    Button buttonScore, buttonUpdate, buttonDelete, buttonAlertConfirmation, buttonAlertCancel;
+    Button buttonGoBack, buttonUpdate, buttonDelete, buttonAlertConfirmation, buttonAlertCancel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +47,7 @@ public class ClassroomIndividualActivity extends AppCompatActivity {
         studentGradeName = findViewById(R.id.gradeName);
         studentBirthday = findViewById(R.id.birthday);
 
-        buttonScore = findViewById(R.id.individualButtonScore);
+        buttonGoBack = findViewById(R.id.individualButtonGoBack);
         buttonUpdate = findViewById(R.id.individualButtonUpdate);
         buttonDelete = findViewById(R.id.individualButtonDelete);
 
@@ -95,6 +96,9 @@ public class ClassroomIndividualActivity extends AppCompatActivity {
             Intent intent = new Intent(ClassroomIndividualActivity.this, ClassroomUpdateActivity.class);
             intent.putExtra("updatedStudent",student );
             startActivity((intent));
+        });
+        buttonGoBack.setOnClickListener( view ->{
+            finish();
         });
     }
 

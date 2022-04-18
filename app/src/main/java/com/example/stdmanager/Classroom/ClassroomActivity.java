@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ import com.example.stdmanager.models.Teacher;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class ClassroomActivity extends AppCompatActivity {
 
@@ -47,9 +49,9 @@ public class ClassroomActivity extends AppCompatActivity {
     GradeOpenHelper gradeOpenHelper = new GradeOpenHelper(this);
     StudentOpenHelper studentOpenHelper = new StudentOpenHelper(this);
 
-    EditText searchBar;
-    AppCompatButton buttonCreation, buttonExport;
 
+    AppCompatButton buttonCreation, buttonExport;
+    SearchView searchView;
 
 
     /**
@@ -71,10 +73,10 @@ public class ClassroomActivity extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
         /*Step 2*/
-        gradeOpenHelper.deleteAndCreatTable();
+        //gradeOpenHelper.deleteAndCreatTable();
         gradeObjects = gradeOpenHelper.retrieveAllGrades();
 
-        studentOpenHelper.deleteAndCreateTable();
+        //studentOpenHelper.deleteAndCreateTable();
         objects = studentOpenHelper.retrieveAllStudents();
 
 
@@ -84,7 +86,7 @@ public class ClassroomActivity extends AppCompatActivity {
 
         /*Step 4*/
         setEvent();
-
+        searchByKeyword();
 
         /*Step 5*/
         String teacherId = session.get("teacherId");
@@ -99,10 +101,9 @@ public class ClassroomActivity extends AppCompatActivity {
     private void setControl()
     {
         listView = findViewById(R.id.classroomListView);
-        searchBar = findViewById(R.id.classroomSearchBar);
         buttonCreation = findViewById(R.id.classroomButtonCreation);
         buttonExport = findViewById(R.id.classroomButtonExport);
-
+        searchView = findViewById(R.id.classroomSearchView);
     }
 
 
@@ -137,29 +138,6 @@ public class ClassroomActivity extends AppCompatActivity {
         });
 
         /*Step 2*/
-
-        searchBar.setOnKeyListener((view, keyCode, keyEvent) -> {
-
-            if ((keyEvent.getAction() == KeyEvent.ACTION_DOWN) && (keyCode == KeyEvent.KEYCODE_ENTER))
-            {
-                /* these 2 commands that belows, hides the keyboard after ENTER pressed ! */
-                InputMethodManager keyboard = (InputMethodManager) view.getContext()
-                                .getSystemService(Context.INPUT_METHOD_SERVICE);
-                keyboard.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
-
-                String keyword = String.valueOf( searchBar.getText() );
-                objects = studentOpenHelper.retrieveStudentWithKeyword(keyword);
-
-
-                listViewModel = new ClassroomListViewModel(ClassroomActivity.this, R.layout.activity_classroom_element, objects);
-                listView.setAdapter(listViewModel);
-
-                return true;
-            }
-            return false;
-        });
-
         buttonCreation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -252,5 +230,40 @@ public class ClassroomActivity extends AppCompatActivity {
         /*Step 3*/ studentOpenHelper.update(student);
 
         /*Step 4*/ Toast.makeText(this, "Cập nhật thành công", Toast.LENGTH_LONG).show();
+    }
+
+    private void searchByKeyword()
+    {
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<Student> array = new ArrayList<>();
+
+                for (Student student: objects) {
+                    String firstName = student.getFirstName().toLowerCase(Locale.ROOT);
+                    String keyword = s.toLowerCase(Locale.ROOT);
+
+                    if( firstName.contains(keyword) )
+                    {
+                        array.add(student);
+                    }
+                }
+                setListView(array);
+
+                return false;
+            }
+        });
+    }
+
+    private void setListView(ArrayList<Student> array)
+    {
+        listViewModel = new ClassroomListViewModel(this, R.layout.activity_classroom_element, array);
+        listView.setAdapter(listViewModel);
+        listViewModel.notifyDataSetChanged();
     }
 }
