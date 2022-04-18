@@ -39,8 +39,8 @@ public class ScoreDBHelper extends SQLiteOpenHelper
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE =
                 String.format(
-                        "CREATE TABLE %s ( %s INTEGER, %s INTEGER , %s INTEGER  )",
-                                TABLE_NAME, COLUMN_mahs, COLUMN_mamh,COLUMN_diem);
+                        "CREATE TABLE %s ( %s INTEGER, %s INTEGER , %s REAL  )",
+                        TABLE_NAME, COLUMN_mahs, COLUMN_mamh,COLUMN_diem);
         db.execSQL(CREATE_TABLE);
     }
 
@@ -81,7 +81,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
     public ArrayList<Score> getAll() {
         Log.i(TAG, "Score.getAll ... " );
 
-            ArrayList<Score> scores = new ArrayList<>();
+        ArrayList<Score> scores = new ArrayList<>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_NAME;
 
@@ -95,7 +95,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
                     Score score = new Score();
                     score.setMaHS(Integer.parseInt(cursor.getString(0)));
                     score.setMaMH(Integer.parseInt(cursor.getString(1)));
-                    score.setDiem(Integer.parseInt(cursor.getString(2)));
+                    score.setDiem(Double.parseDouble(cursor.getString(2)));
                     scores.add(score);
                 }catch (Exception exception)
                 {
@@ -124,7 +124,7 @@ public class ScoreDBHelper extends SQLiteOpenHelper
                     com.example.stdmanager.models.Score score = new com.example.stdmanager.models.Score();
                     score.setMaHS(Integer.parseInt(cursor.getString(0)));
                     score.setMaMH(Integer.parseInt(cursor.getString(1)));
-                    score.setDiem(Integer.parseInt(cursor.getString(2)));
+                    score.setDiem(Double.parseDouble(cursor.getString(2)));
                     scores.add(score);
                 }catch (Exception exception)
                 {
