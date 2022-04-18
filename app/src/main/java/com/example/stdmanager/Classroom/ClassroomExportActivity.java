@@ -194,7 +194,7 @@ public class ClassroomExportActivity extends AppCompatActivity {
                 .show();
 
 
-        openPDFfile("DanhSachSinhVien.pdf");
+//        openPDFfile("DanhSachSinhVien.pdf");
 
         });
 
